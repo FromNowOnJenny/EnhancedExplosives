@@ -34,7 +34,6 @@ public class strongerTNTBlock extends TntBlock {
         explode(p_57434_, p_57435_, (LivingEntity)null, pRadius, fuseTime);
     }
 
-    /** @deprecated */
     @Deprecated
     private static void explode(Level p_57437_, BlockPos p_57438_, @Nullable LivingEntity p_57439_, float pRadius, int fuseTime) {
         if (!p_57437_.isClientSide) {

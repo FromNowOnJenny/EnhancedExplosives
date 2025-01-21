@@ -25,6 +25,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
         sideTopBottom(Compressedtnt.TNT_32.get());
         sideTopBottom(Compressedtnt.TNT_64.get());
         sideTopBottom(Compressedtnt.TNT_128.get());
+        sideTopBottom(Compressedtnt.TNT_CLUSTER_2.get());
+        sideTopBottom(Compressedtnt.TNT_CLUSTER_4.get());
+        sideTopBottom(Compressedtnt.TNT_CLUSTER_8.get());
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
