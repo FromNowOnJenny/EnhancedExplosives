@@ -1,6 +1,7 @@
 package com.jenny.compressedtnt.datagen;
 
 import com.jenny.compressedtnt.Compressedtnt;
+import com.jenny.compressedtnt.blocks.blocks;
 
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -20,14 +21,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        sideTopBottom(Compressedtnt.TNT_8.get());
-        sideTopBottom(Compressedtnt.TNT_16.get());
-        sideTopBottom(Compressedtnt.TNT_32.get());
-        sideTopBottom(Compressedtnt.TNT_64.get());
-        sideTopBottom(Compressedtnt.TNT_128.get());
-        sideTopBottom(Compressedtnt.TNT_CLUSTER_2.get());
-        sideTopBottom(Compressedtnt.TNT_CLUSTER_4.get());
-        sideTopBottom(Compressedtnt.TNT_CLUSTER_8.get());
+        sideTopBottom(blocks.TNT_8.get());
+        sideTopBottom(blocks.TNT_16.get());
+        sideTopBottom(blocks.TNT_32.get());
+        sideTopBottom(blocks.TNT_64.get());
+        sideTopBottom(blocks.TNT_128.get());
+        sideTopBottom(blocks.TNT_CLUSTER_2.get());
+        sideTopBottom(blocks.TNT_CLUSTER_4.get());
+        sideTopBottom(blocks.TNT_CLUSTER_8.get());
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
