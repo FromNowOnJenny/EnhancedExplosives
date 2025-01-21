@@ -13,9 +13,12 @@ import javax.annotation.Nullable;
 public abstract class basePrimedTNT extends Entity implements TraceableEntity {
     private static final EntityDataAccessor<Integer> DATA_FUSE_ID = SynchedEntityData.defineId(basePrimedTNT.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Float> DATA_POWER_ID = SynchedEntityData.defineId(basePrimedTNT.class, EntityDataSerializers.FLOAT);
+    private static final EntityDataAccessor<String> DATA_RENDER_ID = SynchedEntityData.defineId(basePrimedTNT.class, EntityDataSerializers.STRING);
 
     @Nullable
     private LivingEntity owner;
+
+    private String renderID = "default";
 
     public basePrimedTNT(EntityType<? extends basePrimedTNT> pEntityType, Level pLevel, @Nullable LivingEntity owner) {
         super(pEntityType, pLevel);
@@ -29,7 +32,7 @@ public abstract class basePrimedTNT extends Entity implements TraceableEntity {
         this.level().explode(this, this.getX(), this.getY(0.0625D), this.getZ(), this.getPower(), Level.ExplosionInteraction.TNT);
     }
 
-        public int getFuse() {
+    public int getFuse() {
         return this.entityData.get(DATA_FUSE_ID);
     }
 
@@ -79,20 +82,22 @@ public abstract class basePrimedTNT extends Entity implements TraceableEntity {
         return Entity.MovementEmission.NONE;
     }
 
-
     protected void defineSynchedData() {
         this.entityData.define(DATA_FUSE_ID, 80);
         this.entityData.define(DATA_POWER_ID, 4.0f);
+        this.entityData.define(DATA_RENDER_ID, "default");
     }
 
     protected void addAdditionalSaveData(CompoundTag pCompound) {
         pCompound.putShort("Fuse", (short)this.getFuse());
         pCompound.putFloat("Power", (short)this.getPower());
+        pCompound.putString("RenderID", getRenderID());
     }
 
     protected void readAdditionalSaveData(CompoundTag pCompound) {
         this.setFuse(pCompound.getShort("Fuse"));
         this.setPower(pCompound.getFloat("Power"));
+        this.setRenderID(pCompound.getString("RenderID"));
     }
 
     @Nullable
@@ -102,5 +107,13 @@ public abstract class basePrimedTNT extends Entity implements TraceableEntity {
 
     public void setOwner(LivingEntity owner) {
         this.owner = owner;
+    }
+
+    public void setRenderID(String renderID) {
+        this.entityData.set(DATA_RENDER_ID, renderID);
+    }
+
+    public String getRenderID() {
+        return this.entityData.get(DATA_RENDER_ID);
     }
 }

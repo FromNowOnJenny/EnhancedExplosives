@@ -14,13 +14,14 @@ public class homingPrimedTNT extends basePrimedTNT {
     Entity target;
 
     public homingPrimedTNT (Level pLevel, double pX, double pY, double pZ, @Nullable LivingEntity pOwner, float power, int fuse, float speed) {
-        this(entities.TNT_HOMING.get(), pLevel);
+        super(entities.TNT_HOMING.get(), pLevel, pOwner);
         this.setPos(pX, pY, pZ);
         this.setOwner(pOwner);
         this.speed = speed;
         this.target = null;
         this.setPower(power);
         this.setFuse(fuse);
+        this.setRenderID("homing");
     }
 
     public homingPrimedTNT(EntityType<homingPrimedTNT> entityType, Level level) {

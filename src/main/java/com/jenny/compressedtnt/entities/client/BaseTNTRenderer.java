@@ -1,5 +1,6 @@
 package com.jenny.compressedtnt.entities.client;
 
+import com.jenny.compressedtnt.blocks.blocks;
 import com.jenny.compressedtnt.entities.basePrimedTNT;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
@@ -12,19 +13,19 @@ import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import org.jetbrains.annotations.NotNull;
 
 public class BaseTNTRenderer extends EntityRenderer<basePrimedTNT> {
-    private BlockRenderDispatcher blockRenderer;
-    private final Block block;
+    private final BlockRenderDispatcher blockRenderer;
 
-    public BaseTNTRenderer(EntityRendererProvider.Context pContext, Block block) {
+    public BaseTNTRenderer(EntityRendererProvider.Context pContext) {
         super(pContext);
         this.shadowRadius = 0.5F;
         this.blockRenderer = pContext.getBlockRenderDispatcher();
-        this.block = block;
     }
 
-    public void render(basePrimedTNT pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight) {
+    public void render(basePrimedTNT pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, @NotNull MultiBufferSource pBuffer, int pPackedLight) {
         pPoseStack.pushPose();
         pPoseStack.translate(0.0F, 0.5F, 0.0F);
         int i = pEntity.getFuse();
@@ -36,6 +37,19 @@ public class BaseTNTRenderer extends EntityRenderer<basePrimedTNT> {
             float f1 = 1.0F + f * 0.3F;
             pPoseStack.scale(f1, f1, f1);
         }
+        String renderID = pEntity.getRenderID();
+        if (renderID == null) {
+            renderID = "";
+        }
+        Block block = switch (renderID) {
+            case "stronger_8" -> blocks.TNT_8.get();
+            case "stronger_16" -> blocks.TNT_16.get();
+            case "stronger_32" -> blocks.TNT_32.get();
+            case "stronger_64" -> blocks.TNT_64.get();
+            case "stronger_128" -> blocks.TNT_128.get();
+            case "homing" -> blocks.TNT_HOMING.get();
+            default -> Blocks.NETHER_PORTAL; // placeholder for debugging
+        };
 
         pPoseStack.mulPose(Axis.YP.rotationDegrees(-90.0F));
         pPoseStack.translate(-0.5F, -0.5F, 0.5F);
@@ -45,7 +59,8 @@ public class BaseTNTRenderer extends EntityRenderer<basePrimedTNT> {
         super.render(pEntity, pEntityYaw, pPartialTicks, pPoseStack, pBuffer, pPackedLight);
     }
 
-    public ResourceLocation getTextureLocation(basePrimedTNT pEntity) {
+    @NotNull
+    public ResourceLocation getTextureLocation(@NotNull basePrimedTNT pEntity) {
         return TextureAtlas.LOCATION_BLOCKS;
     }
 }

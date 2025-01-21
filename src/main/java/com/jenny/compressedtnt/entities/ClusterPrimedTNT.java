@@ -15,9 +15,11 @@ public class ClusterPrimedTNT extends basePrimedTNT {
         this.setFuse(fuse);
         this.setPower(power);
         this.addDeltaMovement(move);
+        this.setRenderID("cluster");
     }
 
     public ClusterPrimedTNT(EntityType<ClusterPrimedTNT> entityType, Level level) {
         super(entityType, level, null);
+        this.setRenderID("cluster");
     }
 }

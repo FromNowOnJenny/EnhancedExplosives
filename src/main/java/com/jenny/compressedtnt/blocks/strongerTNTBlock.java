@@ -52,8 +52,6 @@ public class strongerTNTBlock extends TntBlock {
         if (!level.isClientSide) {
             int ft = (short) (level.random.nextInt(fuseTime / 4) + fuseTime / 8);
             StrongerPrimedTNT primedtnt = new StrongerPrimedTNT(level, (double) blockPos.getX() + (double) 0.5F, (double) blockPos.getY(), (double) blockPos.getZ() + (double) 0.5F, pExplosion.getIndirectSourceEntity(), pRadius, ft);
-            int i = primedtnt.getFuse();
-            primedtnt.setFuse((short) (level.random.nextInt(i / 4) + i / 8));
             level.addFreshEntity(primedtnt);
         }
     }

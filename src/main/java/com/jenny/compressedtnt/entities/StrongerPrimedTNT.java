@@ -12,9 +12,23 @@ public class StrongerPrimedTNT extends basePrimedTNT {
         this.setPos(pX, pY, pZ);
         this.setFuse(fuse);
         this.setPower(power);
+        this.setRenderID(evalRenderID());
     }
 
     public StrongerPrimedTNT(EntityType<StrongerPrimedTNT> entityType, Level level) {
         super(entityType, level, null);
+        this.setRenderID(evalRenderID());
     }
-}
+
+    public String evalRenderID() {
+        int a = (int) this.getPower();
+        return switch ((int) this.getPower()) {
+            case 8 -> "stronger_8";
+            case 16 -> "stronger_16";
+            case 32 -> "stronger_32";
+            case 64 -> "stronger_64";
+            case 128 -> "stronger_128";
+            default -> "default";
+        };
+    }
+ }

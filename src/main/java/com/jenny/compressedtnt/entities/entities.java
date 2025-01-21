@@ -1,7 +1,7 @@
 package com.jenny.compressedtnt.entities;
 
-import com.jenny.compressedtnt.blocks.blocks;
-import com.jenny.compressedtnt.entities.client.*;
+import com.jenny.compressedtnt.entities.client.BaseTNTRenderer;
+import com.jenny.compressedtnt.entities.client.clusterTNTRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -33,9 +33,9 @@ public class entities {
     }
 
     public static void registerRenderers () {
-        EntityRenderers.register(TNT_STRONGER.get(), strongerTNTRenderer::new);
+        EntityRenderers.register(TNT_STRONGER.get(), BaseTNTRenderer::new);
+        EntityRenderers.register(TNT_HOMING.get(), BaseTNTRenderer::new);
         EntityRenderers.register(TNT_CLUSTER.get(), clusterTNTRenderer::new);
-        EntityRenderers.register(TNT_HOMING.get(), pContext -> new BaseTNTRenderer(pContext, blocks.TNT_HOMING.get()));
 
 
     }
