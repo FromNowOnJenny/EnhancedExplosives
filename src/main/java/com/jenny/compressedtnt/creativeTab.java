@@ -23,9 +23,10 @@ public class creativeTab {
         output.accept(blocks.TNT_CLUSTER_2.get());
         output.accept(blocks.TNT_CLUSTER_4.get());
         output.accept(blocks.TNT_CLUSTER_8.get());
+        output.accept(blocks.TNT_HOMING.get());
     }).title(Component.literal("Compressed TNT")).build());
 
-    public void register(IEventBus bus) {
+    public static void register(IEventBus bus) {
         CREATIVE_MODE_TABS.register(bus);
     }
 }

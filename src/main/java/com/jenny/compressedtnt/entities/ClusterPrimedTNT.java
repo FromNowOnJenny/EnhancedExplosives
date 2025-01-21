@@ -1,18 +1,20 @@
-package com.jenny.compressedtnt.blocks;
+package com.jenny.compressedtnt.entities;
 
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
 
-public class StrongerPrimedTNT extends PrimedTnt {
+public class ClusterPrimedTNT extends PrimedTnt {
     final float pRadius;
 
-    public StrongerPrimedTNT (Level pLevel, double pX, double pY, double pZ, @Nullable LivingEntity pOwner, float pRadius, int fuseTime) {
+    public ClusterPrimedTNT (Level pLevel, double pX, double pY, double pZ, @Nullable LivingEntity pOwner, float pRadius, int fuseTime, Vec3 move) {
         super(pLevel, pX, pY, pZ, pOwner);
         this.pRadius = pRadius;
         this.setFuse(fuseTime);
+        this.addDeltaMovement(move);
     }
 
     @Override

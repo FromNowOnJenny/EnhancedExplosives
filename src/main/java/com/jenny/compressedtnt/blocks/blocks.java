@@ -40,7 +40,10 @@ public class blocks {
     public static final RegistryObject<Block> TNT_CLUSTER_8 = BLOCKS.register("tnt_cluster_8", () -> new ClusterTNTBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED), 4.0f, 80, 8, 10));
     public static final RegistryObject<Item> TNT_CLUSTER_8_ITEM = ITEMS.register("tnt_cluster_8", () -> new BlockItem(TNT_CLUSTER_8.get(), new Item.Properties()));
 
-    public void register(IEventBus bus) {
+    public static final RegistryObject<Block> TNT_HOMING= BLOCKS.register("tnt_homing", () -> new homingTNTBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED), 4.0f, 80, 1));
+    public static final RegistryObject<Item> TNT_HOMING_ITEM = ITEMS.register("tnt_homing", () -> new BlockItem(TNT_HOMING.get(), new Item.Properties()));
+
+    public static void register(IEventBus bus) {
         BLOCKS.register(bus);
         ITEMS.register(bus);
     }

@@ -1,12 +1,10 @@
 package com.jenny.compressedtnt;
 
-import com.jenny.compressedtnt.blocks.*;
-
+import com.jenny.compressedtnt.blocks.blocks;
+import com.jenny.compressedtnt.entities.client.BaseTNTRenderer;
+import com.jenny.compressedtnt.entities.entities;
 import com.mojang.logging.LogUtils;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -17,8 +15,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -35,8 +31,9 @@ public class Compressedtnt {
 
         modEventBus.addListener(this::commonSetup);
 
-        new blocks().register(modEventBus);
-        new creativeTab().register(modEventBus);
+        blocks.register(modEventBus);
+        creativeTab.register(modEventBus);
+        entities.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -66,7 +63,7 @@ public class Compressedtnt {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            EntityRenderers.register(entities.TNT_HOMING.get(), pContext -> new BaseTNTRenderer(pContext, blocks.TNT_HOMING.get()));
         }
     }
 }
