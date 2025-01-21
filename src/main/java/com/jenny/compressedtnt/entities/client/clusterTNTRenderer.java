@@ -1,6 +1,7 @@
 package com.jenny.compressedtnt.entities.client;
 
-import com.jenny.compressedtnt.entities.basePrimedTNT;
+import com.jenny.compressedtnt.blocks.blocks;
+import com.jenny.compressedtnt.entities.ClusterPrimedTNT;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -11,20 +12,18 @@ import net.minecraft.client.renderer.entity.TntMinecartRenderer;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
-import net.minecraft.world.level.block.Block;
+import org.jetbrains.annotations.NotNull;
 
-public class BaseTNTRenderer extends EntityRenderer<basePrimedTNT> {
-    private BlockRenderDispatcher blockRenderer;
-    private final Block block;
+public class clusterTNTRenderer extends EntityRenderer<ClusterPrimedTNT> {
+    private final BlockRenderDispatcher blockRenderer;
 
-    public BaseTNTRenderer(EntityRendererProvider.Context pContext, Block block) {
+    public clusterTNTRenderer(EntityRendererProvider.Context pContext) {
         super(pContext);
         this.shadowRadius = 0.5F;
         this.blockRenderer = pContext.getBlockRenderDispatcher();
-        this.block = block;
     }
 
-    public void render(basePrimedTNT pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, MultiBufferSource pBuffer, int pPackedLight) {
+    public void render(ClusterPrimedTNT pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, @NotNull MultiBufferSource pBuffer, int pPackedLight) {
         pPoseStack.pushPose();
         pPoseStack.translate(0.0F, 0.5F, 0.0F);
         int i = pEntity.getFuse();
@@ -33,19 +32,22 @@ public class BaseTNTRenderer extends EntityRenderer<basePrimedTNT> {
             f = Mth.clamp(f, 0.0F, 1.0F);
             f *= f;
             f *= f;
-            float f1 = 1.0F + f * 0.3F;
+            float f1 = 0.5f + f * 0.3F;
             pPoseStack.scale(f1, f1, f1);
+        }
+        else {
+            pPoseStack.scale(0.5f, 0.5f, 0.5f);
         }
 
         pPoseStack.mulPose(Axis.YP.rotationDegrees(-90.0F));
         pPoseStack.translate(-0.5F, -0.5F, 0.5F);
         pPoseStack.mulPose(Axis.YP.rotationDegrees(90.0F));
-        TntMinecartRenderer.renderWhiteSolidBlock(this.blockRenderer, block.defaultBlockState(), pPoseStack, pBuffer, pPackedLight, i / 5 % 2 == 0);
+        TntMinecartRenderer.renderWhiteSolidBlock(this.blockRenderer, blocks.TNT_CLUSTER_2.get().defaultBlockState(), pPoseStack, pBuffer, pPackedLight, i / 5 % 2 == 0);
         pPoseStack.popPose();
         super.render(pEntity, pEntityYaw, pPartialTicks, pPoseStack, pBuffer, pPackedLight);
     }
 
-    public ResourceLocation getTextureLocation(basePrimedTNT pEntity) {
+    public @NotNull ResourceLocation getTextureLocation(@NotNull ClusterPrimedTNT pEntity) {
         return TextureAtlas.LOCATION_BLOCKS;
     }
 }

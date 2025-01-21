@@ -9,19 +9,14 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
-public class homingPrimedTNT extends BasePrimedTNT {
-    float pRadius = 0;
+public class homingPrimedTNT extends basePrimedTNT {
     float speed = 0;
     Entity target;
-
-    @Nullable
-    private LivingEntity owner;
 
     public homingPrimedTNT (Level pLevel, double pX, double pY, double pZ, @Nullable LivingEntity pOwner, float power, int fuse, float speed) {
         this(entities.TNT_HOMING.get(), pLevel);
         this.setPos(pX, pY, pZ);
-        this.owner = pOwner;
-        this.pRadius = power;
+        this.setOwner(pOwner);
         this.speed = speed;
         this.target = null;
         this.setPower(power);
@@ -29,7 +24,7 @@ public class homingPrimedTNT extends BasePrimedTNT {
     }
 
     public homingPrimedTNT(EntityType<homingPrimedTNT> entityType, Level level) {
-        super(entityType, level);
+        super(entityType, level, null);
     }
 
     private Vec3 targetVector() {
@@ -66,12 +61,6 @@ public class homingPrimedTNT extends BasePrimedTNT {
         }
 
         super.tick();
-    }
-
-
-    @Nullable
-    public LivingEntity getOwner() {
-        return this.owner;
     }
 
     protected float getEyeHeight(@NotNull Pose pPose, @NotNull EntityDimensions pSize) {

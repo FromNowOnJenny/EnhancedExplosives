@@ -7,6 +7,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.TntBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -25,7 +26,7 @@ public class strongerTNTBlock extends TntBlock {
         this.fuseTime = fuseTime;
     }
 
-
+    @Override
     public void onCaughtFire(BlockState state, Level world, BlockPos pos, @Nullable Direction face, @Nullable LivingEntity igniter) {
         explode(world, pos, igniter, this.pRadius, this.fuseTime);
     }
@@ -44,5 +45,16 @@ public class strongerTNTBlock extends TntBlock {
             p_57437_.gameEvent(p_57439_, GameEvent.PRIME_FUSE, p_57438_);
         }
 
+    }
+
+    @Override
+    public void wasExploded(Level level, BlockPos blockPos, Explosion pExplosion) {
+        if (!level.isClientSide) {
+            int ft = (short) (level.random.nextInt(fuseTime / 4) + fuseTime / 8);
+            StrongerPrimedTNT primedtnt = new StrongerPrimedTNT(level, (double) blockPos.getX() + (double) 0.5F, (double) blockPos.getY(), (double) blockPos.getZ() + (double) 0.5F, pExplosion.getIndirectSourceEntity(), pRadius, ft);
+            int i = primedtnt.getFuse();
+            primedtnt.setFuse((short) (level.random.nextInt(i / 4) + i / 8));
+            level.addFreshEntity(primedtnt);
+        }
     }
 }

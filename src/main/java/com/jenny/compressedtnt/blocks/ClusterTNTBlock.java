@@ -8,6 +8,7 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.TntBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -32,7 +33,7 @@ public class ClusterTNTBlock extends TntBlock {
         this.childRange = childRange;
     }
 
-
+    @Override
     public void onCaughtFire(@NotNull BlockState state, @NotNull Level world, @NotNull BlockPos pos, @Nullable Direction face, @Nullable LivingEntity igniter) {
         explode(world, pos, igniter, this.pRadius, this.fuseTime, this.childCount, this.childRange);
     }
@@ -42,20 +43,33 @@ public class ClusterTNTBlock extends TntBlock {
         explode(p_57434_, p_57435_, (LivingEntity)null, pRadius, fuseTime, childCount, childRange);
     }
 
+    public static Vec3 getMove(Level level, int childRange) {
+        RandomSource rng = level.getRandom();
+        float offsetX = (float) rng.nextInt(- childRange, childRange + 1) / 15;
+        float offsetZ = (float) rng.nextInt(- childRange, childRange + 1) / 15;
+        return new Vec3(offsetX, 0,  offsetZ);
+    }
+
     @Deprecated
     private static void explode(Level level, BlockPos blockPos, @Nullable LivingEntity entity, float pRadius, int fuseTime, int childCount, int childRange) {
-        RandomSource rng = level.getRandom();
-        float offsetX, offsetZ;
         if (!level.isClientSide) {
             for (int i = 0; i < childCount; i++) {
-                offsetX = (float) rng.nextInt(- childRange, childRange + 1) / 15;
-                offsetZ = (float) rng.nextInt(- childRange, childRange + 1) / 15;
-                Vec3 move = new Vec3(offsetX, 0,  offsetZ);
-                ClusterPrimedTNT primedtnt = new ClusterPrimedTNT(level, (double) blockPos.getX() + (double) 0.5F, (double) blockPos.getY(), (double) blockPos.getZ() + (double) 0.5F, entity, pRadius, fuseTime, move);
+                ClusterPrimedTNT primedtnt = new ClusterPrimedTNT(level, (double) blockPos.getX() + (double) 0.5F, (double) blockPos.getY(), (double) blockPos.getZ() + (double) 0.5F, entity, pRadius, fuseTime, getMove(level, childRange));
                 level.addFreshEntity(primedtnt);
                 level.gameEvent(entity, GameEvent.PRIME_FUSE, blockPos);
             }
             level.playSound((Player) null, blockPos.getX(), blockPos.getY(), blockPos.getZ(), SoundEvents.TNT_PRIMED, SoundSource.BLOCKS, 1.0F, 1.0F);
+        }
+    }
+
+    @Override
+    public void wasExploded(Level level, BlockPos blockPos, Explosion pExplosion) {
+        if (!level.isClientSide) {
+            for (int i = 0; i < childCount; i++) {
+                int ft = (short) (level.random.nextInt(fuseTime / 4) + fuseTime / 8);
+                ClusterPrimedTNT primedtnt = new ClusterPrimedTNT(level, (double) blockPos.getX() + (double) 0.5F, (double) blockPos.getY(), (double) blockPos.getZ() + (double) 0.5F, pExplosion.getIndirectSourceEntity(), pRadius, ft, getMove(level, childRange));
+                level.addFreshEntity(primedtnt);
+            }
         }
     }
 }

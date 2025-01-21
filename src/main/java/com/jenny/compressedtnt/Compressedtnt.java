@@ -1,13 +1,10 @@
 package com.jenny.compressedtnt;
 
 import com.jenny.compressedtnt.blocks.blocks;
-import com.jenny.compressedtnt.entities.client.BaseTNTRenderer;
 import com.jenny.compressedtnt.entities.entities;
 import com.mojang.logging.LogUtils;
-import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -37,17 +34,9 @@ public class Compressedtnt {
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
-
-        // Register the item to a creative tab
-        modEventBus.addListener(this::addCreative);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-
-    }
-
-    // Add the example block item to the building blocks tab
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
 
     }
 
@@ -63,7 +52,7 @@ public class Compressedtnt {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            EntityRenderers.register(entities.TNT_HOMING.get(), pContext -> new BaseTNTRenderer(pContext, blocks.TNT_HOMING.get()));
+            entities.registerRenderers();
         }
     }
 }

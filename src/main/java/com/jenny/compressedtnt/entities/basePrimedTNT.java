@@ -5,21 +5,24 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MoverType;
-import net.minecraft.world.entity.TraceableEntity;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.level.Level;
 
-public abstract class BasePrimedTNT extends Entity implements TraceableEntity {
-    private static final EntityDataAccessor<Integer> DATA_FUSE_ID = SynchedEntityData.defineId(BasePrimedTNT.class, EntityDataSerializers.INT);
-    private static final EntityDataAccessor<Float> DATA_POWER_ID = SynchedEntityData.defineId(BasePrimedTNT.class, EntityDataSerializers.FLOAT);
+import javax.annotation.Nullable;
 
-    public BasePrimedTNT(EntityType<? extends BasePrimedTNT> pEntityType, Level pLevel) {
+public abstract class basePrimedTNT extends Entity implements TraceableEntity {
+    private static final EntityDataAccessor<Integer> DATA_FUSE_ID = SynchedEntityData.defineId(basePrimedTNT.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Float> DATA_POWER_ID = SynchedEntityData.defineId(basePrimedTNT.class, EntityDataSerializers.FLOAT);
+
+    @Nullable
+    private LivingEntity owner;
+
+    public basePrimedTNT(EntityType<? extends basePrimedTNT> pEntityType, Level pLevel, @Nullable LivingEntity owner) {
         super(pEntityType, pLevel);
         double d0 = pLevel.random.nextDouble() * (double)((float)Math.PI * 2F);
         this.setDeltaMovement(-Math.sin(d0) * 0.02D, (double)0.2F, -Math.cos(d0) * 0.02D);
         this.blocksBuilding = true;
+        this.owner = owner;
     }
 
     protected void explode() {
@@ -90,5 +93,14 @@ public abstract class BasePrimedTNT extends Entity implements TraceableEntity {
     protected void readAdditionalSaveData(CompoundTag pCompound) {
         this.setFuse(pCompound.getShort("Fuse"));
         this.setPower(pCompound.getFloat("Power"));
+    }
+
+    @Nullable
+    public LivingEntity getOwner() {
+        return this.owner;
+    }
+
+    public void setOwner(LivingEntity owner) {
+        this.owner = owner;
     }
 }

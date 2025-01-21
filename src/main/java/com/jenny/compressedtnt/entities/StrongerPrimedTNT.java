@@ -1,23 +1,20 @@
 package com.jenny.compressedtnt.entities;
 
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.item.PrimedTnt;
 import net.minecraft.world.level.Level;
 
 import javax.annotation.Nullable;
 
-public class StrongerPrimedTNT extends PrimedTnt {
-    final float pRadius;
-
-    public StrongerPrimedTNT (Level pLevel, double pX, double pY, double pZ, @Nullable LivingEntity pOwner, float pRadius, int fuseTime) {
-        super(pLevel, pX, pY, pZ, pOwner);
-        this.pRadius = pRadius;
-        this.setFuse(fuseTime);
+public class StrongerPrimedTNT extends basePrimedTNT {
+    public StrongerPrimedTNT (Level pLevel, double pX, double pY, double pZ, @Nullable LivingEntity pOwner, float power, int fuse) {
+        super(entities.TNT_STRONGER.get(), pLevel, pOwner);
+        this.setPos(pX, pY, pZ);
+        this.setFuse(fuse);
+        this.setPower(power);
     }
 
-    @Override
-    protected void explode() {
-        float $$0 = pRadius;
-        this.level().explode(this, this.getX(), this.getY((double)0.0625F), this.getZ(), pRadius, Level.ExplosionInteraction.TNT);
+    public StrongerPrimedTNT(EntityType<StrongerPrimedTNT> entityType, Level level) {
+        super(entityType, level, null);
     }
 }
