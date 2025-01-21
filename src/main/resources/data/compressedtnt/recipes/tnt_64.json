@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "AA ",
+    "AA ",
+    "   "
+  ],
+  "key": {
+    "A": {
+      "item": "compressedtnt:tnt_32"
+    }
+  },
+  "result": {
+    "item": "compressedtnt:tnt_64"
+  }
+}
