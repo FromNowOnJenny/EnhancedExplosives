@@ -3,8 +3,10 @@
   "category": "redstone",
   "ingredients":[
     {
-      "item": "compressedtnt:tnt_cluster_2",
-      "count": 2
+      "item": "compressedtnt:tnt_cluster_2"
+    },
+    {
+      "item": "compressedtnt:tnt_cluster_2"
     }
   ],
   "result": {
