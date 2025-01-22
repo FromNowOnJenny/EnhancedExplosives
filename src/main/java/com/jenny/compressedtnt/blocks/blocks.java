@@ -43,6 +43,10 @@ public class blocks {
     public static final RegistryObject<Block> TNT_HOMING= BLOCKS.register("tnt_homing", () -> new homingTNTBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED), 4.0f, 80, 1));
     public static final RegistryObject<Item> TNT_HOMING_ITEM = ITEMS.register("tnt_homing", () -> new BlockItem(TNT_HOMING.get(), new Item.Properties()));
 
+    public static final RegistryObject<Block> TNT_BLACK_HOLE= BLOCKS.register("tnt_black_hole", () -> new blackHoleTNTBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED), 4.0f, 80, 1));
+    public static final RegistryObject<Item> TNT_BLACK_HOLE_ITEM = ITEMS.register("tnt_black_hole", () -> new BlockItem(TNT_BLACK_HOLE.get(), new Item.Properties()));
+
+
     public static void register(IEventBus bus) {
         BLOCKS.register(bus);
         ITEMS.register(bus);

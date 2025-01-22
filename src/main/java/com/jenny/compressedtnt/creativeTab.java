@@ -24,6 +24,7 @@ public class creativeTab {
         output.accept(blocks.TNT_CLUSTER_4.get());
         output.accept(blocks.TNT_CLUSTER_8.get());
         output.accept(blocks.TNT_HOMING.get());
+        output.accept(blocks.TNT_BLACK_HOLE.get());
     }).title(Component.literal("Compressed TNT")).build());
 
     public static void register(IEventBus bus) {
