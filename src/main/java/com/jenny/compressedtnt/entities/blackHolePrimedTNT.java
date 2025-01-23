@@ -8,7 +8,6 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -17,18 +16,14 @@ public class blackHolePrimedTNT extends basePrimedTNT {
     private static final EntityDataAccessor<Float> DATA_SPEED_ID = SynchedEntityData.defineId(blackHolePrimedTNT.class, EntityDataSerializers.FLOAT);
 
     public blackHolePrimedTNT(Level pLevel, double pX, double pY, double pZ, @Nullable LivingEntity pOwner, float power, int fuse, float speed) {
-        super(entities.TNT_BLACK_HOLE.get(), pLevel, pOwner);
-        this.setRenderID("black_hole");
-        this.setPos(pX, pY, pZ);
-        this.setOwner(pOwner);
+        super(entities.TNT_BLACK_HOLE.get(), pLevel, pOwner, new Vec3(pX, pY, pZ), fuse, power, "black_hole");
         this.setSpeed(speed);
-        this.setPower(power);
-        this.setFuse(fuse);
     }
 
     public blackHolePrimedTNT(EntityType<blackHolePrimedTNT> entityType, Level level) {
         super(entityType, level, null);
         this.setRenderID("black_hole");
+        this.setSpeed(this.getSpeed());
     }
 
     private Vec3 targetVector(Entity target) {
@@ -89,9 +84,5 @@ public class blackHolePrimedTNT extends basePrimedTNT {
     protected void defineSynchedData() {
         this.entityData.define(DATA_SPEED_ID, 4.0f);
         super.defineSynchedData();
-    }
-
-    protected float getEyeHeight(@NotNull Pose pPose, @NotNull EntityDimensions pSize) {
-        return 0.15F;
     }
 }

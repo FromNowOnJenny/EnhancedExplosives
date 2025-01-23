@@ -1,27 +1,25 @@
 package com.jenny.compressedtnt.entities;
 
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
 public class homingPrimedTNT extends basePrimedTNT {
-    float speed = 0;
+    private static final EntityDataAccessor<Float> DATA_SPEED_ID = SynchedEntityData.defineId(homingPrimedTNT.class, EntityDataSerializers.FLOAT);
     Entity target;
 
     public homingPrimedTNT (Level pLevel, double pX, double pY, double pZ, @Nullable LivingEntity pOwner, float power, int fuse, float speed) {
-        super(entities.TNT_HOMING.get(), pLevel, pOwner);
-        this.setPos(pX, pY, pZ);
-        this.setOwner(pOwner);
-        this.speed = speed;
+        super(entities.TNT_HOMING.get(), pLevel, pOwner, new Vec3(pX, pY, pZ), fuse, power, "homing");
         this.target = null;
-        this.setPower(power);
-        this.setFuse(fuse);
-        this.setRenderID("homing");
+        this.setSpeed(speed);
     }
 
     public homingPrimedTNT(EntityType<homingPrimedTNT> entityType, Level level) {
@@ -32,6 +30,7 @@ public class homingPrimedTNT extends basePrimedTNT {
         double targetDist = getTargetDist();
         Vec3 targetVec = new Vec3(0, 0, 0);
         if (targetDist > 3) {
+            float speed = getSpeed();
             targetVec = new Vec3(target.getX() - this.getX(), target.getY() - this.getY(), target.getZ() - this.getZ()).normalize().multiply(speed, speed, speed);
             if (targetDist < 10) {
                 targetVec.multiply(targetDist / 10, targetDist / 10, targetDist / 10);
@@ -49,7 +48,6 @@ public class homingPrimedTNT extends basePrimedTNT {
         Vec3 corner2 = this.position().add(15, 15, 15);
         AABB boundingBox = new AABB(corner1, corner2);
         target = this.level().getNearestEntity(LivingEntity.class, TargetingConditions.forNonCombat(), null, this.getX(), this.getY(), this.getZ(), boundingBox);
-
     }
 
     @Override
@@ -64,7 +62,29 @@ public class homingPrimedTNT extends basePrimedTNT {
         super.tick();
     }
 
-    protected float getEyeHeight(@NotNull Pose pPose, @NotNull EntityDimensions pSize) {
-        return 0.15F;
+    @Override
+    protected void addAdditionalSaveData(CompoundTag pCompound) {
+        pCompound.putFloat("Speed", this.getSpeed());
+        super.addAdditionalSaveData(pCompound);
+    }
+
+    @Override
+    protected void readAdditionalSaveData(CompoundTag pCompound) {
+        this.setSpeed(pCompound.getFloat("Speed"));
+        super.readAdditionalSaveData(pCompound);
+    }
+
+    public void setSpeed(float speed) {
+        this.entityData.set(DATA_SPEED_ID, speed);
+    }
+
+    public float getSpeed() {
+        return this.entityData.get(DATA_SPEED_ID);
+    }
+
+    @Override
+    protected void defineSynchedData() {
+        this.entityData.define(DATA_SPEED_ID, 4.0f);
+        super.defineSynchedData();
     }
 }

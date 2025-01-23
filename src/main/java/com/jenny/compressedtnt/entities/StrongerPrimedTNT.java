@@ -3,15 +3,13 @@ package com.jenny.compressedtnt.entities;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
 
 public class StrongerPrimedTNT extends basePrimedTNT {
     public StrongerPrimedTNT (Level pLevel, double pX, double pY, double pZ, @Nullable LivingEntity pOwner, float power, int fuse) {
-        super(entities.TNT_STRONGER.get(), pLevel, pOwner);
-        this.setPos(pX, pY, pZ);
-        this.setFuse(fuse);
-        this.setPower(power);
+        super(entities.TNT_STRONGER.get(), pLevel, pOwner, new Vec3(pX, pY, pZ), fuse, power, "default");
         this.setRenderID(evalRenderID());
     }
 

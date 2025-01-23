@@ -1,5 +1,6 @@
 package com.jenny.compressedtnt.entities;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -7,6 +8,8 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
@@ -22,10 +25,23 @@ public abstract class basePrimedTNT extends Entity implements TraceableEntity {
 
     public basePrimedTNT(EntityType<? extends basePrimedTNT> pEntityType, Level pLevel, @Nullable LivingEntity owner) {
         super(pEntityType, pLevel);
+        commonInit(pLevel, owner);
+    }
+
+    private void commonInit(Level pLevel, @Nullable LivingEntity owner) {
         double d0 = pLevel.random.nextDouble() * (double)((float)Math.PI * 2F);
         this.setDeltaMovement(-Math.sin(d0) * 0.02D, (double)0.2F, -Math.cos(d0) * 0.02D);
         this.blocksBuilding = true;
         this.owner = owner;
+    }
+
+    public basePrimedTNT(EntityType<? extends basePrimedTNT> pEntityType, Level pLevel, @Nullable LivingEntity owner, Vec3 pos, int fuse, float power, String renderID) {
+        super(pEntityType, pLevel);
+        commonInit(pLevel, owner);
+        setPos(pos);
+        setFuse(fuse);
+        setPower(power);
+        setRenderID(renderID);
     }
 
     protected void explode() {
@@ -115,5 +131,9 @@ public abstract class basePrimedTNT extends Entity implements TraceableEntity {
 
     public String getRenderID() {
         return this.entityData.get(DATA_RENDER_ID);
+    }
+
+    protected float getEyeHeight(@NotNull Pose pPose, @NotNull EntityDimensions pSize) {
+        return 0.15F;
     }
 }
