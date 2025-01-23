@@ -7,6 +7,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -26,9 +27,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         sideTopBottom(blocks.TNT_32.get());
         sideTopBottom(blocks.TNT_64.get());
         sideTopBottom(blocks.TNT_128.get());
-        sideTopBottom(blocks.TNT_CLUSTER_2.get());
-        sideTopBottom(blocks.TNT_CLUSTER_4.get());
-        sideTopBottom(blocks.TNT_CLUSTER_8.get());
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
@@ -62,6 +60,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     public void sideTopBottom(Block block) {
         ModelFile model = models().cubeBottomTop(name(block), extend(blockTexture(block), "_side"), extend(blockTexture(block), "_bottom"), extend(blockTexture(block), "_top"));
+        this.getVariantBuilder(block).forAllStates(blockState -> ConfiguredModel.builder().modelFile(model).build());
         simpleBlockItem(block, model);
     }
 
