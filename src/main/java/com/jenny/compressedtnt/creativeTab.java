@@ -1,6 +1,7 @@
 package com.jenny.compressedtnt;
 
 import com.jenny.compressedtnt.blocks.blocks;
+import com.jenny.compressedtnt.items.items;
 
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
@@ -26,6 +27,7 @@ public class creativeTab {
         output.accept(blocks.TNT_HOMING.get());
         output.accept(blocks.TNT_BLACK_HOLE.get());
         output.accept(blocks.TNT_CLAYMORE.get());
+        output.accept(items.TNT_ARROW.get());
     }).title(Component.literal("Compressed TNT")).build());
 
     public static void register(IEventBus bus) {

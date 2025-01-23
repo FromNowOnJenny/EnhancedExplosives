@@ -1,8 +1,13 @@
 package com.jenny.compressedtnt.entities;
 
 import com.jenny.compressedtnt.entities.client.BaseTNTRenderer;
+import com.jenny.compressedtnt.entities.client.TNTArrowRenderer;
 import com.jenny.compressedtnt.entities.client.clusterTNTRenderer;
+import com.jenny.compressedtnt.items.arrows.entity.*;
+
+import net.minecraft.client.renderer.entity.ArrowRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.TippableArrowRenderer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -36,6 +41,10 @@ public class entities {
             ENTITY_TYPES.register("tnt_claymore", () -> EntityType.Builder.<claymorePrimedTNT>of(claymorePrimedTNT::new, MobCategory.MISC)
                     .sized(0.98F, 0.7F).fireImmune().clientTrackingRange(8).build("tnt_claymore"));
 
+    public static final RegistryObject<EntityType<EntityArrowTNT>> ARROW_TNT =
+            ENTITY_TYPES.register("arrow_tnt", () -> EntityType.Builder.<EntityArrowTNT>of(EntityArrowTNT::new, MobCategory.MISC)
+                    .sized(0.48F, 0.48F).clientTrackingRange(64).build("arrow_tnt"));
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }
@@ -46,6 +55,6 @@ public class entities {
         EntityRenderers.register(TNT_BLACK_HOLE.get(), BaseTNTRenderer::new);
         EntityRenderers.register(TNT_CLUSTER.get(), clusterTNTRenderer::new);
 
-
+        EntityRenderers.register(ARROW_TNT.get(), TNTArrowRenderer::new);
     }
 }

@@ -2,6 +2,7 @@ package com.jenny.compressedtnt;
 
 import com.jenny.compressedtnt.blocks.blocks;
 import com.jenny.compressedtnt.entities.entities;
+import com.jenny.compressedtnt.items.items;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -29,6 +30,7 @@ public class Compressedtnt {
         modEventBus.addListener(this::commonSetup);
 
         blocks.register(modEventBus);
+        items.register(modEventBus);
         creativeTab.register(modEventBus);
         entities.register(modEventBus);
 
