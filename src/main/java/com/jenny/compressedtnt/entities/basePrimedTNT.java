@@ -1,6 +1,5 @@
 package com.jenny.compressedtnt.entities;
 
-import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -94,7 +93,7 @@ public abstract class basePrimedTNT extends Entity implements TraceableEntity {
         return !this.isRemoved();
     }
 
-    protected Entity.MovementEmission getMovementEmission() {
+    protected Entity.@NotNull MovementEmission getMovementEmission() {
         return Entity.MovementEmission.NONE;
     }
 
@@ -121,7 +120,7 @@ public abstract class basePrimedTNT extends Entity implements TraceableEntity {
         return this.owner;
     }
 
-    public void setOwner(LivingEntity owner) {
+    public void setOwner(@Nullable LivingEntity owner) {
         this.owner = owner;
     }
 

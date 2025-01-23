@@ -1,6 +1,5 @@
 package com.jenny.compressedtnt.datagen;
 
-import com.jenny.compressedtnt.Compressedtnt;
 import com.jenny.compressedtnt.blocks.blocks;
 
 import net.minecraft.data.PackOutput;
@@ -12,6 +11,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.client.model.generators.ModelFile;
+import org.jetbrains.annotations.NotNull;
 
 import static com.jenny.compressedtnt.Compressedtnt.MODID;
 

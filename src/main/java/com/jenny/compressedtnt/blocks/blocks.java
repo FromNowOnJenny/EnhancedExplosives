@@ -32,7 +32,7 @@ public class blocks {
     public static final RegistryObject<Item> TNT_128_ITEM = ITEMS.register("tnt_128", () -> new BlockItem(TNT_128.get(), new Item.Properties()));
 
     public static final RegistryObject<Block> TNT_CLUSTER_2 = BLOCKS.register("tnt_cluster_2", () -> new ClusterTNTBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED), 4.0f, 80, 2, 10));
-    public static final RegistryObject<Item> TNT_CLUSTER__2ITEM = ITEMS.register("tnt_cluster_2", () -> new BlockItem(TNT_CLUSTER_2.get(), new Item.Properties()));
+    public static final RegistryObject<Item> TNT_CLUSTER_2_ITEM = ITEMS.register("tnt_cluster_2", () -> new BlockItem(TNT_CLUSTER_2.get(), new Item.Properties()));
 
     public static final RegistryObject<Block> TNT_CLUSTER_4 = BLOCKS.register("tnt_cluster_4", () -> new ClusterTNTBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED), 4.0f, 80, 4, 10));
     public static final RegistryObject<Item> TNT_CLUSTER_4_ITEM = ITEMS.register("tnt_cluster_4", () -> new BlockItem(TNT_CLUSTER_4.get(), new Item.Properties()));

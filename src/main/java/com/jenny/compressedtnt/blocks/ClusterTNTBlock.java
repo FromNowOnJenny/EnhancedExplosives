@@ -63,7 +63,7 @@ public class ClusterTNTBlock extends TntBlock {
     }
 
     @Override
-    public void wasExploded(Level level, BlockPos blockPos, Explosion pExplosion) {
+    public void wasExploded(Level level, @NotNull BlockPos blockPos, @NotNull Explosion pExplosion) {
         if (!level.isClientSide) {
             for (int i = 0; i < childCount; i++) {
                 int ft = (short) (level.random.nextInt(fuseTime / 4) + fuseTime / 8);

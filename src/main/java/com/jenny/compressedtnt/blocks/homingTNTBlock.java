@@ -49,7 +49,7 @@ public class homingTNTBlock extends TntBlock {
     }
 
     @Override
-    public void wasExploded(Level level, BlockPos blockPos, Explosion pExplosion) {
+    public void wasExploded(Level level, @NotNull BlockPos blockPos, @NotNull Explosion pExplosion) {
         if (!level.isClientSide) {
             homingPrimedTNT primedtnt = new homingPrimedTNT(level, (double) blockPos.getX() + (double) 0.5F, (double) blockPos.getY(), (double) blockPos.getZ() + (double) 0.5F, pExplosion.getIndirectSourceEntity(), pRadius, fuseTime, speed);
             int i = primedtnt.getFuse();

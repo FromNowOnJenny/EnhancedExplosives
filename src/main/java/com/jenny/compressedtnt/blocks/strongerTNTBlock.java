@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.TntBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
@@ -27,7 +28,7 @@ public class strongerTNTBlock extends TntBlock {
     }
 
     @Override
-    public void onCaughtFire(BlockState state, Level world, BlockPos pos, @Nullable Direction face, @Nullable LivingEntity igniter) {
+    public void onCaughtFire(@NotNull BlockState state, @NotNull Level world, @NotNull BlockPos pos, @Nullable Direction face, @Nullable LivingEntity igniter) {
         explode(world, pos, igniter, this.pRadius, this.fuseTime);
     }
 
@@ -48,7 +49,7 @@ public class strongerTNTBlock extends TntBlock {
     }
 
     @Override
-    public void wasExploded(Level level, BlockPos blockPos, Explosion pExplosion) {
+    public void wasExploded(Level level, @NotNull BlockPos blockPos, @NotNull Explosion pExplosion) {
         if (!level.isClientSide) {
             int ft = (short) (level.random.nextInt(fuseTime / 4) + fuseTime / 8);
             StrongerPrimedTNT primedtnt = new StrongerPrimedTNT(level, (double) blockPos.getX() + (double) 0.5F, (double) blockPos.getY(), (double) blockPos.getZ() + (double) 0.5F, pExplosion.getIndirectSourceEntity(), pRadius, ft);

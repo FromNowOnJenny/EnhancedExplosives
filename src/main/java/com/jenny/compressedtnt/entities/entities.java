@@ -5,9 +5,7 @@ import com.jenny.compressedtnt.entities.client.TNTArrowRenderer;
 import com.jenny.compressedtnt.entities.client.clusterTNTRenderer;
 import com.jenny.compressedtnt.items.arrows.entity.*;
 
-import net.minecraft.client.renderer.entity.ArrowRenderer;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import net.minecraft.client.renderer.entity.TippableArrowRenderer;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.eventbus.api.IEventBus;

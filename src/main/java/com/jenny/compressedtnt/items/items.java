@@ -2,7 +2,6 @@ package com.jenny.compressedtnt.items;
 
 import com.jenny.compressedtnt.items.arrows.item.*;
 
-import net.minecraft.world.item.ArrowItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;

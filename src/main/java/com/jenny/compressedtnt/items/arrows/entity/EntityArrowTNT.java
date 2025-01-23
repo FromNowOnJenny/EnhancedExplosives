@@ -28,7 +28,7 @@ public class EntityArrowTNT extends EntityArrowBase {
     }
 
     @Override
-    protected void doPostHurtEffects(LivingEntity pTarget) {
+    protected void doPostHurtEffects(@NotNull LivingEntity pTarget) {
         this.level().explode(this, this.getX(), this.getY(), this.getZ(), 2, Level.ExplosionInteraction.TNT);
     }
 

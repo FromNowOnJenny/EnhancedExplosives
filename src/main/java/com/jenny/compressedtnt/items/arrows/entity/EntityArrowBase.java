@@ -13,12 +13,14 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
+import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potion;
 import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
 import java.util.Set;
@@ -26,7 +28,7 @@ import java.util.Set;
 public class EntityArrowBase extends AbstractArrow {
     private static final int EXPOSED_POTION_DECAY_TIME = 600;
     private static final int NO_EFFECT_COLOR = -1;
-    private static final EntityDataAccessor<Integer> ID_EFFECT_COLOR = SynchedEntityData.defineId(EntityArrowBase.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Integer> ID_EFFECT_COLOR = SynchedEntityData.defineId(Arrow.class, EntityDataSerializers.INT);
     private static final byte EVENT_POTION_PUFF = 0;
     private Potion potion = Potions.EMPTY;
     private final Set<MobEffectInstance> effects = Sets.newHashSet();
@@ -135,7 +137,7 @@ public class EntityArrowBase extends AbstractArrow {
         this.entityData.set(ID_EFFECT_COLOR, pFixedColor);
     }
 
-    public void addAdditionalSaveData(CompoundTag pCompound) {
+    public void addAdditionalSaveData(@NotNull CompoundTag pCompound) {
         super.addAdditionalSaveData(pCompound);
         if (this.potion != Potions.EMPTY) {
             pCompound.putString("Potion", BuiltInRegistries.POTION.getKey(this.potion).toString());
@@ -157,7 +159,7 @@ public class EntityArrowBase extends AbstractArrow {
 
     }
 
-    public void readAdditionalSaveData(CompoundTag pCompound) {
+    public void readAdditionalSaveData(@NotNull CompoundTag pCompound) {
         super.readAdditionalSaveData(pCompound);
         if (pCompound.contains("Potion", 8)) {
             this.potion = PotionUtils.getPotion(pCompound);
@@ -175,7 +177,7 @@ public class EntityArrowBase extends AbstractArrow {
 
     }
 
-    protected void doPostHurtEffects(LivingEntity pLiving) {
+    protected void doPostHurtEffects(@NotNull LivingEntity pLiving) {
         super.doPostHurtEffects(pLiving);
         Entity entity = this.getEffectSource();
 
@@ -193,6 +195,7 @@ public class EntityArrowBase extends AbstractArrow {
 
     }
 
+    @NotNull
     protected ItemStack getPickupItem() {
         if (this.effects.isEmpty() && this.potion == Potions.EMPTY) {
             return new ItemStack(Items.ARROW);
