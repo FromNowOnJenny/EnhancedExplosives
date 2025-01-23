@@ -29,8 +29,12 @@ public class entities {
                     .sized(0.48F, 0.48F).fireImmune().clientTrackingRange(8).build("tnt_cluster"));
 
     public static final RegistryObject<EntityType<blackHolePrimedTNT>> TNT_BLACK_HOLE =
-            ENTITY_TYPES.register("tnt_chunk", () -> EntityType.Builder.<blackHolePrimedTNT>of(blackHolePrimedTNT::new, MobCategory.MISC)
-                    .sized(0.98F, 0.7F).fireImmune().clientTrackingRange(8).build("tnt_chunk"));
+            ENTITY_TYPES.register("tnt_blackhole", () -> EntityType.Builder.<blackHolePrimedTNT>of(blackHolePrimedTNT::new, MobCategory.MISC)
+                    .sized(0.98F, 0.7F).fireImmune().clientTrackingRange(8).build("tnt_blackhole"));
+
+    public static final RegistryObject<EntityType<claymorePrimedTNT>> TNT_CLAYMORE =
+            ENTITY_TYPES.register("tnt_claymore", () -> EntityType.Builder.<claymorePrimedTNT>of(claymorePrimedTNT::new, MobCategory.MISC)
+                    .sized(0.98F, 0.7F).fireImmune().clientTrackingRange(8).build("tnt_claymore"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

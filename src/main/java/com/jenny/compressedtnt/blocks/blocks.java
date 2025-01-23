@@ -46,6 +46,9 @@ public class blocks {
     public static final RegistryObject<Block> TNT_BLACK_HOLE= BLOCKS.register("tnt_black_hole", () -> new blackHoleTNTBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED), 4.0f, 80, 1));
     public static final RegistryObject<Item> TNT_BLACK_HOLE_ITEM = ITEMS.register("tnt_black_hole", () -> new BlockItem(TNT_BLACK_HOLE.get(), new Item.Properties()));
 
+    public static final RegistryObject<Block> TNT_CLAYMORE= BLOCKS.register("tnt_claymore", () -> new claymoreTNTBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED), 2.0f, 20, 256));
+    public static final RegistryObject<Item> TNT_CLAYMORE_ITEM = ITEMS.register("tnt_claymore", () -> new BlockItem(TNT_CLAYMORE.get(), new Item.Properties()));
+
 
     public static void register(IEventBus bus) {
         BLOCKS.register(bus);
