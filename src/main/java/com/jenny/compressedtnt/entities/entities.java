@@ -48,6 +48,10 @@ public class entities {
             ENTITY_TYPES.register("arrow_concussive", () -> EntityType.Builder.<concussiveArrow>of(concussiveArrow::new, MobCategory.MISC)
                     .sized(0.48F, 0.48F).clientTrackingRange(64).build("arrow_concussive"));
 
+    public static final RegistryObject<EntityType<carpetArrow>> ARROW_CARPET =
+            ENTITY_TYPES.register("arrow_carpet", () -> EntityType.Builder.<carpetArrow>of(carpetArrow::new, MobCategory.MISC)
+                    .sized(0.48F, 0.48F).clientTrackingRange(64).build("arrow_carpet"));
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }
@@ -61,5 +65,6 @@ public class entities {
 
         EntityRenderers.register(ARROW_TNT.get(), TNTArrowRenderer::new);
         EntityRenderers.register(ARROW_CONCUSSIVE.get(), TNTArrowRenderer::new);
+        EntityRenderers.register(ARROW_CARPET.get(), TNTArrowRenderer::new);
     }
 }
