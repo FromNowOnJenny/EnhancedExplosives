@@ -1,6 +1,6 @@
-package com.jenny.compressedtnt.items.arrows.item;
+package com.jenny.compressedtnt.items;
 
-import com.jenny.compressedtnt.items.arrows.entity.EntityArrowTNT;
+import com.jenny.compressedtnt.entities.arrows.tntArrow;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ArrowItem;
@@ -17,6 +17,6 @@ public class ArrowTNT extends ArrowItem {
     @Override
     @NotNull
     public AbstractArrow createArrow(@NotNull Level pLevel, @NotNull ItemStack pStack, @NotNull LivingEntity pShooter) {
-        return new EntityArrowTNT(pLevel, pShooter);
+        return new tntArrow(pLevel, pShooter);
     }
 }

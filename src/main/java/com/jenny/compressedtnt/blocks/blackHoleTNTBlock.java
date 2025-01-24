@@ -1,6 +1,6 @@
 package com.jenny.compressedtnt.blocks;
 
-import com.jenny.compressedtnt.entities.blackHolePrimedTNT;
+import com.jenny.compressedtnt.entities.tnt.blackHolePrimedTNT;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;

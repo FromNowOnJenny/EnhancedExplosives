@@ -1,6 +1,6 @@
 package com.jenny.compressedtnt.blocks;
 
-import com.jenny.compressedtnt.entities.claymorePrimedTNT;
+import com.jenny.compressedtnt.entities.tnt.claymorePrimedTNT;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;

@@ -1,4 +1,4 @@
-package com.jenny.compressedtnt.entities;
+package com.jenny.compressedtnt.entities.tnt;
 
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;

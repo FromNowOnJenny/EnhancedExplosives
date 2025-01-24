@@ -1,5 +1,6 @@
-package com.jenny.compressedtnt.entities;
+package com.jenny.compressedtnt.entities.tnt;
 
+import com.jenny.compressedtnt.entities.entities;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;

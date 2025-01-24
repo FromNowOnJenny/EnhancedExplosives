@@ -1,6 +1,6 @@
 package com.jenny.compressedtnt.entities.client;
 
-import com.jenny.compressedtnt.entities.ClusterPrimedTNT;
+import com.jenny.compressedtnt.entities.tnt.ClusterPrimedTNT;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.renderer.MultiBufferSource;

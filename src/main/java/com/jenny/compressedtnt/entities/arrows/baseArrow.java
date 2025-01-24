@@ -1,4 +1,4 @@
-package com.jenny.compressedtnt.items.arrows.entity;
+package com.jenny.compressedtnt.entities.arrows;
 
 import com.google.common.collect.Sets;
 import net.minecraft.core.particles.ParticleTypes;
@@ -25,7 +25,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Collection;
 import java.util.Set;
 
-public class EntityArrowBase extends AbstractArrow {
+public class baseArrow extends AbstractArrow {
     private static final int EXPOSED_POTION_DECAY_TIME = 600;
     private static final int NO_EFFECT_COLOR = -1;
     private static final EntityDataAccessor<Integer> ID_EFFECT_COLOR = SynchedEntityData.defineId(Arrow.class, EntityDataSerializers.INT);
@@ -34,15 +34,15 @@ public class EntityArrowBase extends AbstractArrow {
     private final Set<MobEffectInstance> effects = Sets.newHashSet();
     private boolean fixedColor;
 
-    public EntityArrowBase(EntityType<? extends EntityArrowBase> pEntityType, Level pLevel) {
+    public baseArrow(EntityType<? extends baseArrow> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
 
-    public EntityArrowBase(Level pLevel, double pX, double pY, double pZ, EntityType<? extends EntityArrowBase> pEntityType) {
+    public baseArrow(Level pLevel, double pX, double pY, double pZ, EntityType<? extends baseArrow> pEntityType) {
         super(pEntityType, pX, pY, pZ, pLevel);
     }
 
-    public EntityArrowBase(Level pLevel, LivingEntity pShooter, EntityType<? extends EntityArrowBase> pEntityType) {
+    public baseArrow(Level pLevel, LivingEntity pShooter, EntityType<? extends baseArrow> pEntityType) {
         super(pEntityType, pShooter, pLevel);
     }
 

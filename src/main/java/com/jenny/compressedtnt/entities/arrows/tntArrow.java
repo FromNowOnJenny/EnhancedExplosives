@@ -1,4 +1,4 @@
-package com.jenny.compressedtnt.items.arrows.entity;
+package com.jenny.compressedtnt.entities.arrows;
 
 import com.jenny.compressedtnt.items.items;
 import com.jenny.compressedtnt.entities.entities;
@@ -9,12 +9,12 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-public class EntityArrowTNT extends EntityArrowBase {
-    public EntityArrowTNT(EntityType<EntityArrowTNT> pEntityType, Level pLevel) {
+public class tntArrow extends baseArrow {
+    public tntArrow(EntityType<tntArrow> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
 
-    public EntityArrowTNT(Level pLevel, LivingEntity pShooter) {
+    public tntArrow(Level pLevel, LivingEntity pShooter) {
         super(pLevel, pShooter, entities.ARROW_TNT.get());
     }
 

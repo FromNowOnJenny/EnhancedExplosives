@@ -1,5 +1,6 @@
-package com.jenny.compressedtnt.entities;
+package com.jenny.compressedtnt.entities.tnt;
 
+import com.jenny.compressedtnt.entities.entities;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
