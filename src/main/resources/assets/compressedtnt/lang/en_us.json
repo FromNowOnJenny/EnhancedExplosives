@@ -15,6 +15,13 @@
   "item.compressedtnt.arrow_concussive": "Concussive Arrow",
   "item.compressedtnt.arrow_carpet": "Carpet Bombing Arrow",
 
+  "tooltip.compressedtnt.tnt_cluster_2": "splits into 2 small TNTs",
+  "tooltip.compressedtnt.tnt_cluster_4": "splits into 4 small TNTs",
+  "tooltip.compressedtnt.tnt_cluster_8": "splits into 8 small TNTs",
+  "tooltip.compressedtnt.tnt_homing": "follows the closest entity",
+  "tooltip.compressedtnt.tnt_black_hole": "pulls all entities towards itself",
+  "tooltip.compressedtnt.tnt_claymore": "throws arrows into all direcctions upon explosion",
+
   "tooltip.compressedtnt.arrow_tnt": "explodes on impact",
   "tooltip.compressedtnt.arrow_concussive": "explodes on impact without block damage",
   "tooltip.compressedtnt.arrow_carpet": "splits into multiple TNT arrows when it starts falling"
