@@ -14,6 +14,7 @@
   "item.compressedtnt.arrow_tnt": "TNT Arrow",
   "item.compressedtnt.arrow_concussive": "Concussive Arrow",
   "item.compressedtnt.arrow_carpet": "Carpet Bombing Arrow",
+  "item.compressedtnt.dynamite": "Dynamite",
 
   "tooltip.compressedtnt.tnt_cluster_2": "splits into 2 small TNTs",
   "tooltip.compressedtnt.tnt_cluster_4": "splits into 4 small TNTs",
@@ -24,5 +25,6 @@
 
   "tooltip.compressedtnt.arrow_tnt": "explodes on impact",
   "tooltip.compressedtnt.arrow_concussive": "explodes on impact without block damage",
-  "tooltip.compressedtnt.arrow_carpet": "splits into multiple TNT arrows when it starts falling"
+  "tooltip.compressedtnt.arrow_carpet": "splits into multiple TNT arrows when it starts falling",
+  "tooltip.compressedtnt.dynamite": "TNT, but throwable"
 }

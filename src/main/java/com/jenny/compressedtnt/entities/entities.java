@@ -4,6 +4,7 @@ import com.jenny.compressedtnt.entities.arrows.*;
 import com.jenny.compressedtnt.entities.client.BaseTNTRenderer;
 import com.jenny.compressedtnt.entities.client.TNTArrowRenderer;
 import com.jenny.compressedtnt.entities.client.clusterTNTRenderer;
+import com.jenny.compressedtnt.entities.throwable.dynamite;
 import com.jenny.compressedtnt.entities.tnt.*;
 
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -52,6 +53,10 @@ public class entities {
             ENTITY_TYPES.register("arrow_carpet", () -> EntityType.Builder.<carpetArrow>of(carpetArrow::new, MobCategory.MISC)
                     .sized(0.48F, 0.48F).clientTrackingRange(64).build("arrow_carpet"));
 
+    public static final RegistryObject<EntityType<dynamite>> DYNAMITE =
+            ENTITY_TYPES.register("dynamite", () -> EntityType.Builder.<dynamite>of(dynamite::new, MobCategory.MISC)
+                    .sized(0.48F, 0.48F).clientTrackingRange(64).build("dynamite"));
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }
@@ -66,5 +71,7 @@ public class entities {
         EntityRenderers.register(ARROW_TNT.get(), TNTArrowRenderer::new);
         EntityRenderers.register(ARROW_CONCUSSIVE.get(), TNTArrowRenderer::new);
         EntityRenderers.register(ARROW_CARPET.get(), TNTArrowRenderer::new);
+
+        EntityRenderers.register(DYNAMITE.get(), clusterTNTRenderer::new);
     }
 }

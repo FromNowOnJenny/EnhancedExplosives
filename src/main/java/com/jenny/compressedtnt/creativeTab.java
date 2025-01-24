@@ -30,6 +30,7 @@ public class creativeTab {
         output.accept(items.TNT_ARROW.get());
         output.accept(items.CONCUSSIVE_ARROW.get());
         output.accept(items.CARPET_ARROW.get());
+        output.accept(items.DYNAMITE.get());
     }).title(Component.literal("Compressed TNT")).build());
 
     public static void register(IEventBus bus) {

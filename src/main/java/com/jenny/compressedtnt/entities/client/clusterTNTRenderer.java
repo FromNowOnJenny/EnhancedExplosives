@@ -1,6 +1,6 @@
 package com.jenny.compressedtnt.entities.client;
 
-import com.jenny.compressedtnt.entities.tnt.ClusterPrimedTNT;
+import com.jenny.compressedtnt.entities.tnt.basePrimedTNT;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -14,7 +14,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.NotNull;
 
-public class clusterTNTRenderer extends EntityRenderer<ClusterPrimedTNT> {
+public class clusterTNTRenderer extends EntityRenderer<basePrimedTNT> {
     private final BlockRenderDispatcher blockRenderer;
 
     public clusterTNTRenderer(EntityRendererProvider.Context pContext) {
@@ -23,7 +23,7 @@ public class clusterTNTRenderer extends EntityRenderer<ClusterPrimedTNT> {
         this.blockRenderer = pContext.getBlockRenderDispatcher();
     }
 
-    public void render(ClusterPrimedTNT pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, @NotNull MultiBufferSource pBuffer, int pPackedLight) {
+    public void render(basePrimedTNT pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, @NotNull MultiBufferSource pBuffer, int pPackedLight) {
         pPoseStack.pushPose();
         pPoseStack.translate(0.0F, 0.5F, 0.0F);
         int i = pEntity.getFuse();
@@ -47,7 +47,7 @@ public class clusterTNTRenderer extends EntityRenderer<ClusterPrimedTNT> {
         super.render(pEntity, pEntityYaw, pPartialTicks, pPoseStack, pBuffer, pPackedLight);
     }
 
-    public @NotNull ResourceLocation getTextureLocation(@NotNull ClusterPrimedTNT pEntity) {
+    public @NotNull ResourceLocation getTextureLocation(@NotNull basePrimedTNT pEntity) {
         return TextureAtlas.LOCATION_BLOCKS;
     }
 }
