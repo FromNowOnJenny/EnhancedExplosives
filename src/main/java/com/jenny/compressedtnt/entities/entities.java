@@ -1,6 +1,6 @@
 package com.jenny.compressedtnt.entities;
 
-import com.jenny.compressedtnt.entities.arrows.tntArrow;
+import com.jenny.compressedtnt.entities.arrows.*;
 import com.jenny.compressedtnt.entities.client.BaseTNTRenderer;
 import com.jenny.compressedtnt.entities.client.TNTArrowRenderer;
 import com.jenny.compressedtnt.entities.client.clusterTNTRenderer;
@@ -44,6 +44,10 @@ public class entities {
             ENTITY_TYPES.register("arrow_tnt", () -> EntityType.Builder.<tntArrow>of(tntArrow::new, MobCategory.MISC)
                     .sized(0.48F, 0.48F).clientTrackingRange(64).build("arrow_tnt"));
 
+    public static final RegistryObject<EntityType<concussiveArrow>> ARROW_CONCUSSIVE =
+            ENTITY_TYPES.register("arrow_concussive", () -> EntityType.Builder.<concussiveArrow>of(concussiveArrow::new, MobCategory.MISC)
+                    .sized(0.48F, 0.48F).clientTrackingRange(64).build("arrow_concussive"));
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }
@@ -56,5 +60,6 @@ public class entities {
         EntityRenderers.register(TNT_CLUSTER.get(), clusterTNTRenderer::new);
 
         EntityRenderers.register(ARROW_TNT.get(), TNTArrowRenderer::new);
+        EntityRenderers.register(ARROW_CONCUSSIVE.get(), TNTArrowRenderer::new);
     }
 }

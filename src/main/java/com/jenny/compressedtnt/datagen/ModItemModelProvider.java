@@ -20,6 +20,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         simpleItem(items.TNT_ARROW);
+        simpleItem(items.CONCUSSIVE_ARROW);
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {

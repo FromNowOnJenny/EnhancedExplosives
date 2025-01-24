@@ -11,5 +11,6 @@
   "block.compressedtnt.tnt_black_hole": "Black Hole TNT",
   "block.compressedtnt.tnt_claymore": "Claymore TNT",
 
-  "item.compressedtnt.arrow_tnt": "TNT Arrow"
+  "item.compressedtnt.arrow_tnt": "TNT Arrow",
+  "item.compressedtnt.arrow_concussive": "Concussive Arrow"
 }

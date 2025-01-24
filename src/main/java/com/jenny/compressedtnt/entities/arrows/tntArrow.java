@@ -3,6 +3,7 @@ package com.jenny.compressedtnt.entities.arrows;
 import com.jenny.compressedtnt.items.items;
 import com.jenny.compressedtnt.entities.entities;
 
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -21,6 +22,9 @@ public class tntArrow extends baseArrow {
     @Override
     public void tick() {
         super.tick();
+        if (level().isClientSide()) {
+            level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, 0.0D);
+        }
         if (this.inGround) {
             this.level().explode(this, this.getX(), this.getY(), this.getZ(), 2, Level.ExplosionInteraction.TNT);
             this.discard();
@@ -30,6 +34,7 @@ public class tntArrow extends baseArrow {
     @Override
     protected void doPostHurtEffects(@NotNull LivingEntity pTarget) {
         this.level().explode(this, this.getX(), this.getY(), this.getZ(), 2, Level.ExplosionInteraction.TNT);
+        this.discard();
     }
 
     @NotNull

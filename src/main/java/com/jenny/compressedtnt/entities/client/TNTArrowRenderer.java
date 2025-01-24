@@ -1,6 +1,6 @@
 package com.jenny.compressedtnt.entities.client;
 
-import com.jenny.compressedtnt.entities.arrows.tntArrow;
+import com.jenny.compressedtnt.entities.arrows.baseArrow;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.Blocks;
 
 import org.jetbrains.annotations.NotNull;
 
-public class TNTArrowRenderer extends EntityRenderer<tntArrow> {
+public class TNTArrowRenderer extends EntityRenderer<baseArrow> {
     private final BlockRenderDispatcher blockRenderer;
     private float i = 0;
 
@@ -24,7 +24,7 @@ public class TNTArrowRenderer extends EntityRenderer<tntArrow> {
         this.blockRenderer = pContext.getBlockRenderDispatcher();
     }
 
-    public void render(@NotNull tntArrow pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, @NotNull MultiBufferSource pBuffer, int pPackedLight) {
+    public void render(@NotNull baseArrow pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, @NotNull MultiBufferSource pBuffer, int pPackedLight) {
         pPoseStack.pushPose();
         pPoseStack.translate(0.0F, 0.5F, 0.0F);
         pPoseStack.scale(0.5f, 0.5f, 0.5f);
@@ -38,7 +38,7 @@ public class TNTArrowRenderer extends EntityRenderer<tntArrow> {
     }
 
     @NotNull
-    public ResourceLocation getTextureLocation(@NotNull tntArrow pEntity) {
+    public ResourceLocation getTextureLocation(@NotNull baseArrow pEntity) {
         return TextureAtlas.LOCATION_BLOCKS;
     }
 }
