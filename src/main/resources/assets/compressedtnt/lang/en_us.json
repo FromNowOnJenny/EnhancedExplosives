@@ -1,0 +1,15 @@
+{
+  "block.compressedtnt.tnt_8": "Compressed TNT",
+  "block.compressedtnt.tnt_16": "Double Compressed TNT",
+  "block.compressedtnt.tnt_32": "Triple Compressed TNT",
+  "block.compressedtnt.tnt_64": "Quadruple Compressed TNT",
+  "block.compressedtnt.tnt_128": "Quintuple Compressed TNT",
+  "block.compressedtnt.tnt_cluster_2": "2× TNT Cluster",
+  "block.compressedtnt.tnt_cluster_4": "4× TNT Cluster",
+  "block.compressedtnt.tnt_cluster_8": "8× TNT Cluster",
+  "block.compressedtnt.tnt_homing": "Homing TNT",
+  "block.compressedtnt.tnt_black_hole": "Black Hole TNT",
+  "block.compressedtnt.tnt_claymore": "Claymore TNT",
+
+  "item.compressedtnt.arrow_tnt": "TNT Arrow"
+}
