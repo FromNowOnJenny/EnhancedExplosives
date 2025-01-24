@@ -1,15 +1,13 @@
 package com.jenny.compressedtnt.items;
 
 import com.jenny.compressedtnt.entities.arrows.carpetArrow;
-import com.jenny.compressedtnt.entities.arrows.tntArrow;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.item.ArrowItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-public class ArrowCarpet extends ArrowItem {
+public class ArrowCarpet extends ArrowAbstract {
     public ArrowCarpet(Properties properties){
         super(properties);
     }
