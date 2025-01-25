@@ -19,7 +19,6 @@ import org.jetbrains.annotations.NotNull;
 public class TNTArrowRenderer extends EntityRenderer<baseArrow> {
     private final boolean renderParticles = ConfigClient.ARROW_PARTICLES;
     private final BlockRenderDispatcher blockRenderer;
-    private float i = 0;
 
     public TNTArrowRenderer(EntityRendererProvider.Context pContext) {
         super(pContext);
@@ -31,14 +30,14 @@ public class TNTArrowRenderer extends EntityRenderer<baseArrow> {
         pPoseStack.pushPose();
         pPoseStack.translate(0.0F, 0.5F, 0.0F);
         pPoseStack.scale(0.5f, 0.5f, 0.5f);
-        i += 0.1f;
+        int i = pEntity.getTick();
         pPoseStack.mulPose(Axis.YP.rotationDegrees(-90.0F));
         pPoseStack.translate(-0.5F, -0.5F, 0.5F);
         pPoseStack.mulPose(Axis.YP.rotationDegrees(90.0F));
         if (renderParticles) {
             pEntity.spawnParticles();
         }
-        TntMinecartRenderer.renderWhiteSolidBlock(this.blockRenderer, Blocks.TNT.defaultBlockState(), pPoseStack, pBuffer, pPackedLight, Math.round(Math.sin(i)) == 0);
+        TntMinecartRenderer.renderWhiteSolidBlock(this.blockRenderer, Blocks.TNT.defaultBlockState(), pPoseStack, pBuffer, pPackedLight, i / 5 % 2 == 0);
         pPoseStack.popPose();
         super.render(pEntity, pEntityYaw, pPartialTicks, pPoseStack, pBuffer, pPackedLight);
     }

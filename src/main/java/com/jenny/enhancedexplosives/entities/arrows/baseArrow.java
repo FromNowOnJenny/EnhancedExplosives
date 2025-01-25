@@ -33,6 +33,7 @@ public class baseArrow extends AbstractArrow {
     private Potion potion = Potions.EMPTY;
     private final Set<MobEffectInstance> effects = Sets.newHashSet();
     private boolean fixedColor;
+    private int tick = 0;
 
     public baseArrow(EntityType<? extends baseArrow> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -105,13 +106,13 @@ public class baseArrow extends AbstractArrow {
             } else {
                 this.makeParticle(2);
             }
+            this.tick++;
         } else if (this.inGround && this.inGroundTime != 0 && !this.effects.isEmpty() && this.inGroundTime >= 600) {
             this.level().broadcastEntityEvent(this, (byte)0);
             this.potion = Potions.EMPTY;
             this.effects.clear();
             this.entityData.set(ID_EFFECT_COLOR, -1);
         }
-
     }
 
     private void makeParticle(int pParticleAmount) {
@@ -231,5 +232,9 @@ public class baseArrow extends AbstractArrow {
 
     public void spawnParticles() {
 
+    }
+
+    public int getTick() {
+        return this.tick;
     }
 }

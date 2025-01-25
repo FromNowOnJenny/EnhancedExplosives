@@ -20,10 +20,12 @@ public abstract class basePrimedTNT extends Entity implements TraceableEntity {
 
     @Nullable
     private LivingEntity owner;
+    private int fuse = 0;
 
     public basePrimedTNT(EntityType<? extends basePrimedTNT> pEntityType, Level pLevel, @Nullable LivingEntity owner) {
         super(pEntityType, pLevel);
         commonInit(pLevel, owner);
+        this.fuse = getFuse();
     }
 
     private void commonInit(Level pLevel, @Nullable LivingEntity owner) {
@@ -39,6 +41,7 @@ public abstract class basePrimedTNT extends Entity implements TraceableEntity {
         setPos(pos);
         setFuse(fuse);
         setPower(power);
+        this.fuse = getFuse();
     }
 
     protected void explode() {
@@ -126,5 +129,9 @@ public abstract class basePrimedTNT extends Entity implements TraceableEntity {
 
     public Block renderBlock() {
         return Blocks.GLASS;
+    }
+
+    public int defaultFuse() {
+        return this.fuse;
     }
 }

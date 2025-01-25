@@ -39,7 +39,7 @@ public class clusterTNTRenderer extends EntityRenderer<basePrimedTNT> {
         }
 
         pPoseStack.mulPose(Axis.YP.rotationDegrees(-90.0F));
-        pPoseStack.translate(-0.5F, -0.5F, 0.5F);
+        pPoseStack.translate(-0.5F, -1.0F, 0.5F);
         pPoseStack.mulPose(Axis.YP.rotationDegrees(90.0F));
         TntMinecartRenderer.renderWhiteSolidBlock(this.blockRenderer, pEntity.renderBlock().defaultBlockState(), pPoseStack, pBuffer, pPackedLight, i / 5 % 2 == 0);
         pPoseStack.popPose();
