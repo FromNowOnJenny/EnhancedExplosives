@@ -1,0 +1,32 @@
+{
+  "block.enhancedexplosives.tnt_8": "Compressed TNT",
+  "block.enhancedexplosives.tnt_16": "Double Compressed TNT",
+  "block.enhancedexplosives.tnt_32": "Triple Compressed TNT",
+  "block.enhancedexplosives.tnt_64": "Quadruple Compressed TNT",
+  "block.enhancedexplosives.tnt_128": "Quintuple Compressed TNT",
+  "block.enhancedexplosives.tnt_cluster_2": "2× TNT Cluster",
+  "block.enhancedexplosives.tnt_cluster_4": "4× TNT Cluster",
+  "block.enhancedexplosives.tnt_cluster_8": "8× TNT Cluster",
+  "block.enhancedexplosives.tnt_homing": "Homing TNT",
+  "block.enhancedexplosives.tnt_black_hole": "Black Hole TNT",
+  "block.enhancedexplosives.tnt_claymore": "Claymore TNT",
+  "block.enhancedexplosives.tnt_selective": "Selective TNT",
+
+  "item.enhancedexplosives.arrow_tnt": "TNT Arrow",
+  "item.enhancedexplosives.arrow_concussive": "Concussive Arrow",
+  "item.enhancedexplosives.arrow_carpet": "Carpet Bombing Arrow",
+  "item.enhancedexplosives.dynamite": "Dynamite",
+
+  "tooltip.enhancedexplosives.tnt_cluster_2": "splits into 2 small TNTs",
+  "tooltip.enhancedexplosives.tnt_cluster_4": "splits into 4 small TNTs",
+  "tooltip.enhancedexplosives.tnt_cluster_8": "splits into 8 small TNTs",
+  "tooltip.enhancedexplosives.tnt_homing": "follows the closest entity",
+  "tooltip.enhancedexplosives.tnt_black_hole": "pulls all entities towards itself",
+  "tooltip.enhancedexplosives.tnt_claymore": "throws arrows into all direcctions upon explosion",
+  "tooltip.enhancedexplosives.tnt_selective": "only destroys the type of block it explodes on",
+
+  "tooltip.enhancedexplosives.arrow_tnt": "explodes on impact",
+  "tooltip.enhancedexplosives.arrow_concussive": "explodes on impact without block damage",
+  "tooltip.enhancedexplosives.arrow_carpet": "splits into multiple TNT arrows when it starts falling",
+  "tooltip.enhancedexplosives.dynamite": "TNT, but throwable"
+}

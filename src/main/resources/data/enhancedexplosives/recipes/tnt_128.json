@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "AA ",
+    "AA ",
+    "   "
+  ],
+  "key": {
+    "A": {
+      "item": "enhancedexplosives:tnt_64"
+    }
+  },
+  "result": {
+    "item": "enhancedexplosives:tnt_128"
+  }
+}

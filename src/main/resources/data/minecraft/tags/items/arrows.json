@@ -1,7 +1,7 @@
 {
   "values": [
-    "compressedtnt:arrow_tnt",
-    "compressedtnt:arrow_concussive",
-    "compressedtnt:arrow_carpet"
+    "enhancedexplosives:arrow_tnt",
+    "enhancedexplosives:arrow_concussive",
+    "enhancedexplosives:arrow_carpet"
   ]
 }

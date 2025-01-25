@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients":[
+    {
+      "item": "enhancedexplosives:tnt_cluster_2"
+    },
+    {
+      "item": "enhancedexplosives:tnt_cluster_2"
+    }
+  ],
+  "result": {
+    "item": "enhancedexplosives:tnt_cluster_4"
+  }
+}
