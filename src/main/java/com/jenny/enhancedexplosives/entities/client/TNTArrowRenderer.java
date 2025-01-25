@@ -35,7 +35,7 @@ public class TNTArrowRenderer extends EntityRenderer<baseArrow> {
         pPoseStack.translate(-0.5F, -0.5F, 0.5F);
         pPoseStack.mulPose(Axis.YP.rotationDegrees(90.0F));
         if (renderParticles) {
-            pEntity.spawnParticles();
+            pEntity.spawnParticles(pPartialTicks);
         }
         TntMinecartRenderer.renderWhiteSolidBlock(this.blockRenderer, Blocks.TNT.defaultBlockState(), pPoseStack, pBuffer, pPackedLight, i / 5 % 2 == 0);
         pPoseStack.popPose();

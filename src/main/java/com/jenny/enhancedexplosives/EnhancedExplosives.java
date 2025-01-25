@@ -1,6 +1,7 @@
 package com.jenny.enhancedexplosives;
 
 import com.jenny.enhancedexplosives.blocks.blocks;
+import com.jenny.enhancedexplosives.particles.particles;
 import com.jenny.enhancedexplosives.config.ConfigClient;
 import com.jenny.enhancedexplosives.entities.entities;
 import com.jenny.enhancedexplosives.items.items;
@@ -30,6 +31,7 @@ public class EnhancedExplosives {
 
         modEventBus.addListener(this::commonSetup);
 
+        particles.register(modEventBus);
         blocks.register(modEventBus);
         items.register(modEventBus);
         creativeTab.register(modEventBus);

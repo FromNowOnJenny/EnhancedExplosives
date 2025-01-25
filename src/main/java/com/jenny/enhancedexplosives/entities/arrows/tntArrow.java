@@ -4,11 +4,12 @@ import com.jenny.enhancedexplosives.config.ConfigClient;
 import com.jenny.enhancedexplosives.items.items;
 import com.jenny.enhancedexplosives.entities.entities;
 
-import net.minecraft.core.particles.ParticleTypes;
+import com.jenny.enhancedexplosives.particles.particles;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
 public class tntArrow extends baseArrow {
@@ -44,12 +45,13 @@ public class tntArrow extends baseArrow {
     }
 
     @Override
-    public void spawnParticles() {
+    public void spawnParticles(float partialTicks) {
         for (int i = 1; i <= ConfigClient.arrowParticleCount; i++) {
-            double x = getX() + (double) level().getRandom().nextInt(-10, 11) / 10;
-            double y = getY() + (double) level().getRandom().nextInt(-10, 11) / 10;
-            double z = getZ() + (double) level().getRandom().nextInt(-10, 11) / 10;
-            level().addParticle(ParticleTypes.WAX_ON, x, y, z, this.getDeltaMovement().x, this.getDeltaMovement().y, this.getDeltaMovement().z);
+            Vec3 pos = getPosition(partialTicks);
+            double x = pos.x + (double) level().getRandom().nextInt(-5, 6) / 10;
+            double y = pos.y + (double) level().getRandom().nextInt(-5, 6) / 10;
+            double z = pos.z + (double) level().getRandom().nextInt(-5, 6) / 10;
+            level().addParticle(particles.TNT_ARROW_PARTICLE.get(), x, y, z, this.getDeltaMovement().x, this.getDeltaMovement().y, this.getDeltaMovement().z);
         }
     }
 }

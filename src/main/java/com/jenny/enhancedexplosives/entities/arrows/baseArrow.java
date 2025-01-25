@@ -230,7 +230,7 @@ public class baseArrow extends AbstractArrow {
 
     }
 
-    public void spawnParticles() {
+    public void spawnParticles(float partialTicks) {
 
     }
 
