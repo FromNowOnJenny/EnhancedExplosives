@@ -42,15 +42,17 @@ public class blocks {
     public static final RegistryObject<Block> TNT_CLUSTER_8 = BLOCKS.register("tnt_cluster_8", () -> new ClusterTNTBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED), 4.0f, 80, 8, 10));
     public static final RegistryObject<Item> TNT_CLUSTER_8_ITEM = ITEMS.register("tnt_cluster_8", () -> new BlockItemTooltip(TNT_CLUSTER_8.get(), new Item.Properties()));
 
-    public static final RegistryObject<Block> TNT_HOMING= BLOCKS.register("tnt_homing", () -> new homingTNTBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED), 4.0f, 80, 1));
+    public static final RegistryObject<Block> TNT_HOMING = BLOCKS.register("tnt_homing", () -> new homingTNTBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED), 4.0f, 80, 1));
     public static final RegistryObject<Item> TNT_HOMING_ITEM = ITEMS.register("tnt_homing", () -> new BlockItemTooltip(TNT_HOMING.get(), new Item.Properties()));
 
-    public static final RegistryObject<Block> TNT_BLACK_HOLE= BLOCKS.register("tnt_black_hole", () -> new blackHoleTNTBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED), 4.0f, 80, 1));
+    public static final RegistryObject<Block> TNT_BLACK_HOLE = BLOCKS.register("tnt_black_hole", () -> new blackHoleTNTBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED), 4.0f, 80, 1));
     public static final RegistryObject<Item> TNT_BLACK_HOLE_ITEM = ITEMS.register("tnt_black_hole", () -> new BlockItemTooltip(TNT_BLACK_HOLE.get(), new Item.Properties()));
 
-    public static final RegistryObject<Block> TNT_CLAYMORE= BLOCKS.register("tnt_claymore", () -> new claymoreTNTBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED), 2.0f, 20, 256));
+    public static final RegistryObject<Block> TNT_CLAYMORE =  BLOCKS.register("tnt_claymore", () -> new claymoreTNTBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED), 2.0f, 20, 256));
     public static final RegistryObject<Item> TNT_CLAYMORE_ITEM = ITEMS.register("tnt_claymore", () -> new BlockItemTooltip(TNT_CLAYMORE.get(), new Item.Properties()));
 
+    public static final RegistryObject<Block> TNT_SELECTIVE = BLOCKS.register("tnt_selective", () -> new selectiveTNTBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED), 32.0f, 80));
+    public static final RegistryObject<Item> TNT_SELECTIVE_ITEM = ITEMS.register("tnt_selective", () -> new BlockItemTooltip(TNT_SELECTIVE.get(), new Item.Properties()));
 
     public static void register(IEventBus bus) {
         BLOCKS.register(bus);

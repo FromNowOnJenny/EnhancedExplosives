@@ -10,6 +10,7 @@
   "block.compressedtnt.tnt_homing": "Homing TNT",
   "block.compressedtnt.tnt_black_hole": "Black Hole TNT",
   "block.compressedtnt.tnt_claymore": "Claymore TNT",
+  "block.compressedtnt.tnt_selective": "Selective TNT",
 
   "item.compressedtnt.arrow_tnt": "TNT Arrow",
   "item.compressedtnt.arrow_concussive": "Concussive Arrow",
@@ -22,6 +23,7 @@
   "tooltip.compressedtnt.tnt_homing": "follows the closest entity",
   "tooltip.compressedtnt.tnt_black_hole": "pulls all entities towards itself",
   "tooltip.compressedtnt.tnt_claymore": "throws arrows into all direcctions upon explosion",
+  "tooltip.compressedtnt.tnt_selective": "only destroys the type of block it explodes on",
 
   "tooltip.compressedtnt.arrow_tnt": "explodes on impact",
   "tooltip.compressedtnt.arrow_concussive": "explodes on impact without block damage",

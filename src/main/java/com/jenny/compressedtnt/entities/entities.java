@@ -37,6 +37,10 @@ public class entities {
             ENTITY_TYPES.register("tnt_blackhole", () -> EntityType.Builder.<blackHolePrimedTNT>of(blackHolePrimedTNT::new, MobCategory.MISC)
                     .sized(0.98F, 0.7F).fireImmune().clientTrackingRange(8).build("tnt_blackhole"));
 
+    public static final RegistryObject<EntityType<selectivePrimedTNT>> TNT_SELECTIVE =
+            ENTITY_TYPES.register("tnt_selective", () -> EntityType.Builder.<selectivePrimedTNT>of(selectivePrimedTNT::new, MobCategory.MISC)
+                    .sized(0.98F, 0.7F).fireImmune().clientTrackingRange(8).build("tnt_selective"));
+
     public static final RegistryObject<EntityType<claymorePrimedTNT>> TNT_CLAYMORE =
             ENTITY_TYPES.register("tnt_claymore", () -> EntityType.Builder.<claymorePrimedTNT>of(claymorePrimedTNT::new, MobCategory.MISC)
                     .sized(0.98F, 0.7F).fireImmune().clientTrackingRange(8).build("tnt_claymore"));
@@ -66,6 +70,7 @@ public class entities {
         EntityRenderers.register(TNT_HOMING.get(), BaseTNTRenderer::new);
         EntityRenderers.register(TNT_BLACK_HOLE.get(), BaseTNTRenderer::new);
         EntityRenderers.register(TNT_CLAYMORE.get(), BaseTNTRenderer::new);
+        EntityRenderers.register(TNT_SELECTIVE.get(), BaseTNTRenderer::new);
         EntityRenderers.register(TNT_CLUSTER.get(), clusterTNTRenderer::new);
 
         EntityRenderers.register(ARROW_TNT.get(), TNTArrowRenderer::new);
