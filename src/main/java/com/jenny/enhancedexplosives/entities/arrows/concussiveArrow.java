@@ -2,6 +2,8 @@ package com.jenny.enhancedexplosives.entities.arrows;
 
 import com.jenny.enhancedexplosives.entities.entities;
 import com.jenny.enhancedexplosives.items.items;
+import com.jenny.enhancedexplosives.config.ConfigClient;
+
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -21,9 +23,6 @@ public class concussiveArrow extends baseArrow{
     @Override
     public void tick() {
         super.tick();
-        if (level().isClientSide()) {
-            level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, 0.0D);
-        }
         if (this.inGround) {
             this.level().explode(this, getX(), getY(), getZ(), 8.0f, Level.ExplosionInteraction.NONE);
             //this.level().explode(this, null, new NilExplosionCalculator(), this.getX(), this.getY(), this.getZ(), 8, false, Level.ExplosionInteraction.NONE);
@@ -45,7 +44,7 @@ public class concussiveArrow extends baseArrow{
 
     @Override
     public void spawnParticles() {
-        for (int i = 0; i < 2; i++) {
+        for (int i = 1; i <= ConfigClient.arrowParticleCount; i++) {
             double x = getX() + (double) level().getRandom().nextInt(-10, 11) / 10;
             double y = getY() + (double) level().getRandom().nextInt(-10, 11) / 10;
             double z = getZ() + (double) level().getRandom().nextInt(-10, 11) / 10;

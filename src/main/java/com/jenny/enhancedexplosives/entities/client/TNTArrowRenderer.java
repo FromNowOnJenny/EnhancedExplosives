@@ -17,7 +17,7 @@ import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.NotNull;
 
 public class TNTArrowRenderer extends EntityRenderer<baseArrow> {
-    private final boolean renderParticles = ConfigClient.ARROW_PARTICLES;
+    private final boolean renderParticles = ConfigClient.arrowParticles;
     private final BlockRenderDispatcher blockRenderer;
 
     public TNTArrowRenderer(EntityRendererProvider.Context pContext) {

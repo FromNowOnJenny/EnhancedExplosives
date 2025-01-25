@@ -1,5 +1,6 @@
 package com.jenny.enhancedexplosives.entities.arrows;
 
+import com.jenny.enhancedexplosives.config.ConfigClient;
 import com.jenny.enhancedexplosives.items.items;
 import com.jenny.enhancedexplosives.entities.entities;
 
@@ -32,16 +33,6 @@ public class tntArrow extends baseArrow {
     }
 
     @Override
-    public void spawnParticles() {
-        for (int i = 0; i < 2; i++) {
-            double x = getX() + (double) level().getRandom().nextInt(-10, 11) / 10;
-            double y = getY() + (double) level().getRandom().nextInt(-10, 11) / 10;
-            double z = getZ() + (double) level().getRandom().nextInt(-10, 11) / 10;
-            level().addParticle(ParticleTypes.WAX_ON, x, y, z, this.getDeltaMovement().x, this.getDeltaMovement().y, this.getDeltaMovement().z);
-        }
-    }
-
-    @Override
     protected void doPostHurtEffects(@NotNull LivingEntity pTarget) {
         this.level().explode(this, this.getX(), this.getY(), this.getZ(), 2, Level.ExplosionInteraction.TNT);
         this.discard();
@@ -50,5 +41,15 @@ public class tntArrow extends baseArrow {
     @NotNull
     protected ItemStack getPickupItem() {
         return new ItemStack(items.TNT_ARROW.get());
+    }
+
+    @Override
+    public void spawnParticles() {
+        for (int i = 1; i <= ConfigClient.arrowParticleCount; i++) {
+            double x = getX() + (double) level().getRandom().nextInt(-10, 11) / 10;
+            double y = getY() + (double) level().getRandom().nextInt(-10, 11) / 10;
+            double z = getZ() + (double) level().getRandom().nextInt(-10, 11) / 10;
+            level().addParticle(ParticleTypes.WAX_ON, x, y, z, this.getDeltaMovement().x, this.getDeltaMovement().y, this.getDeltaMovement().z);
+        }
     }
 }
