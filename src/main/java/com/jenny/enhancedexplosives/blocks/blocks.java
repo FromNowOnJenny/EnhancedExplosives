@@ -53,6 +53,10 @@ public class blocks {
     public static final RegistryObject<Block> TNT_SELECTIVE = BLOCKS.register("tnt_selective", () -> new selectiveTNTBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED), 32.0f, 80));
     public static final RegistryObject<Item> TNT_SELECTIVE_ITEM = ITEMS.register("tnt_selective", () -> new BlockItemTooltip(TNT_SELECTIVE.get(), new Item.Properties()));
 
+    public static final RegistryObject<Block> TNT_ENDER = BLOCKS.register("tnt_ender", () -> new enderTNTBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED), 4.0f, 80));
+    public static final RegistryObject<Item> TNT_ENDER_ITEM = ITEMS.register("tnt_ender", () -> new BlockItemTooltip(TNT_ENDER.get(), new Item.Properties()));
+
+
     public static void register(IEventBus bus) {
         BLOCKS.register(bus);
         ITEMS.register(bus);

@@ -11,6 +11,7 @@
   "block.enhancedexplosives.tnt_black_hole": "Black Hole TNT",
   "block.enhancedexplosives.tnt_claymore": "Claymore TNT",
   "block.enhancedexplosives.tnt_selective": "Selective TNT",
+  "block.enhancedexplosives.tnt_ender": "Ender TNT",
 
   "item.enhancedexplosives.arrow_tnt": "TNT Arrow",
   "item.enhancedexplosives.arrow_concussive": "Concussive Arrow",
@@ -24,6 +25,7 @@
   "tooltip.enhancedexplosives.tnt_black_hole": "pulls all entities towards itself",
   "tooltip.enhancedexplosives.tnt_claymore": "throws arrows into all direcctions upon explosion",
   "tooltip.enhancedexplosives.tnt_selective": "only destroys the type of block it explodes on",
+  "tooltip.enhancedexplosives.tnt_ender": "teleports in a 16 block radius upon priming",
 
   "tooltip.enhancedexplosives.arrow_tnt": "explodes on impact",
   "tooltip.enhancedexplosives.arrow_concussive": "explodes on impact without block damage",

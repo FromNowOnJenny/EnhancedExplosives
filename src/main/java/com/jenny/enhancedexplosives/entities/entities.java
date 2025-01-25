@@ -45,6 +45,10 @@ public class entities {
             ENTITY_TYPES.register("tnt_claymore", () -> EntityType.Builder.<claymorePrimedTNT>of(claymorePrimedTNT::new, MobCategory.MISC)
                     .sized(0.98F, 0.7F).fireImmune().clientTrackingRange(8).build("tnt_claymore"));
 
+    public static final RegistryObject<EntityType<enderPrimedTNT>> TNT_ENDER =
+            ENTITY_TYPES.register("tnt_ender", () -> EntityType.Builder.<enderPrimedTNT>of(enderPrimedTNT::new, MobCategory.MISC)
+                    .sized(0.98F, 0.7F).fireImmune().clientTrackingRange(8).build("tnt_ender"));
+
     public static final RegistryObject<EntityType<tntArrow>> ARROW_TNT =
             ENTITY_TYPES.register("arrow_tnt", () -> EntityType.Builder.<tntArrow>of(tntArrow::new, MobCategory.MISC)
                     .sized(0.48F, 0.48F).clientTrackingRange(64).build("arrow_tnt"));
@@ -71,12 +75,13 @@ public class entities {
         EntityRenderers.register(TNT_BLACK_HOLE.get(), BaseTNTRenderer::new);
         EntityRenderers.register(TNT_CLAYMORE.get(), BaseTNTRenderer::new);
         EntityRenderers.register(TNT_SELECTIVE.get(), BaseTNTRenderer::new);
+        EntityRenderers.register(TNT_ENDER.get(), BaseTNTRenderer::new);
+
         EntityRenderers.register(TNT_CLUSTER.get(), clusterTNTRenderer::new);
+        EntityRenderers.register(DYNAMITE.get(), clusterTNTRenderer::new);
 
         EntityRenderers.register(ARROW_TNT.get(), TNTArrowRenderer::new);
         EntityRenderers.register(ARROW_CONCUSSIVE.get(), TNTArrowRenderer::new);
         EntityRenderers.register(ARROW_CARPET.get(), TNTArrowRenderer::new);
-
-        EntityRenderers.register(DYNAMITE.get(), clusterTNTRenderer::new);
     }
 }

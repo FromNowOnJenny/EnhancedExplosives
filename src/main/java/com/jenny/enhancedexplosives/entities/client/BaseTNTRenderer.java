@@ -48,6 +48,7 @@ public class BaseTNTRenderer extends EntityRenderer<basePrimedTNT> {
             case "stronger_64" -> blocks.TNT_64.get();
             case "stronger_128" -> blocks.TNT_128.get();
             case "homing" -> blocks.TNT_HOMING.get();
+            case "ender" -> blocks.TNT_ENDER.get();
             default -> Blocks.NETHER_PORTAL; // placeholder for debugging
         };
 

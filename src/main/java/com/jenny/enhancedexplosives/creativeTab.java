@@ -28,6 +28,7 @@ public class creativeTab {
         output.accept(blocks.TNT_BLACK_HOLE.get());
         output.accept(blocks.TNT_CLAYMORE.get());
         output.accept(blocks.TNT_SELECTIVE.get());
+        output.accept(blocks.TNT_ENDER.get());
         output.accept(items.TNT_ARROW.get());
         output.accept(items.CONCUSSIVE_ARROW.get());
         output.accept(items.CARPET_ARROW.get());
