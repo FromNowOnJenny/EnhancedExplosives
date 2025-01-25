@@ -1,6 +1,8 @@
 package com.jenny.enhancedexplosives.entities.client;
 
 import com.jenny.enhancedexplosives.entities.arrows.baseArrow;
+import com.jenny.enhancedexplosives.config.*;
+
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -15,6 +17,7 @@ import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.NotNull;
 
 public class TNTArrowRenderer extends EntityRenderer<baseArrow> {
+    private final boolean renderParticles = ConfigClient.ARROW_PARTICLES;
     private final BlockRenderDispatcher blockRenderer;
     private float i = 0;
 
@@ -32,6 +35,9 @@ public class TNTArrowRenderer extends EntityRenderer<baseArrow> {
         pPoseStack.mulPose(Axis.YP.rotationDegrees(-90.0F));
         pPoseStack.translate(-0.5F, -0.5F, 0.5F);
         pPoseStack.mulPose(Axis.YP.rotationDegrees(90.0F));
+        if (renderParticles) {
+            pEntity.spawnParticles();
+        }
         TntMinecartRenderer.renderWhiteSolidBlock(this.blockRenderer, Blocks.TNT.defaultBlockState(), pPoseStack, pBuffer, pPackedLight, Math.round(Math.sin(i)) == 0);
         pPoseStack.popPose();
         super.render(pEntity, pEntityYaw, pPartialTicks, pPoseStack, pBuffer, pPackedLight);

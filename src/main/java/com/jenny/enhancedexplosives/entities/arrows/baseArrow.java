@@ -228,4 +228,8 @@ public class baseArrow extends AbstractArrow {
         }
 
     }
+
+    public void spawnParticles() {
+
+    }
 }

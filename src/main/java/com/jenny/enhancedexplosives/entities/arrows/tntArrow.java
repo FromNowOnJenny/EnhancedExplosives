@@ -23,11 +23,21 @@ public class tntArrow extends baseArrow {
     public void tick() {
         super.tick();
         if (level().isClientSide()) {
-            level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0.0D, 0.0D, 0.0D);
+            //spawnParticles();
         }
         if (this.inGround) {
             this.level().explode(this, this.getX(), this.getY(), this.getZ(), 2, Level.ExplosionInteraction.TNT);
             this.discard();
+        }
+    }
+
+    @Override
+    public void spawnParticles() {
+        for (int i = 0; i < 2; i++) {
+            double x = getX() + (double) level().getRandom().nextInt(-10, 11) / 10;
+            double y = getY() + (double) level().getRandom().nextInt(-10, 11) / 10;
+            double z = getZ() + (double) level().getRandom().nextInt(-10, 11) / 10;
+            level().addParticle(ParticleTypes.WAX_ON, x, y, z, this.getDeltaMovement().x, this.getDeltaMovement().y, this.getDeltaMovement().z);
         }
     }
 
