@@ -19,13 +19,12 @@ public class claymorePrimedTNT extends basePrimedTNT {
     private static final EntityDataAccessor<Integer> DATA_PCOUNT_ID = SynchedEntityData.defineId(claymorePrimedTNT.class, EntityDataSerializers.INT);
 
     public claymorePrimedTNT(Level pLevel, double pX, double pY, double pZ, @Nullable LivingEntity pOwner, float power, int fuse, int projectileCount) {
-        super(entities.TNT_CLAYMORE.get(), pLevel, pOwner, new Vec3(pX, pY, pZ), fuse, power, "tnt_claymore");
+        super(entities.TNT_CLAYMORE.get(), pLevel, pOwner, new Vec3(pX, pY, pZ), fuse, power);
         setPCount(projectileCount);
     }
 
     public claymorePrimedTNT(EntityType<claymorePrimedTNT> entityType, Level level) {
         super(entityType, level, null);
-        setRenderID("tnt_claymore");
     }
 
     public Vec3 targetVector(RandomSource rng) {

@@ -17,13 +17,12 @@ public class blackHolePrimedTNT extends basePrimedTNT {
     private static final EntityDataAccessor<Float> DATA_SPEED_ID = SynchedEntityData.defineId(blackHolePrimedTNT.class, EntityDataSerializers.FLOAT);
 
     public blackHolePrimedTNT(Level pLevel, double pX, double pY, double pZ, @Nullable LivingEntity pOwner, float power, int fuse, float speed) {
-        super(entities.TNT_BLACK_HOLE.get(), pLevel, pOwner, new Vec3(pX, pY, pZ), fuse, power, "black_hole");
+        super(entities.TNT_BLACK_HOLE.get(), pLevel, pOwner, new Vec3(pX, pY, pZ), fuse, power);
         this.setSpeed(speed);
     }
 
     public blackHolePrimedTNT(EntityType<blackHolePrimedTNT> entityType, Level level) {
         super(entityType, level, null);
-        this.setRenderID("black_hole");
         this.setSpeed(this.getSpeed());
     }
 

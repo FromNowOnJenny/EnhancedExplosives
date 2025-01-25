@@ -8,6 +8,8 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.ExplosionDamageCalculator;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
@@ -28,12 +30,11 @@ public class selectivePrimedTNT extends basePrimedTNT {
     }
 
     public selectivePrimedTNT(Level pLevel, double pX, double pY, double pZ, @Nullable LivingEntity pOwner, float power, int fuse) {
-        super(entities.TNT_SELECTIVE.get(), pLevel, pOwner, new Vec3(pX, pY, pZ), fuse, power, "tnt_selective");
+        super(entities.TNT_SELECTIVE.get(), pLevel, pOwner, new Vec3(pX, pY, pZ), fuse, power);
     }
 
     public selectivePrimedTNT(EntityType<selectivePrimedTNT> entityType, Level level) {
         super(entityType, level, null);
-        this.setRenderID("tnt_selective");
     }
     @Override
     protected void explode() {

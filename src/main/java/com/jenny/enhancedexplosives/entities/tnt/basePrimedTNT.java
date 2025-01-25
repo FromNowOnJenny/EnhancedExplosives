@@ -7,6 +7,8 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
@@ -15,12 +17,9 @@ import javax.annotation.Nullable;
 public abstract class basePrimedTNT extends Entity implements TraceableEntity {
     private static final EntityDataAccessor<Integer> DATA_FUSE_ID = SynchedEntityData.defineId(basePrimedTNT.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Float> DATA_POWER_ID = SynchedEntityData.defineId(basePrimedTNT.class, EntityDataSerializers.FLOAT);
-    private static final EntityDataAccessor<String> DATA_RENDER_ID = SynchedEntityData.defineId(basePrimedTNT.class, EntityDataSerializers.STRING);
 
     @Nullable
     private LivingEntity owner;
-
-    private String renderID = "default";
 
     public basePrimedTNT(EntityType<? extends basePrimedTNT> pEntityType, Level pLevel, @Nullable LivingEntity owner) {
         super(pEntityType, pLevel);
@@ -34,13 +33,12 @@ public abstract class basePrimedTNT extends Entity implements TraceableEntity {
         this.owner = owner;
     }
 
-    public basePrimedTNT(EntityType<? extends basePrimedTNT> pEntityType, Level pLevel, @Nullable LivingEntity owner, Vec3 pos, int fuse, float power, String renderID) {
+    public basePrimedTNT(EntityType<? extends basePrimedTNT> pEntityType, Level pLevel, @Nullable LivingEntity owner, Vec3 pos, int fuse, float power) {
         super(pEntityType, pLevel);
         commonInit(pLevel, owner);
         setPos(pos);
         setFuse(fuse);
         setPower(power);
-        setRenderID(renderID);
     }
 
     protected void explode() {
@@ -93,26 +91,24 @@ public abstract class basePrimedTNT extends Entity implements TraceableEntity {
         return !this.isRemoved();
     }
 
-    protected Entity.@NotNull MovementEmission getMovementEmission() {
-        return Entity.MovementEmission.NONE;
+    @NotNull
+    protected MovementEmission getMovementEmission() {
+        return MovementEmission.NONE;
     }
 
     protected void defineSynchedData() {
         this.entityData.define(DATA_FUSE_ID, 80);
         this.entityData.define(DATA_POWER_ID, 4.0f);
-        this.entityData.define(DATA_RENDER_ID, "default");
     }
 
     protected void addAdditionalSaveData(CompoundTag pCompound) {
         pCompound.putShort("Fuse", (short)this.getFuse());
         pCompound.putFloat("Power", (short)this.getPower());
-        pCompound.putString("RenderID", getRenderID());
     }
 
     protected void readAdditionalSaveData(CompoundTag pCompound) {
         this.setFuse(pCompound.getShort("Fuse"));
         this.setPower(pCompound.getFloat("Power"));
-        this.setRenderID(pCompound.getString("RenderID"));
     }
 
     @Nullable
@@ -124,15 +120,11 @@ public abstract class basePrimedTNT extends Entity implements TraceableEntity {
         this.owner = owner;
     }
 
-    public void setRenderID(String renderID) {
-        this.entityData.set(DATA_RENDER_ID, renderID);
-    }
-
-    public String getRenderID() {
-        return this.entityData.get(DATA_RENDER_ID);
-    }
-
     protected float getEyeHeight(@NotNull Pose pPose, @NotNull EntityDimensions pSize) {
         return 0.15F;
+    }
+
+    public Block renderBlock() {
+        return Blocks.GLASS;
     }
 }

@@ -11,7 +11,6 @@ import net.minecraft.client.renderer.entity.TntMinecartRenderer;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
-import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.NotNull;
 
 public class clusterTNTRenderer extends EntityRenderer<basePrimedTNT> {
@@ -42,7 +41,7 @@ public class clusterTNTRenderer extends EntityRenderer<basePrimedTNT> {
         pPoseStack.mulPose(Axis.YP.rotationDegrees(-90.0F));
         pPoseStack.translate(-0.5F, -0.5F, 0.5F);
         pPoseStack.mulPose(Axis.YP.rotationDegrees(90.0F));
-        TntMinecartRenderer.renderWhiteSolidBlock(this.blockRenderer, Blocks.TNT.defaultBlockState(), pPoseStack, pBuffer, pPackedLight, i / 5 % 2 == 0);
+        TntMinecartRenderer.renderWhiteSolidBlock(this.blockRenderer, pEntity.renderBlock().defaultBlockState(), pPoseStack, pBuffer, pPackedLight, i / 5 % 2 == 0);
         pPoseStack.popPose();
         super.render(pEntity, pEntityYaw, pPartialTicks, pPoseStack, pBuffer, pPackedLight);
     }

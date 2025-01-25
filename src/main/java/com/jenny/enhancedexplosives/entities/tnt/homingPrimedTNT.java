@@ -8,6 +8,8 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
@@ -18,7 +20,7 @@ public class homingPrimedTNT extends basePrimedTNT {
     Entity target;
 
     public homingPrimedTNT (Level pLevel, double pX, double pY, double pZ, @Nullable LivingEntity pOwner, float power, int fuse, float speed) {
-        super(entities.TNT_HOMING.get(), pLevel, pOwner, new Vec3(pX, pY, pZ), fuse, power, "homing");
+        super(entities.TNT_HOMING.get(), pLevel, pOwner, new Vec3(pX, pY, pZ), fuse, power);
         this.target = null;
         this.setSpeed(speed);
     }

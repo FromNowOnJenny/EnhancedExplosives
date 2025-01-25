@@ -9,18 +9,19 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
 
 public class dynamite extends basePrimedTNT {
     public dynamite (Level pLevel, double pX, double pY, double pZ, @Nullable LivingEntity pOwner, float power, int fuse) {
-        super(entities.DYNAMITE.get(), pLevel, pOwner, new Vec3(pX, pY, pZ), fuse, power, "dynamite");
+        super(entities.DYNAMITE.get(), pLevel, pOwner, new Vec3(pX, pY, pZ), fuse, power);
     }
 
     public dynamite(EntityType<dynamite> entityType, Level level) {
         super(entityType, level, null);
-        this.setRenderID("dynamite");
     }
 
     @Override
@@ -58,5 +59,9 @@ public class dynamite extends basePrimedTNT {
         this.setDeltaMovement(vec);
         Vec3 vec3 = pShooter.getDeltaMovement();
         this.setDeltaMovement(this.getDeltaMovement().add(vec3.x, pShooter.onGround() ? 0.0D : vec3.y, vec3.z));
+    }
+
+    public Block renderBlock() {
+        return Blocks.TNT;
     }
 }
