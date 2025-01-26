@@ -34,7 +34,6 @@ public class concussiveArrow extends baseArrow{
     @Override
     protected void doPostHurtEffects(@NotNull LivingEntity pTarget) {
         this.level().explode(this, getX(), getY(), getZ(), 8.0f, Level.ExplosionInteraction.NONE);
-        //this.level().explode(this, null, new NilExplosionCalculator(), this.getX(), this.getY(), this.getZ(), 8, false, Level.ExplosionInteraction.NONE);
         this.discard();
     }
 

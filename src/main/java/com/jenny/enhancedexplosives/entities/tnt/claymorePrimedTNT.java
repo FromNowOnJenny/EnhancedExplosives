@@ -1,6 +1,7 @@
 package com.jenny.enhancedexplosives.entities.tnt;
 
 import com.jenny.enhancedexplosives.blocks.blocks;
+import com.jenny.enhancedexplosives.entities.arrows.claymoreArrow;
 import com.jenny.enhancedexplosives.entities.entities;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -31,20 +32,21 @@ public class claymorePrimedTNT extends basePrimedTNT {
 
     public Vec3 targetVector(RandomSource rng) {
         return new Vec3(
-                (double) rng.nextInt(-10, 11) / 10,
-                (double) rng.nextInt( 11) / 10,
-                (double) rng.nextInt(-10, 11) / 10);
+                getX() + rng.nextIntBetweenInclusive(-15, 15),
+                getY() + (float) rng.nextIntBetweenInclusive(-10, 10) / 10,
+                getZ() + rng.nextIntBetweenInclusive(-15, 15)
+        ).subtract(position().add(0, 0.5, 0)).normalize().multiply(1.3, 1.3, 1.3);
     }
 
     @Override
     public void explode() {
-        super.explode();
         RandomSource rng = level().getRandom();
         for (int i = 0; i < getPCount(); i++) {
             Vec3 target = targetVector(rng);
-            Vec3 pos = position().add(target);
-            Projectile e = new Arrow(level(),pos.x, pos.y + 1, pos.z);
-            e.setDeltaMovement(target.multiply(5, 0.1, 5));
+            assert this.getOwner() != null;
+            Projectile e = new claymoreArrow(level(), this.getOwner());
+            e.setPos(position().add(0, 0.5, 0));
+            e.setDeltaMovement(target);
             level().addFreshEntity(e);
         }
 

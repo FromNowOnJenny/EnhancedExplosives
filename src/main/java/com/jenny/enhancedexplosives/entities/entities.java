@@ -1,9 +1,7 @@
 package com.jenny.enhancedexplosives.entities;
 
 import com.jenny.enhancedexplosives.entities.arrows.*;
-import com.jenny.enhancedexplosives.entities.client.BaseTNTRenderer;
-import com.jenny.enhancedexplosives.entities.client.TNTArrowRenderer;
-import com.jenny.enhancedexplosives.entities.client.clusterTNTRenderer;
+import com.jenny.enhancedexplosives.entities.client.*;
 import com.jenny.enhancedexplosives.entities.throwable.dynamite;
 import com.jenny.enhancedexplosives.entities.tnt.*;
 
@@ -61,6 +59,10 @@ public class entities {
             ENTITY_TYPES.register("arrow_carpet", () -> EntityType.Builder.<carpetArrow>of(carpetArrow::new, MobCategory.MISC)
                     .sized(0.48F, 0.48F).clientTrackingRange(64).build("arrow_carpet"));
 
+    public static final RegistryObject<EntityType<claymoreArrow>> ARROW_CLAYMORE =
+            ENTITY_TYPES.register("arrow_claymore", () -> EntityType.Builder.<claymoreArrow>of(claymoreArrow::new, MobCategory.MISC)
+                    .sized(0.48F, 0.48F).clientTrackingRange(64).build("arrow_claymore"));
+
     public static final RegistryObject<EntityType<dynamite>> DYNAMITE =
             ENTITY_TYPES.register("dynamite", () -> EntityType.Builder.<dynamite>of(dynamite::new, MobCategory.MISC)
                     .sized(0.48F, 0.48F).clientTrackingRange(64).build("dynamite"));
@@ -83,5 +85,6 @@ public class entities {
         EntityRenderers.register(ARROW_TNT.get(), TNTArrowRenderer::new);
         EntityRenderers.register(ARROW_CONCUSSIVE.get(), TNTArrowRenderer::new);
         EntityRenderers.register(ARROW_CARPET.get(), TNTArrowRenderer::new);
+        EntityRenderers.register(ARROW_CLAYMORE.get(), baseArrowRenderer::new);
     }
 }
