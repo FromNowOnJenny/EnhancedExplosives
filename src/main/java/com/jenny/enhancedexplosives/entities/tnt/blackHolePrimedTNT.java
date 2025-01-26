@@ -1,5 +1,6 @@
 package com.jenny.enhancedexplosives.entities.tnt;
 
+import com.jenny.enhancedexplosives.blocks.blocks;
 import com.jenny.enhancedexplosives.entities.entities;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -7,6 +8,7 @@ import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
@@ -84,5 +86,10 @@ public class blackHolePrimedTNT extends basePrimedTNT {
     protected void defineSynchedData() {
         this.entityData.define(DATA_SPEED_ID, 4.0f);
         super.defineSynchedData();
+    }
+
+    @Override
+    public Block renderBlock() {
+        return blocks.TNT_BLACK_HOLE.get();
     }
 }

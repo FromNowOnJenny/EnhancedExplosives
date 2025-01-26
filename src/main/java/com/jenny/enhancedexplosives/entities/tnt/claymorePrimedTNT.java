@@ -1,5 +1,6 @@
 package com.jenny.enhancedexplosives.entities.tnt;
 
+import com.jenny.enhancedexplosives.blocks.blocks;
 import com.jenny.enhancedexplosives.entities.entities;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -11,6 +12,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.Arrow;
 import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
@@ -72,5 +74,10 @@ public class claymorePrimedTNT extends basePrimedTNT {
     protected void defineSynchedData() {
         this.entityData.define(DATA_PCOUNT_ID, 16);
         super.defineSynchedData();
+    }
+
+    @Override
+    public Block renderBlock() {
+        return blocks.TNT_CLAYMORE.get();
     }
 }

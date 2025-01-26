@@ -12,7 +12,7 @@ public class ConfigClient {
     private static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
 
     private static final ForgeConfigSpec.ConfigValue<Boolean> C_ARROW_PARTICLES =
-            BUILDER.comment("weather to spawn client-side particles for arrows")
+            BUILDER.comment("whether to spawn client-side particles for arrows")
                     .define("arrowParticles", true);
 
     private static final ForgeConfigSpec.ConfigValue<Boolean> C_TNT_PARTICLES =
