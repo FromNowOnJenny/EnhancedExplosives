@@ -95,11 +95,13 @@ public class enderTNTBlock extends TntBlock {
     }
 
     public static void spawnParticles(Level level, BlockPos blockPos) {
-        for (int i = 1; i<=ConfigClient.calcPCount(30); i++) {
-            float x = blockPos.getX() + (float) level.getRandom().nextIntBetweenInclusive(-10, 10) / 10 + 0.5F;
-            float y = blockPos.getY() + (float) level.getRandom().nextIntBetweenInclusive(-10, 10) / 10;
-            float z = blockPos.getZ() + (float) level.getRandom().nextIntBetweenInclusive(-10, 10) / 10 + 0.5F;
-            level.addParticle(ParticleTypes.GLOW, x, y, z, 0, 0, 0);
+        if (ConfigClient.tntParticles) {
+            for (int i = 1; i <= ConfigClient.calcPCount(30); i++) {
+                float x = blockPos.getX() + (float) level.getRandom().nextIntBetweenInclusive(-10, 10) / 10 + 0.5F;
+                float y = blockPos.getY() + (float) level.getRandom().nextIntBetweenInclusive(-10, 10) / 10;
+                float z = blockPos.getZ() + (float) level.getRandom().nextIntBetweenInclusive(-10, 10) / 10 + 0.5F;
+                level.addParticle(ParticleTypes.GLOW, x, y, z, 0, 0, 0);
+            }
         }
     }
 }

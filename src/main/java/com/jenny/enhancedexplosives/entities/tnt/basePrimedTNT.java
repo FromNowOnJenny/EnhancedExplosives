@@ -134,4 +134,6 @@ public abstract class basePrimedTNT extends Entity implements TraceableEntity {
     public int defaultFuse() {
         return this.fuse;
     }
+
+    public void spawnParticles(float partialTicks) {}
 }

@@ -1,6 +1,9 @@
 package com.jenny.enhancedexplosives.entities.tnt;
 
 import com.jenny.enhancedexplosives.entities.entities;
+import com.jenny.enhancedexplosives.config.ConfigClient;
+
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -8,8 +11,6 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
@@ -89,5 +90,12 @@ public class homingPrimedTNT extends basePrimedTNT {
     protected void defineSynchedData() {
         this.entityData.define(DATA_SPEED_ID, 4.0f);
         super.defineSynchedData();
+    }
+
+    @Override
+    public void spawnParticles(float partialTicks) {
+        for (int i = 1; i <= ConfigClient.calcPCount(30); i++) {
+            level().addParticle(ParticleTypes.FALLING_OBSIDIAN_TEAR, getX(), getY(), getZ(), this.getDeltaMovement().x, this.getDeltaMovement().y, this.getDeltaMovement().z);
+        }
     }
 }
