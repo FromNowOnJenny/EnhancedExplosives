@@ -15,19 +15,23 @@ public class ConfigClient {
             BUILDER.comment("weather to spawn client-side particles for arrows")
                     .define("arrowParticles", true);
 
-    private static final ForgeConfigSpec.ConfigValue<Integer> C_ARROW_PARTICLE_COUNT =
-            BUILDER.comment("amount of particles to spawn per arrow per tick")
-                    .define("arrowParticleCount", 3);
+    private static final ForgeConfigSpec.ConfigValue<Float> C_PARTICLE_PERCENT =
+            BUILDER.comment("amount of particles to spawn (0.0 = None, 1.0 = normal, values higher are valid too)")
+                    .define("arrowParticleCount", 1.0f);
 
     public static final ForgeConfigSpec SPEC = BUILDER.build();
 
     public static boolean arrowParticles;
-    public static int arrowParticleCount;
+    public static float particlePercent;
 
     @SubscribeEvent
     static void onLoad(final ModConfigEvent event)
     {
         arrowParticles = C_ARROW_PARTICLES.get();
-        arrowParticleCount = C_ARROW_PARTICLE_COUNT.get();
+        particlePercent = C_PARTICLE_PERCENT.get();
+    }
+
+    public static int calcPCount(int pCount) {
+        return Math.round(pCount * particlePercent);
     }
 }

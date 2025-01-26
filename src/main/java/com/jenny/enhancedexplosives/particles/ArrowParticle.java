@@ -1,4 +1,4 @@
-package com.jenny.enhancedexplosives.particles.arrow;
+package com.jenny.enhancedexplosives.particles;
 
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;

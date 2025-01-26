@@ -1,8 +1,11 @@
 package com.jenny.enhancedexplosives.blocks;
 
 import com.jenny.enhancedexplosives.entities.tnt.enderPrimedTNT;
+import com.jenny.enhancedexplosives.config.ConfigClient;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.entity.LivingEntity;
@@ -12,6 +15,7 @@ import net.minecraft.world.level.block.TntBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.levelgen.Heightmap;
+
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
@@ -47,6 +51,9 @@ public class enderTNTBlock extends TntBlock {
                 level.gameEvent(entity, GameEvent.PRIME_FUSE, blockPos);
             }
         }
+        else {
+            spawnParticles(level, blockPos);
+        }
     }
 
     private static BlockPos getSpawnPos(Level level, BlockPos blockPos) {
@@ -81,6 +88,18 @@ public class enderTNTBlock extends TntBlock {
                 primedtnt.setFuse((short) (level.random.nextInt(i / 4) + i / 8));
                 level.addFreshEntity(primedtnt);
             }
+        }
+        else {
+            spawnParticles(level, blockPos);
+        }
+    }
+
+    public static void spawnParticles(Level level, BlockPos blockPos) {
+        for (int i = 1; i<=ConfigClient.calcPCount(30); i++) {
+            float x = blockPos.getX() + (float) level.getRandom().nextIntBetweenInclusive(-10, 10) / 10 + 0.5F;
+            float y = blockPos.getY() + (float) level.getRandom().nextIntBetweenInclusive(-10, 10) / 10;
+            float z = blockPos.getZ() + (float) level.getRandom().nextIntBetweenInclusive(-10, 10) / 10 + 0.5F;
+            level.addParticle(ParticleTypes.GLOW, x, y, z, 0, 0, 0);
         }
     }
 }

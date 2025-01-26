@@ -45,7 +45,7 @@ public class concussiveArrow extends baseArrow{
 
     @Override
     public void spawnParticles(float partialTicks) {
-        for (int i = 1; i <= ConfigClient.arrowParticleCount; i++) {
+        for (int i = 1; i <= ConfigClient.calcPCount(3); i++) {
             Vec3 pos = getPosition(partialTicks);
             double x = pos.x + (double) level().getRandom().nextInt(-5, 6) / 10;
             double y = pos.y + (double) level().getRandom().nextInt(-5, 6) / 10;

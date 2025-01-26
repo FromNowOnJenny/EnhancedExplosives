@@ -1,7 +1,7 @@
 package com.jenny.enhancedexplosives;
 
+import com.jenny.enhancedexplosives.particles.ArrowParticle;
 import com.jenny.enhancedexplosives.particles.particles;
-import com.jenny.enhancedexplosives.particles.arrow.*;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
