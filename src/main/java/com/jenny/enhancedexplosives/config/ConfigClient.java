@@ -19,9 +19,9 @@ public class ConfigClient {
             BUILDER.comment("weather to spawn client-side particles for tnt")
                     .define("tntParticles", true);
 
-    private static final ForgeConfigSpec.ConfigValue<Float> C_PARTICLE_PERCENT =
+    private static final ForgeConfigSpec.ConfigValue<Double> C_PARTICLE_PERCENT =
             BUILDER.comment("amount of particles to spawn (0.0 = None, 1.0 = normal, values higher are valid too)")
-                    .define("arrowParticleCount", 1.0f);
+                    .define("arrowParticleCount", 1.0D);
 
     public static final ForgeConfigSpec SPEC = BUILDER.build();
 
@@ -33,7 +33,7 @@ public class ConfigClient {
     {
         arrowParticles = C_ARROW_PARTICLES.get();
         tntParticles = C_TNT_PARTICLES.get();
-        particlePercent = C_PARTICLE_PERCENT.get();
+        particlePercent = C_PARTICLE_PERCENT.get().floatValue();
     }
 
     public static int calcPCount(int pCount) {
