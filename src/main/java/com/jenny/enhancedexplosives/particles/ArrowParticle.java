@@ -18,7 +18,6 @@ public class ArrowParticle extends TextureSheetParticle {
         this.xd = xd;
         this.yd = yd;
         this.zd = zd;
-        this.quadSize *= 0.85F;
         this.quadSizeStart = this.quadSize;
         this.lifetime = 20;
         this.setSpriteFromAge(spriteSet);

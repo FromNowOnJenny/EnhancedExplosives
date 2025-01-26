@@ -24,9 +24,6 @@ public class tntArrow extends baseArrow {
     @Override
     public void tick() {
         super.tick();
-        if (level().isClientSide()) {
-            //spawnParticles();
-        }
         if (this.inGround) {
             this.level().explode(this, this.getX(), this.getY(), this.getZ(), 2, Level.ExplosionInteraction.TNT);
             this.discard();
@@ -47,11 +44,14 @@ public class tntArrow extends baseArrow {
     @Override
     public void spawnParticles(float partialTicks) {
         for (int i = 1; i <= ConfigClient.calcPCount(3); i++) {
-            Vec3 pos = getPosition(partialTicks);
-            double x = pos.x + (double) level().getRandom().nextInt(-5, 6) / 10;
-            double y = pos.y + (double) level().getRandom().nextInt(-5, 6) / 10;
-            double z = pos.z + (double) level().getRandom().nextInt(-5, 6) / 10;
-            level().addParticle(particles.TNT_ARROW_PARTICLE.get(), x, y, z, this.getDeltaMovement().x, this.getDeltaMovement().y, this.getDeltaMovement().z);
+            double m = (double) level().getRandom().nextIntBetweenInclusive(- 100, 100) / 100;
+            Vec3 DeltaMovement = getDeltaMovement();
+            Vec3 pos = new Vec3(
+                    (double) level().getRandom().nextIntBetweenInclusive(-5, 5) / 10,
+                    0,
+                    (double) level().getRandom().nextIntBetweenInclusive(-5, 5) / 10
+            ).normalize().multiply(m, m, m).add(getPosition(partialTicks));
+            level().addParticle(particles.TNT_ARROW_PARTICLE.get(), pos.x, pos.y, pos.z, DeltaMovement.x, DeltaMovement.y, DeltaMovement.z);
         }
     }
 }
