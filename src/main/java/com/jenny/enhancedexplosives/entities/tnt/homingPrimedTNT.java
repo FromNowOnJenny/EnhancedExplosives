@@ -96,10 +96,9 @@ public class homingPrimedTNT extends basePrimedTNT {
     }
 
     @Override
-    public void spawnParticles(float partialTicks) {
-        Vec3 pos = getPosition(partialTicks);
+    public void spawnParticles() {
         for (int i = 1; i <= ConfigClient.calcPCount(1); i++) {
-            level().addParticle(ParticleTypes.FLAME, pos.x, pos.y, pos.z, 0, 0, 0);
+            level().addParticle(ParticleTypes.FLAME, getX(), getY(), getZ(), 0, 0, 0);
         }
     }
 

@@ -1,5 +1,6 @@
 package com.jenny.enhancedexplosives.entities.tnt;
 
+import com.jenny.enhancedexplosives.config.ConfigClient;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -66,7 +67,9 @@ public abstract class basePrimedTNT extends Entity implements TraceableEntity {
 
     public void tick() {
         if (level().isClientSide) {
-            spawnParticles(0);
+            if (ConfigClient.tntParticles) {
+                spawnParticles();
+            }
         }
         if (!this.isNoGravity()) {
             this.setDeltaMovement(this.getDeltaMovement().add(0.0D, -0.04D, 0.0D));
@@ -87,9 +90,6 @@ public abstract class basePrimedTNT extends Entity implements TraceableEntity {
             }
         } else {
             this.updateInWaterStateAndDoFluidPushing();
-            if (this.level().isClientSide) {
-                this.level().addParticle(ParticleTypes.SMOKE, this.getX(), this.getY() + 0.5D, this.getZ(), 0.0D, 0.0D, 0.0D);
-            }
         }
     }
 
@@ -138,5 +138,7 @@ public abstract class basePrimedTNT extends Entity implements TraceableEntity {
         return this.fuse;
     }
 
-    public void spawnParticles(float partialTicks) {}
+    public void spawnParticles() {
+        level().addParticle(ParticleTypes.SMOKE, getX(), getY(), getZ(), 0, 0, 0);
+    }
 }

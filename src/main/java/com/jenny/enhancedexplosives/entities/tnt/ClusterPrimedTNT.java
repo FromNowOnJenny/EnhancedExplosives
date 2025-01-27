@@ -1,6 +1,5 @@
 package com.jenny.enhancedexplosives.entities.tnt;
 
-import com.jenny.enhancedexplosives.blocks.blocks;
 import com.jenny.enhancedexplosives.entities.entities;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
