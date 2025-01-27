@@ -65,6 +65,9 @@ public abstract class basePrimedTNT extends Entity implements TraceableEntity {
     }
 
     public void tick() {
+        if (level().isClientSide) {
+            spawnParticles(0);
+        }
         if (!this.isNoGravity()) {
             this.setDeltaMovement(this.getDeltaMovement().add(0.0D, -0.04D, 0.0D));
         }

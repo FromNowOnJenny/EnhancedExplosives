@@ -35,10 +35,6 @@ public class BaseTNTRenderer<T extends basePrimedTNT> extends EntityRenderer<T> 
             float f1 = 1.0F + f * 0.3F;
             pPoseStack.scale(f1, f1, f1);
         }
-        if (ConfigClient.tntParticles) {
-            pEntity.spawnParticles(pPartialTicks);
-        }
-        pEntity.spawnParticles(pPartialTicks);
         pPoseStack.mulPose(Axis.YP.rotationDegrees(-90.0F));
         pPoseStack.translate(-0.5F, -0.5F, 0.5F);
         pPoseStack.mulPose(Axis.YP.rotationDegrees(90.0F));

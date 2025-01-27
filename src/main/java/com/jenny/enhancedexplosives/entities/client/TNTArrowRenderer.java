@@ -17,7 +17,6 @@ import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.NotNull;
 
 public class TNTArrowRenderer extends EntityRenderer<baseArrow> {
-    private final boolean renderParticles = ConfigClient.arrowParticles;
     private final BlockRenderDispatcher blockRenderer;
 
     public TNTArrowRenderer(EntityRendererProvider.Context pContext) {
@@ -27,6 +26,7 @@ public class TNTArrowRenderer extends EntityRenderer<baseArrow> {
     }
 
     public void render(@NotNull baseArrow pEntity, float pEntityYaw, float pPartialTicks, PoseStack pPoseStack, @NotNull MultiBufferSource pBuffer, int pPackedLight) {
+
         pPoseStack.pushPose();
         pPoseStack.translate(0.0F, 0.5F, 0.0F);
         pPoseStack.scale(0.5f, 0.5f, 0.5f);
@@ -34,9 +34,6 @@ public class TNTArrowRenderer extends EntityRenderer<baseArrow> {
         pPoseStack.mulPose(Axis.YP.rotationDegrees(-90.0F));
         pPoseStack.translate(-0.5F, -0.5F, 0.5F);
         pPoseStack.mulPose(Axis.YP.rotationDegrees(90.0F));
-        if (renderParticles) {
-            pEntity.spawnParticles(pPartialTicks);
-        }
         TntMinecartRenderer.renderWhiteSolidBlock(this.blockRenderer, Blocks.TNT.defaultBlockState(), pPoseStack, pBuffer, pPackedLight, i / 5 % 2 == 0);
         pPoseStack.popPose();
         super.render(pEntity, pEntityYaw, pPartialTicks, pPoseStack, pBuffer, pPackedLight);

@@ -17,7 +17,7 @@ public class blocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, MODID);
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
 
-    public static final RegistryObject<strongerTNTBlock> TNT_8 = BLOCKS.register("tnt_8", () -> new strongerTNTBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE), 8.0f, 80));
+    public static final RegistryObject<Block> TNT_8 = BLOCKS.register("tnt_8", () -> new strongerTNTBlock(BlockBehaviour.Properties.of().mapColor(MapColor.STONE), 8.0f, 80));
     public static final RegistryObject<Item> TNT_8_ITEM = ITEMS.register("tnt_8", () -> new BlockItemTooltip(TNT_8.get(), new Item.Properties()));
 
     public static final RegistryObject<Block> TNT_16 = BLOCKS.register("tnt_16", () -> new strongerTNTBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED), 16.0f, 80));

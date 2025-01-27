@@ -1,8 +1,10 @@
 package com.jenny.enhancedexplosives.entities.tnt;
 
+import com.jenny.enhancedexplosives.blocks.blocks;
 import com.jenny.enhancedexplosives.entities.entities;
 import com.jenny.enhancedexplosives.config.ConfigClient;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -11,6 +13,7 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
@@ -94,8 +97,14 @@ public class homingPrimedTNT extends basePrimedTNT {
 
     @Override
     public void spawnParticles(float partialTicks) {
-        for (int i = 1; i <= ConfigClient.calcPCount(30); i++) {
-            level().addParticle(ParticleTypes.FALLING_OBSIDIAN_TEAR, getX(), getY(), getZ(), this.getDeltaMovement().x, this.getDeltaMovement().y, this.getDeltaMovement().z);
+        Vec3 pos = getPosition(partialTicks);
+        for (int i = 1; i <= ConfigClient.calcPCount(1); i++) {
+            level().addParticle(ParticleTypes.FLAME, pos.x, pos.y, pos.z, 0, 0, 0);
         }
+    }
+
+    @Override
+    public Block renderBlock() {
+        return blocks.TNT_HOMING.get();
     }
 }

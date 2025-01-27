@@ -104,7 +104,7 @@ public class baseArrow extends AbstractArrow {
                     this.makeParticle(1);
                 }
             } else {
-                this.makeParticle(2);
+                spawnParticles(0);
             }
             this.tick++;
         } else if (this.inGround && this.inGroundTime != 0 && !this.effects.isEmpty() && this.inGroundTime >= 600) {

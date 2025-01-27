@@ -21,13 +21,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        sideTopBottom(blocks.TNT_8.get());
-        sideTopBottom(blocks.TNT_16.get());
-        sideTopBottom(blocks.TNT_32.get());
-        sideTopBottom(blocks.TNT_64.get());
-        sideTopBottom(blocks.TNT_128.get());
-        sideTopBottom(blocks.TNT_ENDER.get());
-        sideTopBottom(blocks.TNT_CLAYMORE.get());
+        sideTopBottom(blocks.TNT_8);
+        sideTopBottom(blocks.TNT_16);
+        sideTopBottom(blocks.TNT_32);
+        sideTopBottom(blocks.TNT_64);
+        sideTopBottom(blocks.TNT_128);
+        sideTopBottom(blocks.TNT_ENDER);
+        sideTopBottom(blocks.TNT_CLAYMORE);
+        sideTopBottom(blocks.TNT_HOMING);
         blockWithItem(blocks.TNT_BLACK_HOLE);
     }
 
@@ -60,7 +61,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         return new ResourceLocation(rl.getNamespace(), rl.getPath() + suffix);
     }
 
-    public void sideTopBottom(Block block) {
+    public void sideTopBottom(RegistryObject<Block> blockRegistryObject) {
+        Block block = blockRegistryObject.get();
         ModelFile model = models().cubeBottomTop(name(block), extend(blockTexture(block), "_side"), extend(blockTexture(block), "_bottom"), extend(blockTexture(block), "_top"));
         this.getVariantBuilder(block).forAllStates(blockState -> ConfiguredModel.builder().modelFile(model).build());
         simpleBlockItem(block, model);
