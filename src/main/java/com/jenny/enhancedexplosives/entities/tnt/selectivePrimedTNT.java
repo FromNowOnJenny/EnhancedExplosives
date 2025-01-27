@@ -45,4 +45,9 @@ public class selectivePrimedTNT extends basePrimedTNT {
     public String getBlock() {
         return level().getBlockState(new BlockPos((int) getX(), (int) getY() - 1, (int) getZ())).getBlock().toString();
     }
+
+    @Override
+    public Block renderBlock() {
+        return level().getBlockState(new BlockPos((int) getX(), (int) getY() - 1, (int) getZ())).getBlock();
+    }
  }
