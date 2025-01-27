@@ -26,5 +26,7 @@ public class eventBusEvents {
                 ArrowParticle.Provider::new);
         Minecraft.getInstance().particleEngine.register(particles.CARPET_ARROW_PARTICLE.get(),
                 ArrowParticle.Provider::new);
+        Minecraft.getInstance().particleEngine.register(particles.TUNNEL_ARROW_PARTICLE.get(),
+                ArrowParticle.Provider::new);
     }
 }

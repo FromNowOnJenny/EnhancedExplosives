@@ -32,6 +32,7 @@ public class creativeTab {
         output.accept(items.TNT_ARROW.get());
         output.accept(items.CONCUSSIVE_ARROW.get());
         output.accept(items.CARPET_ARROW.get());
+        output.accept(items.TUNNEL_ARROW.get());
         output.accept(items.DYNAMITE.get());
     }).title(Component.literal("Enhanced Explosives")).build());
 

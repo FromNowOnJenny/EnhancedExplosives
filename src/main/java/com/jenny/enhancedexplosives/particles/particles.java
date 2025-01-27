@@ -18,6 +18,8 @@ public class particles {
             PARTICLES.register("particle_tnt_arrow", () -> new SimpleParticleType(true));
     public static final RegistryObject<SimpleParticleType> CARPET_ARROW_PARTICLE =
             PARTICLES.register("particle_carpet_arrow", () -> new SimpleParticleType(true));
+    public static final RegistryObject<SimpleParticleType> TUNNEL_ARROW_PARTICLE =
+            PARTICLES.register("particle_tunnel_arrow", () -> new SimpleParticleType(true));
 
     public static void register(IEventBus bus) {
         PARTICLES.register(bus);

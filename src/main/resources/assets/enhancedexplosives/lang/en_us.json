@@ -13,11 +13,6 @@
   "block.enhancedexplosives.tnt_selective": "Selective TNT",
   "block.enhancedexplosives.tnt_ender": "Ender TNT",
 
-  "item.enhancedexplosives.arrow_tnt": "TNT Arrow",
-  "item.enhancedexplosives.arrow_concussive": "Concussive Arrow",
-  "item.enhancedexplosives.arrow_carpet": "Carpet Bombing Arrow",
-  "item.enhancedexplosives.dynamite": "Dynamite",
-
   "tooltip.enhancedexplosives.tnt_cluster_2": "splits into 2 small TNTs",
   "tooltip.enhancedexplosives.tnt_cluster_4": "splits into 4 small TNTs",
   "tooltip.enhancedexplosives.tnt_cluster_8": "splits into 8 small TNTs",
@@ -27,8 +22,15 @@
   "tooltip.enhancedexplosives.tnt_selective": "only destroys the type of block it explodes on",
   "tooltip.enhancedexplosives.tnt_ender": "teleports in a 16 block radius upon priming",
 
+  "item.enhancedexplosives.arrow_tnt": "TNT Arrow",
+  "item.enhancedexplosives.arrow_concussive": "Concussive Arrow",
+  "item.enhancedexplosives.arrow_carpet": "Carpet Bombing Arrow",
+  "item.enhancedexplosives.arrow_tunnel": "Tunnel Arrow",
+  "item.enhancedexplosives.dynamite": "Dynamite",
+
   "tooltip.enhancedexplosives.arrow_tnt": "explodes on impact",
   "tooltip.enhancedexplosives.arrow_concussive": "explodes on impact without block damage",
   "tooltip.enhancedexplosives.arrow_carpet": "splits into multiple TNT arrows when it starts falling",
+  "tooltip.enhancedexplosives.arrow_tunnel": "explodes along the direction it is looking at",
   "tooltip.enhancedexplosives.dynamite": "TNT, but throwable"
 }

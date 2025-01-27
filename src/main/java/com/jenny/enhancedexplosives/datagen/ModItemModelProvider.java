@@ -22,6 +22,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(items.TNT_ARROW);
         simpleItem(items.CONCUSSIVE_ARROW);
         simpleItem(items.CARPET_ARROW);
+        simpleItem(items.TUNNEL_ARROW);
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {

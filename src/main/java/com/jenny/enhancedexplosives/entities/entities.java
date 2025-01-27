@@ -71,6 +71,10 @@ public class entities {
             ENTITY_TYPES.register("dynamite", () -> EntityType.Builder.<dynamite>of(dynamite::new, MobCategory.MISC)
                     .sized(0.48F, 0.48F).clientTrackingRange(64).build("dynamite"));
 
+    public static final RegistryObject<EntityType<tunnelArrow>> ARROW_TUNNEL =
+            ENTITY_TYPES.register("arrow_tunnel", () -> EntityType.Builder.<tunnelArrow>of(tunnelArrow::new, MobCategory.MISC)
+                    .sized(0.48F, 0.48F).clientTrackingRange(64).build("arrow_tunnel"));
+
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
     }
@@ -90,6 +94,7 @@ public class entities {
         EntityRenderers.register(ARROW_CONCUSSIVE.get(), TNTArrowRenderer::new);
         EntityRenderers.register(ARROW_CARPET.get(), TNTArrowRenderer::new);
         EntityRenderers.register(ARROW_CARPT_PART.get(), TNTArrowRenderer::new);
+        EntityRenderers.register(ARROW_TUNNEL.get(), TNTArrowRenderer::new);
         EntityRenderers.register(ARROW_CLAYMORE.get(), baseArrowRenderer::new);
     }
 }
