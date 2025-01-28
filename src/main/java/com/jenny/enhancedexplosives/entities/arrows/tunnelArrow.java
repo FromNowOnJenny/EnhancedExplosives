@@ -11,8 +11,9 @@ import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
 public class tunnelArrow extends baseArrow{
-    public static int explosionCount = 16;
-    public static int spacing = 2;
+    protected static int explosionCount = 12;
+    protected static int spacing = 2;
+    protected static float power = 8;
 
     public tunnelArrow(EntityType<tunnelArrow> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
@@ -34,14 +35,17 @@ public class tunnelArrow extends baseArrow{
     @Override
     protected void doPostHurtEffects(@NotNull LivingEntity pTarget) {
         explode();
-        this.discard();
+        discard();
     }
 
     protected void explode() {
+        sync();
         Vec3 rot = getTargetVec( - getXRot(), - getYRot(), 0);
         for (int i = 0; i < explosionCount; i++) {
             Vec3 pos = position().add(rot.multiply(i * spacing, i * spacing, i * spacing));
-            this.level().explode(this, pos.x, pos.y, pos.z, 8.0f, Level.ExplosionInteraction.TNT);
+            System.out.println(level().isClientSide + "|" + i + "|" + pos + "|" + getXRot() + "|" + getYRot());
+            level().explode(this, pos.x, pos.y, pos.z,
+                    power, Level.ExplosionInteraction.TNT);
         }
     }
 
@@ -63,6 +67,14 @@ public class tunnelArrow extends baseArrow{
                     (double) level().getRandom().nextIntBetweenInclusive(-5, 5) / 10
             ).normalize().multiply(m, m, m).add(getPosition(partialTicks));
             level().addParticle(particles.TUNNEL_ARROW_PARTICLE.get(), pos.x, pos.y, pos.z, DeltaMovement.x, DeltaMovement.y, DeltaMovement.z);
+        }
+    }
+
+    public void sync() {
+        if (!level().isClientSide) {
+            setPos(position());
+            setRot(getYRot(), getXRot());
+            setDeltaMovement(getDeltaMovement());
         }
     }
 }
