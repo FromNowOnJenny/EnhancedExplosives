@@ -27,19 +27,23 @@ public class tunnelArrow extends baseArrow{
     public void tick() {
         super.tick();
         if (inGround) {
-            explode();
+            if (!level().isClientSide) {
+                explode();
+            }
             discard();
         }
     }
 
     @Override
     protected void doPostHurtEffects(@NotNull LivingEntity pTarget) {
-        explode();
+        if (!level().isClientSide) {
+            explode();
+        }
         discard();
     }
 
     protected void explode() {
-        sync();
+        // sync();
         Vec3 rot = getTargetVec( - getXRot(), - getYRot(), 0);
         for (int i = 0; i < explosionCount; i++) {
             Vec3 pos = position().add(rot.multiply(i * spacing, i * spacing, i * spacing));
@@ -67,14 +71,6 @@ public class tunnelArrow extends baseArrow{
                     (double) level().getRandom().nextIntBetweenInclusive(-5, 5) / 10
             ).normalize().multiply(m, m, m).add(getPosition(partialTicks));
             level().addParticle(particles.TUNNEL_ARROW_PARTICLE.get(), pos.x, pos.y, pos.z, DeltaMovement.x, DeltaMovement.y, DeltaMovement.z);
-        }
-    }
-
-    public void sync() {
-        if (!level().isClientSide) {
-            setPos(position());
-            setRot(getYRot(), getXRot());
-            setDeltaMovement(getDeltaMovement());
         }
     }
 }
