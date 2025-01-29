@@ -29,7 +29,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         sideTopBottom(blocks.TNT_ENDER);
         sideTopBottom(blocks.TNT_CLAYMORE);
         sideTopBottom(blocks.TNT_HOMING);
-        blockWithItem(blocks.TNT_BLACK_HOLE);
+        SideTop(blocks.TNT_BLACK_HOLE);
         clusterTNT(blocks.TNT_CLUSTER_2);
         clusterTNT(blocks.TNT_CLUSTER_4);
         clusterTNT(blocks.TNT_CLUSTER_8);
@@ -87,6 +87,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     public ModelFile topSide(Block block) {
-        return models().cubeColumn(name(block), extend(blockTexture(block), ""), extend(blockTexture(block), "_top"));
+        return models().cubeColumn(name(block), extend(blockTexture(block), "_side"), extend(blockTexture(block), "_top"));
     }
 }
