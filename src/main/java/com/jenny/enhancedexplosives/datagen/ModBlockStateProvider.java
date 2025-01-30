@@ -28,12 +28,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
         sideTopBottom(blocks.TNT_128);
         sideTopBottom(blocks.TNT_ENDER);
         sideTopBottom(blocks.TNT_CLAYMORE);
-        sideTopBottom(blocks.TNT_HOMING);
         SideTop(blocks.TNT_BLACK_HOLE);
         SideOnlyTNT(blocks.TNT_CLUSTER_2);
         SideOnlyTNT(blocks.TNT_CLUSTER_4);
         SideOnlyTNT(blocks.TNT_CLUSTER_8);
         SideOnlyTNT(blocks.TNT_SELECTIVE);
+        SideOnlyTNT(blocks.TNT_HOMING);
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
