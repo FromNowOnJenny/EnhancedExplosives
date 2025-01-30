@@ -1,5 +1,6 @@
 package com.jenny.enhancedexplosives.entities.tnt;
 
+import com.jenny.enhancedexplosives.blocks.blocks;
 import com.jenny.enhancedexplosives.entities.entities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EntityType;
@@ -9,7 +10,6 @@ import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.ExplosionDamageCalculator;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
@@ -43,11 +43,15 @@ public class selectivePrimedTNT extends basePrimedTNT {
     }
 
     public String getBlock() {
-        return renderBlock().toString();
+        return renderBlockBeneath().toString();
     }
 
     @Override
     public Block renderBlock() {
+        return blocks.TNT_SELECTIVE.get();
+    }
+
+    public Block renderBlockBeneath() {
         return level().getBlockState(new BlockPos((int) Math.floor(getX()), (int) Math.floor(getY()) - 1, (int) Math.floor(getZ()))).getBlock();
     }
  }

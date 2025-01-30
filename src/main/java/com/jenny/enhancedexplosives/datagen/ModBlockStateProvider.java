@@ -30,9 +30,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
         sideTopBottom(blocks.TNT_CLAYMORE);
         sideTopBottom(blocks.TNT_HOMING);
         SideTop(blocks.TNT_BLACK_HOLE);
-        clusterTNT(blocks.TNT_CLUSTER_2);
-        clusterTNT(blocks.TNT_CLUSTER_4);
-        clusterTNT(blocks.TNT_CLUSTER_8);
+        SideOnlyTNT(blocks.TNT_CLUSTER_2);
+        SideOnlyTNT(blocks.TNT_CLUSTER_4);
+        SideOnlyTNT(blocks.TNT_CLUSTER_8);
+        SideOnlyTNT(blocks.TNT_SELECTIVE);
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
@@ -71,7 +72,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlockItem(block, model);
     }
 
-    public void clusterTNT(RegistryObject<Block> blockRegistryObject) {
+    public void SideOnlyTNT(RegistryObject<Block> blockRegistryObject) {
         Block block = blockRegistryObject.get();
         ModelFile model = models().cubeBottomTop(name(block), extend(blockTexture(block), "_side"), extend(blockTexture(Blocks.TNT), "_bottom"), extend(blockTexture(Blocks.TNT), "_top"));
         this.getVariantBuilder(block).forAllStates(blockState -> ConfiguredModel.builder().modelFile(model).build());

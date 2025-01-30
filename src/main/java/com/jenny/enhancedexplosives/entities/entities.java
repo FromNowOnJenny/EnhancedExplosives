@@ -84,8 +84,8 @@ public class entities {
         EntityRenderers.register(TNT_HOMING.get(), BaseTNTRenderer::new);
         EntityRenderers.register(TNT_BLACK_HOLE.get(), BaseTNTRenderer::new);
         EntityRenderers.register(TNT_CLAYMORE.get(), BaseTNTRenderer::new);
-        EntityRenderers.register(TNT_SELECTIVE.get(), BaseTNTRenderer::new);
         EntityRenderers.register(TNT_ENDER.get(), BaseTNTRenderer::new);
+        EntityRenderers.register(TNT_SELECTIVE.get(), SelectiveTNTRenderer::new);
 
         EntityRenderers.register(TNT_CLUSTER.get(), clusterTNTRenderer::new);
         EntityRenderers.register(DYNAMITE.get(), clusterTNTRenderer::new);
