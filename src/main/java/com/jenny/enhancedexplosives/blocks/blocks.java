@@ -56,6 +56,9 @@ public class blocks {
     public static final RegistryObject<Block> TNT_ENDER = BLOCKS.register("tnt_ender", () -> new enderTNTBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED), 4.0f, 80));
     public static final RegistryObject<Item> TNT_ENDER_ITEM = ITEMS.register("tnt_ender", () -> new BlockItemTooltip(TNT_ENDER.get(), new Item.Properties()));
 
+    public static final RegistryObject<Block> TNT_REPULSIVE = BLOCKS.register("tnt_repulsive", () -> new repulsiveTNTBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED), 4.0f, 80, 1));
+    public static final RegistryObject<Item> TNT_REPULSIVE_ITEM = ITEMS.register("tnt_repulsive", () -> new BlockItemTooltip(TNT_REPULSIVE.get(), new Item.Properties()));
+
 
     public static void register(IEventBus bus) {
         BLOCKS.register(bus);

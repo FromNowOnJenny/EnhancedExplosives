@@ -26,6 +26,7 @@ public class creativeTab {
         output.accept(blocks.TNT_CLUSTER_8.get());
         output.accept(blocks.TNT_HOMING.get());
         output.accept(blocks.TNT_BLACK_HOLE.get());
+        output.accept(blocks.TNT_REPULSIVE.get());
         output.accept(blocks.TNT_CLAYMORE.get());
         output.accept(blocks.TNT_SELECTIVE.get());
         output.accept(blocks.TNT_ENDER.get());

@@ -12,6 +12,7 @@
   "block.enhancedexplosives.tnt_claymore": "Claymore TNT",
   "block.enhancedexplosives.tnt_selective": "Selective TNT",
   "block.enhancedexplosives.tnt_ender": "Ender TNT",
+  "block.enhancedexplosives.tnt_repulsive": "Repulsive TNT",
 
   "tooltip.enhancedexplosives.tnt_cluster_2": "splits into 2 small TNTs",
   "tooltip.enhancedexplosives.tnt_cluster_4": "splits into 4 small TNTs",
@@ -21,6 +22,7 @@
   "tooltip.enhancedexplosives.tnt_claymore": "throws arrows into all direcctions upon explosion",
   "tooltip.enhancedexplosives.tnt_selective": "only destroys the type of block it explodes on",
   "tooltip.enhancedexplosives.tnt_ender": "teleports in a 16 block radius upon priming",
+  "tooltip.enhancedexplosives.tnt_repulsive": "repels all close entities",
 
   "item.enhancedexplosives.arrow_tnt": "TNT Arrow",
   "item.enhancedexplosives.arrow_concussive": "Concussive Arrow",
