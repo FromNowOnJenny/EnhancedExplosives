@@ -32,7 +32,7 @@
 
   "tooltip.enhancedexplosives.arrow_tnt": "explodes on impact",
   "tooltip.enhancedexplosives.arrow_concussive": "explodes on impact without block damage",
-  "tooltip.enhancedexplosives.arrow_carpet": "splits into multiple TNT arrows when it starts falling",
+  "tooltip.enhancedexplosives.arrow_carpet": "splits into multiple concussive arrows when it starts falling",
   "tooltip.enhancedexplosives.arrow_tunnel": "explodes along the direction it is looking at",
   "tooltip.enhancedexplosives.dynamite": "TNT, but throwable"
 }

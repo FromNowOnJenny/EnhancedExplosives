@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "combat",
+  "ingredients":[
+    {
+      "item": "enhancedexplosives:arrow_tnt"
+    },
+    {
+      "item": "enhancedexplosives:arrow_tnt"
+    },
+    {
+      "item": "enhancedexplosives:arrow_tnt"
+    },
+    {
+      "item": "enhancedexplosives:arrow_tnt"
+    },
+    {
+      "item": "enhancedexplosives:arrow_tnt"
+    },
+    {
+      "item": "enhancedexplosives:arrow_tnt"
+    },
+    {
+      "item": "enhancedexplosives:arrow_tnt"
+    },
+    {
+      "item": "enhancedexplosives:arrow_tnt"
+    },
+    {
+      "item": "enhancedexplosives:arrow_tnt"
+    }
+  ],
+  "result": {
+    "item": "enhancedexplosives:arrow_tunnel"
+  }
+}

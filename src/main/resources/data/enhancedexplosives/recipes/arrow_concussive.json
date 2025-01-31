@@ -1,6 +1,6 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "redstone",
+  "category": "combat",
   "ingredients":[
     {
       "item": "enhancedexplosives:arrow_tnt"
@@ -10,6 +10,6 @@
     }
   ],
   "result": {
-    "item": "enhancedexplosives:arrow_tnt"
+    "item": "enhancedexplosives:arrow_concussive"
   }
 }

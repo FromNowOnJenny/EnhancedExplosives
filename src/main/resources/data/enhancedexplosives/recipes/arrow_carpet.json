@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "combat",
+  "ingredients":[
+    {
+      "item": "enhancedexplosives:arrow_concussive"
+    },
+    {
+      "item": "enhancedexplosives:arrow_concussive"
+    },
+    {
+      "item": "enhancedexplosives:arrow_concussive"
+    },
+    {
+      "item": "enhancedexplosives:arrow_concussive"
+    },
+    {
+      "item": "enhancedexplosives:arrow_concussive"
+    },
+    {
+      "item": "enhancedexplosives:arrow_concussive"
+    },
+    {
+      "item": "enhancedexplosives:arrow_concussive"
+    },
+    {
+      "item": "enhancedexplosives:arrow_concussive"
+    },
+    {
+      "item": "enhancedexplosives:arrow_concussive"
+    }
+  ],
+  "result": {
+    "item": "enhancedexplosives:arrow_carpet"
+  }
+}

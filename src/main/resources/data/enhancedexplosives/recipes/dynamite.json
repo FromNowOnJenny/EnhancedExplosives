@@ -3,13 +3,10 @@
   "category": "combat",
   "ingredients":[
     {
-      "item": "minecraft:arrow"
-    },
-    {
       "item": "minecraft:tnt"
     }
   ],
   "result": {
-    "item": "enhancedexplosives:arrow_tnt"
+    "item": "enhancedexplosives:dynamite"
   }
 }
