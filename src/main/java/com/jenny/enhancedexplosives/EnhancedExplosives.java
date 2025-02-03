@@ -1,6 +1,7 @@
 package com.jenny.enhancedexplosives;
 
 import com.jenny.enhancedexplosives.blocks.blocks;
+import com.jenny.enhancedexplosives.config.ConfigCommon;
 import com.jenny.enhancedexplosives.particles.particles;
 import com.jenny.enhancedexplosives.config.ConfigClient;
 import com.jenny.enhancedexplosives.entities.entities;
@@ -39,11 +40,10 @@ public class EnhancedExplosives {
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
-        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ConfigClient.SPEC);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigCommon.SPEC);
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
@@ -58,6 +58,7 @@ public class EnhancedExplosives {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+            ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ConfigClient.SPEC);
             entities.registerRenderers();
         }
     }
