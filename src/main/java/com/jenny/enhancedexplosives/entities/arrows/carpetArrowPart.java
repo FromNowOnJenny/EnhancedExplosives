@@ -4,6 +4,9 @@ import com.jenny.enhancedexplosives.config.ConfigClient;
 import com.jenny.enhancedexplosives.entities.entities;
 import com.jenny.enhancedexplosives.items.items;
 import com.jenny.enhancedexplosives.particles.particles;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageType;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -17,22 +20,32 @@ public class carpetArrowPart extends baseArrow {
     }
 
     public carpetArrowPart(Level pLevel, LivingEntity pShooter) {
-        super(pLevel, pShooter, entities.ARROW_CARPT_PART.get());
+        super(pLevel, pShooter, entities.ARROW_CARPET_PART.get());
     }
 
     @Override
     public void tick() {
         super.tick();
-        if (this.inGround) {
-            this.level().explode(this, getX(), getY(), getZ(), 8.0f, Level.ExplosionInteraction.NONE);
-            this.discard();
+        if (this.inGround || this.hurtMarked) {
+            explode();
         }
     }
 
     @Override
     protected void doPostHurtEffects(@NotNull LivingEntity pTarget) {
-        this.level().explode(this, getX(), getY(), getZ(), 8.0f, Level.ExplosionInteraction.NONE);
-        this.discard();
+        explode();
+    }
+
+    public void explode() {
+        if (!level().isClientSide) {
+            level().explode(this, getX(), getY(), getZ(), 8.0f, Level.ExplosionInteraction.NONE);
+        }
+        discard();
+    }
+
+    @Override
+    public boolean hurt(@NotNull DamageSource pSource, float pAmount) {
+        return super.hurt(pSource, pAmount) || pSource.is(DamageTypes.EXPLOSION);
     }
 
     @NotNull

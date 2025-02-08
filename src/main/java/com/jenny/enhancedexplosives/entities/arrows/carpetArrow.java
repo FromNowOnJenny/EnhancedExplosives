@@ -35,7 +35,7 @@ public class carpetArrow extends baseArrow {
     protected void spawnChildren(int count) {
         RandomSource rng = level().getRandom();
         for (int i = 0; i < count; i++) {
-            carpetArrowPart arrow = new carpetArrowPart(entities.ARROW_CARPT_PART.get(), level());
+            carpetArrowPart arrow = new carpetArrowPart(entities.ARROW_CARPET_PART.get(), level());
             double r = (double) rng.nextIntBetweenInclusive(-100, 100) / 200;
             Vec3 move = new Vec3(
                     (double) rng.nextIntBetweenInclusive(-100, 100) / 100,

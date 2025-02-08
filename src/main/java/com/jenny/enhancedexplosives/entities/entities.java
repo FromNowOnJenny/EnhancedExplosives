@@ -67,7 +67,7 @@ public class entities {
             ENTITY_TYPES.register("arrow_claymore", () -> EntityType.Builder.<claymoreArrow>of(claymoreArrow::new, MobCategory.MISC)
                     .sized(0.48F, 0.48F).clientTrackingRange(64).build("arrow_claymore"));
 
-    public static final RegistryObject<EntityType<carpetArrowPart>> ARROW_CARPT_PART =
+    public static final RegistryObject<EntityType<carpetArrowPart>> ARROW_CARPET_PART =
             ENTITY_TYPES.register("arrow_carpet_part", () -> EntityType.Builder.<carpetArrowPart>of(carpetArrowPart::new, MobCategory.MISC)
                     .sized(0.48F, 0.48F).clientTrackingRange(64).build("arrow_carpet_part"));
 
@@ -99,7 +99,7 @@ public class entities {
         EntityRenderers.register(ARROW_TNT.get(), TNTArrowRenderer::new);
         EntityRenderers.register(ARROW_CONCUSSIVE.get(), TNTArrowRenderer::new);
         EntityRenderers.register(ARROW_CARPET.get(), TNTArrowRenderer::new);
-        EntityRenderers.register(ARROW_CARPT_PART.get(), TNTArrowRenderer::new);
+        EntityRenderers.register(ARROW_CARPET_PART.get(), TNTArrowRenderer::new);
         EntityRenderers.register(ARROW_TUNNEL.get(), TNTArrowRenderer::new);
 
         EntityRenderers.register(ARROW_CLAYMORE.get(), baseArrowRenderer::new);
