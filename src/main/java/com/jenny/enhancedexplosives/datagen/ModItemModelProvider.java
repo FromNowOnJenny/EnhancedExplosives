@@ -1,11 +1,9 @@
 package com.jenny.enhancedexplosives.datagen;
 
 import com.jenny.enhancedexplosives.items.items;
-
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
@@ -25,8 +23,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(items.TUNNEL_ARROW);
     }
 
-    private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
-        return withExistingParent(item.getId().getPath(),
+    private void simpleItem(RegistryObject<Item> item) {
+        withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(MODID,"item/" + item.getId().getPath()));
     }

@@ -11,9 +11,9 @@ import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
 public class tunnelArrow extends baseArrow{
-    protected static int explosionCount = 12;
-    protected static int spacing = 2;
-    protected static float power = 8;
+    protected static final int explosionCount = 12;
+    protected static final int spacing = 2;
+    protected static final float power = 8;
 
     public tunnelArrow(EntityType<tunnelArrow> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);

@@ -1,11 +1,11 @@
 package com.jenny.enhancedexplosives;
 
 import com.jenny.enhancedexplosives.blocks.blocks;
-import com.jenny.enhancedexplosives.config.ConfigCommon;
-import com.jenny.enhancedexplosives.particles.particles;
 import com.jenny.enhancedexplosives.config.ConfigClient;
+import com.jenny.enhancedexplosives.config.ConfigCommon;
 import com.jenny.enhancedexplosives.entities.entities;
 import com.jenny.enhancedexplosives.items.items;
+import com.jenny.enhancedexplosives.particles.particles;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -27,6 +27,7 @@ public class EnhancedExplosives {
     public static final String MODID = "enhancedexplosives";
     private static final Logger LOGGER = LogUtils.getLogger();
 
+    @SuppressWarnings("removal")
     public EnhancedExplosives() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
@@ -58,6 +59,7 @@ public class EnhancedExplosives {
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
 
+        @SuppressWarnings("removal")
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ConfigClient.SPEC);

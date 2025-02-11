@@ -34,8 +34,7 @@ public class repulsivePrimedTNT extends basePrimedTNT {
         double dist = getTargetDist(target);
         float speed = getSpeed();
         Vec3 mult = new Vec3(speed / dist, speed / dist, speed / dist);
-        Vec3 ret = target.position().subtract(this.position()).normalize().multiply(mult);
-        return ret;
+        return target.position().subtract(this.position()).normalize().multiply(mult);
     }
 
     public double getTargetDist(Entity target) {
