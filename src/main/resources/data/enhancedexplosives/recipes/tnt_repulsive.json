@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients":[
+    {
+      "item": "minecraft:tnt"
+    },
+    {
+      "item": "minecraft:piston"
+    }
+  ],
+  "result": {
+    "item": "enhancedexplosives:tnt_black_hole"
+  }
+}

@@ -19,7 +19,7 @@ import static com.jenny.enhancedexplosives.EnhancedExplosives.MODID;
 
 public class creativeTab {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
-    public static final RegistryObject<CreativeModeTab> CREATIVE_TAB = CREATIVE_MODE_TABS.register("enhancedexplosives", () -> CreativeModeTab.builder().withTabsBefore(CreativeModeTabs.COMBAT).icon(() -> blocks.TNT_8_ITEM.get().getDefaultInstance()).displayItems((parameters, output) -> {
+    public static final RegistryObject<CreativeModeTab> CREATIVE_TAB = CREATIVE_MODE_TABS.register("enhancedexplosives", () -> CreativeModeTab.builder().withTabsBefore(CreativeModeTabs.SPAWN_EGGS).icon(() -> blocks.TNT_8_ITEM.get().getDefaultInstance()).displayItems((parameters, output) -> {
         output.acceptAll(Arrays.stream(getBlocks()).toList());
         output.acceptAll(Arrays.stream(getItems()).toList());
     }).title(Component.literal("Enhanced Explosives")).build());

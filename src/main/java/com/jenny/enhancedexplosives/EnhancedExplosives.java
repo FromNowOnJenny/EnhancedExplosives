@@ -40,10 +40,12 @@ public class EnhancedExplosives {
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ConfigClient.SPEC, "EnhancedExplosives-client.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigCommon.SPEC, "EnhancedExplosives-common.toml");
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigCommon.SPEC);
+        items.registerDispenser();
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
