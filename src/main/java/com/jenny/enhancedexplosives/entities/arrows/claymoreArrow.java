@@ -1,5 +1,6 @@
 package com.jenny.enhancedexplosives.entities.arrows;
 
+import com.jenny.enhancedexplosives.config.ConfigServer;
 import com.jenny.enhancedexplosives.entities.entities;
 import com.jenny.enhancedexplosives.items.items;
 import net.minecraft.world.entity.EntityType;
@@ -9,7 +10,7 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
 public class claymoreArrow extends baseArrow{
-    private final int r = level().isClientSide ? 0 : level().getRandom().nextInt(0, 20);
+    private final int r = level().isClientSide ? 0 : (ConfigServer.claymoreInstantDespawn.get() ? -20 : level().getRandom().nextInt(0, 20));
     
     public claymoreArrow(EntityType<claymoreArrow> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);

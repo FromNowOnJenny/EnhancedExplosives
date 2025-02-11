@@ -2,7 +2,7 @@ package com.jenny.enhancedexplosives;
 
 import com.jenny.enhancedexplosives.blocks.blocks;
 import com.jenny.enhancedexplosives.config.ConfigClient;
-import com.jenny.enhancedexplosives.config.ConfigCommon;
+import com.jenny.enhancedexplosives.config.ConfigServer;
 import com.jenny.enhancedexplosives.entities.entities;
 import com.jenny.enhancedexplosives.items.items;
 import com.jenny.enhancedexplosives.particles.particles;
@@ -41,8 +41,8 @@ public class EnhancedExplosives {
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
-        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ConfigClient.SPEC, "EnhancedExplosives-client.toml");
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigCommon.SPEC, "EnhancedExplosives-common.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ConfigClient.SPEC, "enhancedexplosives-client.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigServer.SPEC, "enhancedexplosives-server.toml");
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -59,10 +59,8 @@ public class EnhancedExplosives {
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
 
-        @SuppressWarnings("removal")
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ConfigClient.SPEC);
             entities.registerRenderers();
         }
     }

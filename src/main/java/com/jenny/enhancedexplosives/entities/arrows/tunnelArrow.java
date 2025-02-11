@@ -43,11 +43,9 @@ public class tunnelArrow extends baseArrow{
     }
 
     protected void explode() {
-        // sync();
         Vec3 rot = getTargetVec( - getXRot(), - getYRot(), 0);
         for (int i = 0; i < explosionCount; i++) {
             Vec3 pos = position().add(rot.multiply(i * spacing, i * spacing, i * spacing));
-            System.out.println(level().isClientSide + "|" + i + "|" + pos + "|" + getXRot() + "|" + getYRot());
             level().explode(this, pos.x, pos.y, pos.z,
                     power, Level.ExplosionInteraction.TNT);
         }

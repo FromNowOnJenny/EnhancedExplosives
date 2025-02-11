@@ -1,23 +1,25 @@
 package com.jenny.enhancedexplosives.entities.tnt;
 
 import com.jenny.enhancedexplosives.blocks.blocks;
-import com.jenny.enhancedexplosives.entities.entities;
 import com.jenny.enhancedexplosives.config.ConfigClient;
-
-import net.minecraft.core.BlockPos;
+import com.jenny.enhancedexplosives.config.ConfigServer;
+import com.jenny.enhancedexplosives.entities.entities;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.world.entity.*;
-import net.minecraft.world.entity.ai.targeting.TargetingConditions;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class homingPrimedTNT extends basePrimedTNT {
     private static final EntityDataAccessor<Float> DATA_SPEED_ID = SynchedEntityData.defineId(homingPrimedTNT.class, EntityDataSerializers.FLOAT);
@@ -51,10 +53,34 @@ public class homingPrimedTNT extends basePrimedTNT {
     }
 
     public void findTarget() {
+        target = closestEntity(getEntities());
+    }
+
+    private LivingEntity closestEntity(List<LivingEntity> entities) {
+        double dist = Double.MAX_VALUE;
+        LivingEntity target = null;
+        for (LivingEntity e : entities) {
+            double newDist = e.position().distanceTo(position());
+            if (newDist < dist) {
+                target = e;
+                dist = newDist;
+            }
+        }
+        return target;
+    }
+
+    protected List<LivingEntity> getEntities() {
+        List<LivingEntity> ret_list = new ArrayList<>();
         Vec3 corner1 = this.position().subtract(15, 15, 15);
         Vec3 corner2 = this.position().add(15, 15, 15);
         AABB boundingBox = new AABB(corner1, corner2);
-        target = this.level().getNearestEntity(LivingEntity.class, TargetingConditions.forNonCombat(), null, this.getX(), this.getY(), this.getZ(), boundingBox);
+
+        for (LivingEntity entity : level().getEntitiesOfClass(LivingEntity.class, boundingBox)) {
+            if (level().getPlayerByUUID(entity.getUUID()) == null || ConfigServer.homingAtPlayers.get()) { // prevent aiming at player if config says so
+                ret_list.add(entity);
+            }
+        }
+        return ret_list;
     }
 
     @Override

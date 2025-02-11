@@ -15,11 +15,11 @@ public class baseArrow extends AbstractArrow {
         super(pEntityType, pLevel);
     }
 
-    public baseArrow(Level pLevel, double pX, double pY, double pZ, EntityType<? extends baseArrow> pEntityType) {
-        super(pEntityType, pX, pY, pZ, pLevel);
+    public baseArrow(Level pLevel, LivingEntity pShooter, EntityType<? extends baseArrow> pEntityType) {
+        super(pEntityType, pShooter, pLevel);
     }
 
-    public baseArrow(Level pLevel, LivingEntity pShooter, EntityType<? extends baseArrow> pEntityType) {
+    public baseArrow(Level pLevel, EntityType<? extends baseArrow> pEntityType) {
         super(pEntityType, pLevel);
     }
 
