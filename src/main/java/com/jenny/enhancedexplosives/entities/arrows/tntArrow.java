@@ -2,11 +2,9 @@ package com.jenny.enhancedexplosives.entities.arrows;
 
 import com.jenny.enhancedexplosives.config.ConfigClient;
 import com.jenny.enhancedexplosives.entities.entities;
-import com.jenny.enhancedexplosives.items.items;
 import com.jenny.enhancedexplosives.particles.particles;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
@@ -33,11 +31,6 @@ public class tntArrow extends baseArrow {
     protected void doPostHurtEffects(@NotNull LivingEntity pTarget) {
         this.level().explode(this, this.getX(), this.getY(), this.getZ(), 2, Level.ExplosionInteraction.TNT);
         this.discard();
-    }
-
-    @NotNull
-    protected ItemStack getPickupItem() {
-        return new ItemStack(items.TNT_ARROW.get());
     }
 
     @Override

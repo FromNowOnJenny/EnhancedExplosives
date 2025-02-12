@@ -5,7 +5,6 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
@@ -14,15 +13,15 @@ public class baseArrow extends AbstractArrow {
     private int tick = 0;
 
     public baseArrow(EntityType<? extends baseArrow> pEntityType, Level pLevel) {
-        super(pEntityType, pLevel);
+        super(pEntityType, pLevel, ItemStack.EMPTY);
     }
 
     public baseArrow(Level pLevel, LivingEntity pShooter, EntityType<? extends baseArrow> pEntityType) {
-        super(pEntityType, pShooter, pLevel);
+        super(pEntityType, pShooter, pLevel, ItemStack.EMPTY);
     }
 
     public baseArrow(Level pLevel, EntityType<? extends baseArrow> pEntityType) {
-        super(pEntityType, pLevel);
+        super(pEntityType, pLevel, ItemStack.EMPTY);
     }
 
     public void tick() {
@@ -37,7 +36,7 @@ public class baseArrow extends AbstractArrow {
 
     @NotNull
     protected ItemStack getPickupItem() {
-        return new ItemStack(Items.ARROW);
+        return ItemStack.EMPTY;
     }
 
     protected Vec3 particlePos(double dist) {
