@@ -39,6 +39,11 @@ public class baseArrow extends AbstractArrow {
         return ItemStack.EMPTY;
     }
 
+    @Override
+    protected ItemStack getDefaultPickupItem() {
+        return ItemStack.EMPTY;
+    }
+
     protected Vec3 particlePos(double dist) {
         Double speed = getDeltaMovement().length();
         return new Vec3(

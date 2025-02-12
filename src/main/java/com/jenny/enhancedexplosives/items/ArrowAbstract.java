@@ -11,7 +11,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -23,12 +22,12 @@ public abstract class ArrowAbstract extends ArrowItem {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack pStack, @Nullable Level pLevel, @NotNull List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
+    public void appendHoverText(@NotNull ItemStack pStack, @NotNull TooltipContext pContext, @NotNull List<Component> pTooltipComponents, @NotNull TooltipFlag pTooltipFlag) {
         String key = String.format("tooltip.%s.%s", MODID, this);
         MutableComponent toolTip = Component.translatable(key);
         if (!toolTip.getString().equals(key)) {
             pTooltipComponents.add(toolTip.withStyle(ChatFormatting.DARK_BLUE));
-            super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
+            super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
         }
     }
 

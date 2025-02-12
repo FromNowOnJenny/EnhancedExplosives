@@ -102,9 +102,10 @@ public abstract class basePrimedTNT extends Entity implements TraceableEntity {
         return MovementEmission.NONE;
     }
 
-    protected void defineSynchedData() {
-        this.entityData.define(DATA_FUSE_ID, 80);
-        this.entityData.define(DATA_POWER_ID, 4.0f);
+    @Override
+    protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {
+        builder.define(DATA_FUSE_ID, 80);
+        builder.define(DATA_POWER_ID, 4.0f);
     }
 
     protected void addAdditionalSaveData(CompoundTag pCompound) {

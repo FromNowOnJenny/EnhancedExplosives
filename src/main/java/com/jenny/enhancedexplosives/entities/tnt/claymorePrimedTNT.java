@@ -14,6 +14,7 @@ import net.minecraft.world.entity.projectile.Projectile;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
@@ -72,9 +73,9 @@ public class claymorePrimedTNT extends basePrimedTNT {
     }
 
     @Override
-    protected void defineSynchedData() {
-        this.entityData.define(DATA_PCOUNT_ID, 16);
-        super.defineSynchedData();
+    protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {
+        builder.define(DATA_PCOUNT_ID, 16);
+        super.defineSynchedData(builder);
     }
 
     @Override

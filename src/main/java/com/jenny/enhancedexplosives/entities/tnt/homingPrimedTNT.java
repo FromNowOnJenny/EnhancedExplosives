@@ -16,6 +16,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -116,9 +117,9 @@ public class homingPrimedTNT extends basePrimedTNT {
     }
 
     @Override
-    protected void defineSynchedData() {
-        this.entityData.define(DATA_SPEED_ID, 4.0f);
-        super.defineSynchedData();
+    protected void defineSynchedData(SynchedEntityData.@NotNull Builder builder) {
+        builder.define(DATA_SPEED_ID, 4.0f);
+        super.defineSynchedData(builder);
     }
 
     @Override
