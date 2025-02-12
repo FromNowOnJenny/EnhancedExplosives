@@ -12,11 +12,9 @@ public class ConfigClient {
 
     public static final ForgeConfigSpec.ConfigValue<Boolean> arrowParticles;
     public static final ForgeConfigSpec.ConfigValue<Boolean> tntParticles;
-    private static final ForgeConfigSpec.ConfigValue<Double> particlePercent;
+    public static final ForgeConfigSpec.ConfigValue<Double> particlePercent;
 
     static {
-
-
         arrowParticles =
                 BUILDER.comment("particles from arrows arrows")
                         .define("arrow_particles", true);

@@ -54,14 +54,10 @@ public class carpetArrow extends baseArrow {
 
     @Override
     public void spawnParticles(float partialTicks) {
-        for (int i = 1; i <= ConfigClient.calcPCount(3); i++) {
+        for (int i = 1; i <= ConfigClient.calcPCount(5); i++) {
             double m = (double) level().getRandom().nextIntBetweenInclusive(-100, 100) / 100;
             Vec3 DeltaMovement = getDeltaMovement();
-            Vec3 pos = new Vec3(
-                    (double) level().getRandom().nextIntBetweenInclusive(-5, 5) / 10,
-                    0,
-                    (double) level().getRandom().nextIntBetweenInclusive(-5, 5) / 10
-            ).normalize().multiply(m, 0, m).add(getPosition(partialTicks));
+            Vec3 pos = particlePos(0.5);
             level().addParticle(particles.CARPET_ARROW_PARTICLE.get(), pos.x, pos.y, pos.z, DeltaMovement.x, DeltaMovement.y, DeltaMovement.z);
         }
     }

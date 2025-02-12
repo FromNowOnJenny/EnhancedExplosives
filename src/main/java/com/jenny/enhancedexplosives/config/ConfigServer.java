@@ -14,14 +14,16 @@ public class ConfigServer {
     public static final ForgeConfigSpec.ConfigValue<Boolean> homingAtPlayers;
     public static final ForgeConfigSpec.ConfigValue<Boolean> carpetCompactDetonation;
 
-
     static {
-        claymoreInstantDespawn = BUILDER.comment("Claymore arrows despawn instantly upon hitting a surface")
-                .define("claymore_instant_arrow_despawn", false);
-        homingAtPlayers = BUILDER.comment("Homing TNTs are allowed to follow players")
-                .define("homing_tnt_target_players", true);
-        carpetCompactDetonation = BUILDER.comment("Carpet Arrow TNTs explode upon explosion damage; This reduces spread")
-                .define("carpet_arrow_compact_detonation", true);
+        claymoreInstantDespawn =
+                BUILDER.comment("Claymore arrows despawn instantly upon hitting a surface")
+                        .define("claymore_instant_arrow_despawn", false);
+        homingAtPlayers =
+                BUILDER.comment("Homing TNTs are allowed to follow players")
+                        .define("homing_tnt_target_players", true);
+        carpetCompactDetonation =
+                BUILDER.comment("Carpet Arrow TNTs explode upon explosion damage; This reduces spread")
+                        .define("carpet_arrow_compact_detonation", true);
 
         SPEC = BUILDER.build();
     }

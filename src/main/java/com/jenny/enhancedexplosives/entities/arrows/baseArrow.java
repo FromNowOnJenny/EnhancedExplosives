@@ -7,6 +7,7 @@ import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
 
 public class baseArrow extends AbstractArrow {
@@ -39,8 +40,16 @@ public class baseArrow extends AbstractArrow {
         return new ItemStack(Items.ARROW);
     }
 
-    public void spawnParticles(float partialTicks) {
+    protected Vec3 particlePos(double dist) {
+        Double speed = getDeltaMovement().length();
+        return new Vec3(
+                level().getRandom().nextIntBetweenInclusive(-100, 100),
+                level().getRandom().nextIntBetweenInclusive(-100, 100),
+                level().getRandom().nextIntBetweenInclusive(-100, 100)
+        ).normalize().scale(dist + ((double) level().getRandom().nextIntBetweenInclusive(0, 100) / 100)).add(position());
+    }
 
+    public void spawnParticles(float partialTicks) {
     }
 
     public int getTick() {

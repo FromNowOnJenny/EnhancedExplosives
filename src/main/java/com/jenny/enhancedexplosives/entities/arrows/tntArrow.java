@@ -1,9 +1,8 @@
 package com.jenny.enhancedexplosives.entities.arrows;
 
 import com.jenny.enhancedexplosives.config.ConfigClient;
-import com.jenny.enhancedexplosives.items.items;
 import com.jenny.enhancedexplosives.entities.entities;
-
+import com.jenny.enhancedexplosives.items.items;
 import com.jenny.enhancedexplosives.particles.particles;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
@@ -43,14 +42,10 @@ public class tntArrow extends baseArrow {
 
     @Override
     public void spawnParticles(float partialTicks) {
-        for (int i = 1; i <= ConfigClient.calcPCount(3); i++) {
+        for (int i = 1; i <= ConfigClient.calcPCount(5); i++) {
             double m = (double) level().getRandom().nextIntBetweenInclusive(- 100, 100) / 100;
             Vec3 DeltaMovement = getDeltaMovement();
-            Vec3 pos = new Vec3(
-                    (double) level().getRandom().nextIntBetweenInclusive(-5, 5) / 10,
-                    0,
-                    (double) level().getRandom().nextIntBetweenInclusive(-5, 5) / 10
-            ).normalize().multiply(m, m, m).add(getPosition(partialTicks));
+            Vec3 pos = particlePos(0.5);
             level().addParticle(particles.TNT_ARROW_PARTICLE.get(), pos.x, pos.y, pos.z, DeltaMovement.x, DeltaMovement.y, DeltaMovement.z);
         }
     }
