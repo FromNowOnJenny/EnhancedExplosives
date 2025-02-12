@@ -1,6 +1,5 @@
 package com.jenny.enhancedexplosives.entities.client;
 
-import com.jenny.enhancedexplosives.config.ConfigClient;
 import com.jenny.enhancedexplosives.entities.tnt.basePrimedTNT;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;

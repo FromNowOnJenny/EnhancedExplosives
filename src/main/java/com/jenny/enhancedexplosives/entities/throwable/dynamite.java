@@ -2,7 +2,6 @@ package com.jenny.enhancedexplosives.entities.throwable;
 
 import com.jenny.enhancedexplosives.entities.entities;
 import com.jenny.enhancedexplosives.entities.tnt.basePrimedTNT;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;

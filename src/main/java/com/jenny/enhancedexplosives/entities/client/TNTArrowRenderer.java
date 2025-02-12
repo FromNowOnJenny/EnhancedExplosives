@@ -1,8 +1,6 @@
 package com.jenny.enhancedexplosives.entities.client;
 
 import com.jenny.enhancedexplosives.entities.arrows.baseArrow;
-import com.jenny.enhancedexplosives.config.*;
-
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -13,7 +11,6 @@ import net.minecraft.client.renderer.entity.TntMinecartRenderer;
 import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Blocks;
-
 import org.jetbrains.annotations.NotNull;
 
 public class TNTArrowRenderer extends EntityRenderer<baseArrow> {

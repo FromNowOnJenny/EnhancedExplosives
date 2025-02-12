@@ -1,6 +1,5 @@
 package com.jenny.enhancedexplosives.blocks;
 
-import com.jenny.enhancedexplosives.entities.tnt.blackHolePrimedTNT;
 import com.jenny.enhancedexplosives.entities.tnt.repulsivePrimedTNT;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

@@ -1,5 +1,6 @@
 package com.jenny.enhancedexplosives.entities.arrows;
 
+import com.jenny.enhancedexplosives.config.ConfigClient;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.AbstractArrow;
@@ -26,7 +27,7 @@ public class baseArrow extends AbstractArrow {
     public void tick() {
         super.tick();
         if (this.level().isClientSide) {
-            if (!this.inGround) {
+            if (!this.inGround && ConfigClient.arrowParticles.get()) {
                 spawnParticles(0);
             }
             this.tick++;

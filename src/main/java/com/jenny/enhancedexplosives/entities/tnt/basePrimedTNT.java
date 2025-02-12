@@ -67,7 +67,7 @@ public abstract class basePrimedTNT extends Entity implements TraceableEntity {
 
     public void tick() {
         if (level().isClientSide) {
-            if (ConfigClient.tntParticles) {
+            if (ConfigClient.tntParticles.get()) {
                 spawnParticles();
             }
         }

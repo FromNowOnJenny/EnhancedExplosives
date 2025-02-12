@@ -1,8 +1,7 @@
 package com.jenny.enhancedexplosives.blocks;
 
-import com.jenny.enhancedexplosives.entities.tnt.enderPrimedTNT;
 import com.jenny.enhancedexplosives.config.ConfigClient;
-
+import com.jenny.enhancedexplosives.entities.tnt.enderPrimedTNT;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -15,7 +14,6 @@ import net.minecraft.world.level.block.TntBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.levelgen.Heightmap;
-
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
@@ -95,7 +93,7 @@ public class enderTNTBlock extends TntBlock {
     }
 
     public static void spawnParticles(Level level, BlockPos blockPos) {
-        if (ConfigClient.tntParticles) {
+        if (ConfigClient.tntParticles.get()) {
             for (int i = 1; i <= ConfigClient.calcPCount(30); i++) {
                 float x = blockPos.getX() + (float) level.getRandom().nextIntBetweenInclusive(-10, 10) / 10 + 0.5F;
                 float y = blockPos.getY() + (float) level.getRandom().nextIntBetweenInclusive(-10, 10) / 10;
