@@ -17,7 +17,7 @@ public class enderPrimedTNT extends basePrimedTNT {
     }
 
     public enderPrimedTNT(EntityType<enderPrimedTNT> entityType, Level level) {
-        super(entityType, level, null);
+        super(entityType, level);
     }
 
     public Block renderBlock() {

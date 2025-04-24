@@ -50,7 +50,7 @@ public class repulsiveTNTBlock extends TntBlock {
     @Override
     public void wasExploded(Level level, @NotNull BlockPos blockPos, @NotNull Explosion pExplosion) {
         if (!level.isClientSide) {
-            repulsivePrimedTNT primedtnt = new repulsivePrimedTNT(level, (double) blockPos.getX() + (double) 0.5F, (double) blockPos.getY(), (double) blockPos.getZ() + (double) 0.5F, pExplosion.getIndirectSourceEntity(), pRadius, fuseTime, speed);
+            repulsivePrimedTNT primedtnt = new repulsivePrimedTNT(level, (double) blockPos.getX() + (double) 0.5F, (double) blockPos.getY(), (double) blockPos.getZ() + (double) 0.5F, pExplosion.getSourceMob(), pRadius, fuseTime, speed);
             int i = primedtnt.getFuse();
             primedtnt.setFuse((short) (level.random.nextInt(i / 4) + i / 8));
             level.addFreshEntity(primedtnt);

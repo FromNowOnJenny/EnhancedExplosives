@@ -4,6 +4,7 @@ import com.jenny.enhancedexplosives.blocks.blocks;
 import com.jenny.enhancedexplosives.config.ConfigClient;
 import com.jenny.enhancedexplosives.config.ConfigServer;
 import com.jenny.enhancedexplosives.entities.entities;
+import com.jenny.enhancedexplosives.util;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -32,7 +33,7 @@ public class homingPrimedTNT extends basePrimedTNT {
     }
 
     public homingPrimedTNT(EntityType<homingPrimedTNT> entityType, Level level) {
-        super(entityType, level, null);
+        super(entityType, level);
     }
 
     private Vec3 targetVector() {
@@ -89,7 +90,11 @@ public class homingPrimedTNT extends basePrimedTNT {
             findTarget();
         }
         else {
-            if (getTargetDist() > 15) {target = null;} else {addDeltaMovement(targetVector());}
+            if (getTargetDist() > 15) {
+                target = null;
+            } else {
+                util.addDeltaMovement(this, targetVector());
+            }
         }
 
         super.tick();

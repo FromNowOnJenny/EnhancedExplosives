@@ -3,6 +3,7 @@ package com.jenny.enhancedexplosives.entities.tnt;
 import com.jenny.enhancedexplosives.blocks.blocks;
 import com.jenny.enhancedexplosives.entities.entities;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.BlockGetter;
@@ -34,12 +35,12 @@ public class selectivePrimedTNT extends basePrimedTNT {
     }
 
     public selectivePrimedTNT(EntityType<selectivePrimedTNT> entityType, Level level) {
-        super(entityType, level, null);
+        super(entityType, level);
     }
     @Override
     protected void explode() {
         SelectiveExplosionCalculator dmgCalc = new SelectiveExplosionCalculator(getBlock());
-        this.level().explode(this, null, dmgCalc, position(), getPower(), false, Level.ExplosionInteraction.TNT);
+        this.level().explode(this, DamageSource.explosion(getOwner()), dmgCalc, getX(), getY(), getZ(), getPower(), false, Explosion.BlockInteraction.BREAK);
     }
 
     public String getBlock() {

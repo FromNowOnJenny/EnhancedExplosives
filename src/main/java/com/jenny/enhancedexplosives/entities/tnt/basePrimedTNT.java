@@ -3,10 +3,13 @@ package com.jenny.enhancedexplosives.entities.tnt;
 import com.jenny.enhancedexplosives.config.ConfigClient;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientboundAddEntityPacket;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.world.entity.*;
+import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -15,7 +18,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
-public abstract class basePrimedTNT extends Entity implements TraceableEntity {
+public abstract class basePrimedTNT extends Entity {
     private static final EntityDataAccessor<Integer> DATA_FUSE_ID = SynchedEntityData.defineId(basePrimedTNT.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Float> DATA_POWER_ID = SynchedEntityData.defineId(basePrimedTNT.class, EntityDataSerializers.FLOAT);
 
@@ -23,30 +26,26 @@ public abstract class basePrimedTNT extends Entity implements TraceableEntity {
     private LivingEntity owner;
     private int fuse = 0;
 
-    public basePrimedTNT(EntityType<? extends basePrimedTNT> pEntityType, @NotNull Level pLevel, @Nullable LivingEntity owner) {
+    public basePrimedTNT(EntityType<? extends basePrimedTNT> pEntityType, @NotNull Level pLevel) {
         super(pEntityType, pLevel);
-        commonInit(pLevel, owner);
-        this.fuse = getFuse();
-    }
-
-    private void commonInit(@NotNull Level pLevel, @Nullable LivingEntity owner) {
-        double d0 = pLevel.random.nextDouble() * (double)((float)Math.PI * 2F);
-        this.setDeltaMovement(-Math.sin(d0) * 0.02D, (double)0.2F, -Math.cos(d0) * 0.02D);
         this.blocksBuilding = true;
-        this.setOwner(owner);
     }
 
     public basePrimedTNT(EntityType<? extends basePrimedTNT> pEntityType, @NotNull Level pLevel, @Nullable LivingEntity owner, Vec3 pos, int fuse, float power) {
-        super(pEntityType, pLevel);
-        commonInit(pLevel, owner);
+        this(pEntityType, pLevel);
         setPos(pos);
+        double d0 = pLevel.random.nextDouble() * (double) ((float) Math.PI * 2F);
+        this.setDeltaMovement(-Math.sin(d0) * 0.02D, (double) 0.2F, -Math.cos(d0) * 0.02D);
+        this.setOwner(owner);
+        this.xo = pos.x;
+        this.yo = pos.y;
+        this.zo = pos.z;
         setFuse(fuse);
         setPower(power);
-        this.fuse = getFuse();
     }
 
     protected void explode() {
-        this.level().explode(this, this.getX(), this.getY(0.0625D), this.getZ(), this.getPower(), Level.ExplosionInteraction.TNT);
+        this.level().explode(this, this.getX(), this.getY(0.0625D), this.getZ(), this.getPower(), Explosion.BlockInteraction.BREAK);
     }
 
     public int getFuse() {
@@ -66,6 +65,13 @@ public abstract class basePrimedTNT extends Entity implements TraceableEntity {
     }
 
     public void tick() {
+        if (!level().isClientSide) {
+            System.out.println("Server: " + tickCount + "|x=" + (getX() - 0.5F) + "|y=" + getY() + "|z=" + (getZ() - 0.5F));
+        } else {
+            System.out.println("Client: " + tickCount + "|x=" + (getX() - 0.5F) + "|y=" + getY() + "|z=" + (getZ() - 0.5F));
+        }
+
+
         if (level().isClientSide) {
             if (ConfigClient.tntParticles.get()) {
                 spawnParticles();
@@ -77,7 +83,7 @@ public abstract class basePrimedTNT extends Entity implements TraceableEntity {
 
         this.move(MoverType.SELF, this.getDeltaMovement());
         this.setDeltaMovement(this.getDeltaMovement().scale(0.98D));
-        if (this.onGround()) {
+        if (this.onGround) {
             this.setDeltaMovement(this.getDeltaMovement().multiply(0.7D, -0.5D, 0.7D));
         }
 
@@ -140,5 +146,13 @@ public abstract class basePrimedTNT extends Entity implements TraceableEntity {
 
     public void spawnParticles() {
         level().addParticle(ParticleTypes.SMOKE, getX(), getY(), getZ(), 0, 0, 0);
+    }
+
+    public Level level() {
+        return level;
+    }
+
+    public Packet<?> getAddEntityPacket() {
+        return new ClientboundAddEntityPacket(this);
     }
 }

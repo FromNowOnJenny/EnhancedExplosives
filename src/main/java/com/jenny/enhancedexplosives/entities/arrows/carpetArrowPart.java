@@ -5,11 +5,10 @@ import com.jenny.enhancedexplosives.config.ConfigServer;
 import com.jenny.enhancedexplosives.entities.entities;
 import com.jenny.enhancedexplosives.items.items;
 import com.jenny.enhancedexplosives.particles.particles;
-import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
@@ -38,14 +37,9 @@ public class carpetArrowPart extends baseArrow {
 
     public void explode() {
         if (!level().isClientSide) {
-            level().explode(this, getX(), getY(), getZ(), 8.0f, Level.ExplosionInteraction.NONE);
+            level().explode(this, getX(), getY(), getZ(), 8.0f, Explosion.BlockInteraction.BREAK);
         }
         discard();
-    }
-
-    @Override
-    public boolean hurt(@NotNull DamageSource pSource, float pAmount) {
-        return super.hurt(pSource, pAmount) || pSource.is(DamageTypes.EXPLOSION);
     }
 
     @NotNull

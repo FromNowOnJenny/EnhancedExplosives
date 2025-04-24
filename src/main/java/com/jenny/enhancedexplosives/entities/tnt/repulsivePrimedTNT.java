@@ -2,6 +2,7 @@ package com.jenny.enhancedexplosives.entities.tnt;
 
 import com.jenny.enhancedexplosives.blocks.blocks;
 import com.jenny.enhancedexplosives.entities.entities;
+import com.jenny.enhancedexplosives.util;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -26,7 +27,7 @@ public class repulsivePrimedTNT extends basePrimedTNT {
     }
 
     public repulsivePrimedTNT(EntityType<repulsivePrimedTNT> entityType, Level level) {
-        super(entityType, level, null);
+        super(entityType, level);
         this.setSpeed(this.getSpeed());
     }
 
@@ -52,7 +53,7 @@ public class repulsivePrimedTNT extends basePrimedTNT {
     @Override
     public void tick() {
         for (Entity e : findTargets()) {
-            e.addDeltaMovement(targetVector(e));
+            util.addDeltaMovement(e, targetVector(e));
         }
         super.tick();
     }
@@ -60,7 +61,7 @@ public class repulsivePrimedTNT extends basePrimedTNT {
     @Override
     public void explode() {
         for (Entity e : findTargets()) {
-            e.addDeltaMovement(targetVector(e).scale(3));
+            util.addDeltaMovement(e, targetVector(e).scale(3));
         }
         super.explode();
     }

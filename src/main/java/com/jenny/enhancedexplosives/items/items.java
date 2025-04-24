@@ -18,15 +18,16 @@ import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
 
 import static com.jenny.enhancedexplosives.EnhancedExplosives.MODID;
+import static com.jenny.enhancedexplosives.creativeTab.CREATIVE_MODE_TAB;
 
 public class items {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, MODID);
 
     public static final RegistryObject<Item> TNT_ARROW = ITEMS.register("arrow_tnt", () -> new ArrowTNT(new Item.Properties()));
-    public static final RegistryObject<Item> CONCUSSIVE_ARROW = ITEMS.register("arrow_concussive", () -> new ArrowConcussive(new Item.Properties()));
-    public static final RegistryObject<Item> CARPET_ARROW = ITEMS.register("arrow_carpet", () -> new ArrowCarpet(new Item.Properties()));
-    public static final RegistryObject<Item> TUNNEL_ARROW =  ITEMS.register("arrow_tunnel", () -> new ArrowTunnel(new Item.Properties()));
-    public static final RegistryObject<Item> DYNAMITE = ITEMS.register("dynamite", () -> new Dynamite(new Item.Properties()));
+    public static final RegistryObject<Item> CONCUSSIVE_ARROW = ITEMS.register("arrow_concussive", () -> new ArrowConcussive(new Item.Properties().tab(CREATIVE_MODE_TAB)));
+    public static final RegistryObject<Item> CARPET_ARROW = ITEMS.register("arrow_carpet", () -> new ArrowCarpet(new Item.Properties().tab(CREATIVE_MODE_TAB)));
+    public static final RegistryObject<Item> TUNNEL_ARROW = ITEMS.register("arrow_tunnel", () -> new ArrowTunnel(new Item.Properties().tab(CREATIVE_MODE_TAB)));
+    public static final RegistryObject<Item> DYNAMITE = ITEMS.register("dynamite", () -> new Dynamite(new Item.Properties().tab(CREATIVE_MODE_TAB)));
 
     public static void register(IEventBus bus) {
         ITEMS.register(bus);

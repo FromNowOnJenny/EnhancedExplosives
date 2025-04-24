@@ -52,7 +52,7 @@ public class claymoreTNTBlock extends TntBlock {
     public void wasExploded(Level level, @NotNull BlockPos blockPos, @NotNull Explosion pExplosion) {
         if (!level.isClientSide) {
             int ft = (short) (level.random.nextInt(fuseTime / 4) + fuseTime / 8);
-            claymorePrimedTNT primedtnt = new claymorePrimedTNT(level, (double) blockPos.getX() + (double) 0.5F, (double) blockPos.getY(), (double) blockPos.getZ() + (double) 0.5F, pExplosion.getIndirectSourceEntity(), pRadius, ft, projectileCount);
+            claymorePrimedTNT primedtnt = new claymorePrimedTNT(level, (double) blockPos.getX() + (double) 0.5F, (double) blockPos.getY(), (double) blockPos.getZ() + (double) 0.5F, pExplosion.getSourceMob(), pRadius, ft, projectileCount);
             level.addFreshEntity(primedtnt);
         }
     }

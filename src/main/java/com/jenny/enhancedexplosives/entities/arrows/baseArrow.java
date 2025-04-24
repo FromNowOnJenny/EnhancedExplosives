@@ -55,4 +55,8 @@ public class baseArrow extends AbstractArrow {
     public int getTick() {
         return this.tick;
     }
+
+    public Level level() {
+        return level;
+    }
 }

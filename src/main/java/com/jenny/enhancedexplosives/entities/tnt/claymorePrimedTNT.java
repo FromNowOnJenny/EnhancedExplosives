@@ -26,7 +26,7 @@ public class claymorePrimedTNT extends basePrimedTNT {
     }
 
     public claymorePrimedTNT(EntityType<claymorePrimedTNT> entityType, Level level) {
-        super(entityType, level, null);
+        super(entityType, level);
     }
 
     public Vec3 targetVector(RandomSource rng) {
@@ -42,10 +42,12 @@ public class claymorePrimedTNT extends basePrimedTNT {
         RandomSource rng = level().getRandom();
         for (int i = 0; i < getPCount(); i++) {
             Vec3 target = targetVector(rng);
-            assert this.getOwner() != null;
-            Projectile e = new claymoreArrow(level(), this.getOwner());
+            Projectile e = new claymoreArrow(level());
             e.setPos(position().add(0, 0.5, 0));
             e.setDeltaMovement(target);
+            if (getOwner() != null) {
+                e.setOwner(getOwner());
+            }
             level().addFreshEntity(e);
         }
 

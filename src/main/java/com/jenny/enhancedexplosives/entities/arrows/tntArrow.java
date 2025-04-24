@@ -7,6 +7,7 @@ import com.jenny.enhancedexplosives.particles.particles;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
@@ -24,14 +25,14 @@ public class tntArrow extends baseArrow {
     public void tick() {
         super.tick();
         if (this.inGround) {
-            this.level().explode(this, this.getX(), this.getY(), this.getZ(), 2, Level.ExplosionInteraction.TNT);
+            this.level().explode(this, this.getX(), this.getY(), this.getZ(), 2, Explosion.BlockInteraction.BREAK);
             this.discard();
         }
     }
 
     @Override
     protected void doPostHurtEffects(@NotNull LivingEntity pTarget) {
-        this.level().explode(this, this.getX(), this.getY(), this.getZ(), 2, Level.ExplosionInteraction.TNT);
+        this.level().explode(this, this.getX(), this.getY(), this.getZ(), 2, Explosion.BlockInteraction.BREAK);
         this.discard();
     }
 

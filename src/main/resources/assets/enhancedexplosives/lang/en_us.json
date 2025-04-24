@@ -1,4 +1,6 @@
 {
+  "itemGroup.enhancedexplosives": "Enhanced Explosives",
+
   "block.enhancedexplosives.tnt_8": "Compressed TNT",
   "block.enhancedexplosives.tnt_16": "Double Compressed TNT",
   "block.enhancedexplosives.tnt_32": "Triple Compressed TNT",

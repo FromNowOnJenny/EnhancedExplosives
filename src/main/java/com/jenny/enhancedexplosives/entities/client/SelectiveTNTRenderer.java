@@ -2,7 +2,7 @@ package com.jenny.enhancedexplosives.entities.client;
 
 import com.jenny.enhancedexplosives.entities.tnt.selectivePrimedTNT;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Axis;
+import com.mojang.math.Vector3f;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.block.BlockRenderDispatcher;
 import net.minecraft.client.renderer.entity.EntityRenderer;
@@ -35,9 +35,9 @@ public class SelectiveTNTRenderer<T extends selectivePrimedTNT> extends EntityRe
             float f1 = 1.0F + f * 0.3F;
             pPoseStack.scale(f1, f1, f1);
         }
-        pPoseStack.mulPose(Axis.YP.rotationDegrees(-90.0F));
+        pPoseStack.mulPose(Vector3f.YP.rotationDegrees(-90.0F));
         pPoseStack.translate(-0.5F, -0.5F, 0.5F);
-        pPoseStack.mulPose(Axis.YP.rotationDegrees(90.0F));
+        pPoseStack.mulPose(Vector3f.YP.rotationDegrees(90.0F));
         Block block = (i / 5 % 2 == 0) ? pEntity.renderBlockBeneath(): pEntity.renderBlock();
         TntMinecartRenderer.renderWhiteSolidBlock(this.blockRenderer, block.defaultBlockState(), pPoseStack, pBuffer, pPackedLight, false);
         pPoseStack.popPose();

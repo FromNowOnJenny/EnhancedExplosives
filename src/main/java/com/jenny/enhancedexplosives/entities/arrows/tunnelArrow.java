@@ -6,6 +6,7 @@ import com.jenny.enhancedexplosives.particles.particles;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
@@ -47,7 +48,7 @@ public class tunnelArrow extends baseArrow{
         for (int i = 0; i < explosionCount; i++) {
             Vec3 pos = position().add(rot.multiply(i * spacing, i * spacing, i * spacing));
             level().explode(this, pos.x, pos.y, pos.z,
-                    power, Level.ExplosionInteraction.TNT);
+                    power, Explosion.BlockInteraction.BREAK);
         }
     }
 

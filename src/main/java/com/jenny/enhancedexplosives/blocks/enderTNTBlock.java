@@ -81,7 +81,7 @@ public class enderTNTBlock extends TntBlock {
         if (!level.isClientSide) {
             BlockPos pos = getSpawnPos(level, blockPos);
             if (pos != null) {
-                enderPrimedTNT primedtnt = new enderPrimedTNT(level, pos.getX() + 0.5F, pos.getY(), pos.getZ() + 0.5F, pExplosion.getIndirectSourceEntity(), pRadius, fuseTime);
+                enderPrimedTNT primedtnt = new enderPrimedTNT(level, pos.getX() + 0.5F, pos.getY(), pos.getZ() + 0.5F, pExplosion.getSourceMob(), pRadius, fuseTime);
                 int i = primedtnt.getFuse();
                 primedtnt.setFuse((short) (level.random.nextInt(i / 4) + i / 8));
                 level.addFreshEntity(primedtnt);

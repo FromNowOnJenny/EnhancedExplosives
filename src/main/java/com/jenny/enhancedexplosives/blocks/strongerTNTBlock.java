@@ -52,7 +52,7 @@ public class strongerTNTBlock extends TntBlock {
     public void wasExploded(Level level, @NotNull BlockPos blockPos, @NotNull Explosion pExplosion) {
         if (!level.isClientSide) {
             int ft = (short) (level.random.nextInt(fuseTime / 4) + fuseTime / 8);
-            StrongerPrimedTNT primedtnt = new StrongerPrimedTNT(level, (double) blockPos.getX() + (double) 0.5F, (double) blockPos.getY(), (double) blockPos.getZ() + (double) 0.5F, pExplosion.getIndirectSourceEntity(), pRadius, ft);
+            StrongerPrimedTNT primedtnt = new StrongerPrimedTNT(level, (double) blockPos.getX() + (double) 0.5F, (double) blockPos.getY(), (double) blockPos.getZ() + (double) 0.5F, pExplosion.getSourceMob(), pRadius, ft);
             level.addFreshEntity(primedtnt);
         }
     }

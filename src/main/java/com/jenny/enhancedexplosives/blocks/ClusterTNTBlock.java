@@ -67,7 +67,7 @@ public class ClusterTNTBlock extends TntBlock {
         if (!level.isClientSide) {
             for (int i = 0; i < childCount; i++) {
                 int ft = (short) (level.random.nextInt(fuseTime / 4) + fuseTime / 8);
-                ClusterPrimedTNT primedtnt = new ClusterPrimedTNT(level, (double) blockPos.getX() + (double) 0.5F, (double) blockPos.getY(), (double) blockPos.getZ() + (double) 0.5F, pExplosion.getIndirectSourceEntity(), pRadius, ft, getMove(level, childRange));
+                ClusterPrimedTNT primedtnt = new ClusterPrimedTNT(level, (double) blockPos.getX() + (double) 0.5F, (double) blockPos.getY(), (double) blockPos.getZ() + (double) 0.5F, pExplosion.getSourceMob(), pRadius, ft, getMove(level, childRange));
                 level.addFreshEntity(primedtnt);
             }
         }

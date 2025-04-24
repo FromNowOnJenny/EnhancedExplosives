@@ -7,6 +7,7 @@ import com.jenny.enhancedexplosives.particles.particles;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.NotNull;
@@ -24,14 +25,14 @@ public class concussiveArrow extends baseArrow{
     public void tick() {
         super.tick();
         if (this.inGround) {
-            this.level().explode(this, getX(), getY(), getZ(), 8.0f, Level.ExplosionInteraction.NONE);
+            this.level().explode(this, getX(), getY(), getZ(), 8.0f, Explosion.BlockInteraction.NONE);
             this.discard();
         }
     }
 
     @Override
     protected void doPostHurtEffects(@NotNull LivingEntity pTarget) {
-        this.level().explode(this, getX(), getY(), getZ(), 8.0f, Level.ExplosionInteraction.NONE);
+        this.level().explode(this, getX(), getY(), getZ(), 8.0f, Explosion.BlockInteraction.NONE);
         this.discard();
     }
 

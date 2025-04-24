@@ -3,6 +3,7 @@ package com.jenny.enhancedexplosives.entities.arrows;
 import com.jenny.enhancedexplosives.config.ConfigServer;
 import com.jenny.enhancedexplosives.entities.entities;
 import com.jenny.enhancedexplosives.items.items;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
@@ -17,13 +18,17 @@ public class claymoreArrow extends baseArrow{
 
     }
 
-    public claymoreArrow(@NotNull  Level pLevel, @NotNull LivingEntity pShooter) {
+    public claymoreArrow(@NotNull Level pLevel) {
+        super(entities.ARROW_CLAYMORE.get(), pLevel);
+    }
+
+    public claymoreArrow(@NotNull Level pLevel, @NotNull LivingEntity pShooter) {
         super(pLevel, pShooter, entities.ARROW_CLAYMORE.get());
     }
 
     @Override
     protected void doPostHurtEffects(@NotNull LivingEntity pTarget) {
-        pTarget.hurt(damageSources().mobProjectile(this, (LivingEntity) getOwner()), 15);
+        pTarget.hurt(DamageSource.arrow(this, getOwner()), 15);
     }
 
     @Override

@@ -2,11 +2,14 @@ package com.jenny.enhancedexplosives.entities.tnt;
 
 import com.jenny.enhancedexplosives.blocks.blocks;
 import com.jenny.enhancedexplosives.entities.entities;
+import com.jenny.enhancedexplosives.util;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.world.entity.*;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.AABB;
@@ -24,7 +27,7 @@ public class blackHolePrimedTNT extends basePrimedTNT {
     }
 
     public blackHolePrimedTNT(EntityType<blackHolePrimedTNT> entityType, Level level) {
-        super(entityType, level, null);
+        super(entityType, level);
         this.setSpeed(this.getSpeed());
     }
 
@@ -57,7 +60,7 @@ public class blackHolePrimedTNT extends basePrimedTNT {
     @Override
     public void tick() {
         for (Entity e : findTargets()) {
-            e.addDeltaMovement(targetVector(e));
+            util.addDeltaMovement(e, targetVector(e));
         }
         super.tick();
     }

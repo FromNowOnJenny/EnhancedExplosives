@@ -36,7 +36,6 @@ public class EnhancedExplosives {
         particles.register(modEventBus);
         blocks.register(modEventBus);
         items.register(modEventBus);
-        creativeTab.register(modEventBus);
         entities.register(modEventBus);
 
         // Register ourselves for server and other game events we are interested in

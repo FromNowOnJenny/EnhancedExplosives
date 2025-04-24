@@ -20,7 +20,7 @@ public class dynamite extends basePrimedTNT {
     }
 
     public dynamite(EntityType<dynamite> entityType, Level level) {
-        super(entityType, level, null);
+        super(entityType, level);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class dynamite extends basePrimedTNT {
         Vec3 beforeMove = getDeltaMovement();
         this.move(MoverType.SELF, this.getDeltaMovement());
         this.setDeltaMovement(this.getDeltaMovement().scale(0.98D));
-        if (this.onGround()) {
+        if (this.onGround) {
             this.setDeltaMovement(this.getDeltaMovement().multiply(0.7D, 0, 0.7D).add(0, (-beforeMove.y) * 0.5, 0));
         }
 
@@ -57,7 +57,7 @@ public class dynamite extends basePrimedTNT {
         Vec3 vec = new Vec3(f, f1, f2).multiply(pVelocity, pVelocity, pVelocity);
         this.setDeltaMovement(vec);
         Vec3 vec3 = pShooter.getDeltaMovement();
-        this.setDeltaMovement(this.getDeltaMovement().add(vec3.x, pShooter.onGround() ? 0.0D : vec3.y, vec3.z));
+        this.setDeltaMovement(this.getDeltaMovement().add(vec3.x, pShooter.isOnGround() ? 0.0D : vec3.y, vec3.z));
     }
 
     public Block renderBlock() {

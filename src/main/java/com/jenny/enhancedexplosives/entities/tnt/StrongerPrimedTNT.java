@@ -17,7 +17,7 @@ public class StrongerPrimedTNT extends basePrimedTNT {
     }
 
     public StrongerPrimedTNT(EntityType<StrongerPrimedTNT> entityType, Level level) {
-        super(entityType, level, null);
+        super(entityType, level);
     }
 
     @Override
