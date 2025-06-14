@@ -25,20 +25,20 @@ public abstract class basePrimedTNT extends Entity implements TraceableEntity {
 
     public basePrimedTNT(EntityType<? extends basePrimedTNT> pEntityType, @NotNull Level pLevel, @Nullable LivingEntity owner) {
         super(pEntityType, pLevel);
-        commonInit(pLevel, owner);
-        this.fuse = getFuse();
-    }
-
-    private void commonInit(@NotNull Level pLevel, @Nullable LivingEntity owner) {
-        double d0 = pLevel.random.nextDouble() * (double)((float)Math.PI * 2F);
-        this.setDeltaMovement(-Math.sin(d0) * 0.02D, (double)0.2F, -Math.cos(d0) * 0.02D);
         this.blocksBuilding = true;
         this.setOwner(owner);
+        this.fuse = getFuse();
     }
 
     public basePrimedTNT(EntityType<? extends basePrimedTNT> pEntityType, @NotNull Level pLevel, @Nullable LivingEntity owner, Vec3 pos, int fuse, float power) {
         super(pEntityType, pLevel);
-        commonInit(pLevel, owner);
+        this.blocksBuilding = true;
+        this.setOwner(owner);
+        double d0 = pLevel.random.nextDouble() * (double) ((float) Math.PI * 2F);
+        this.setDeltaMovement(-Math.sin(d0) * 0.02D, (double) 0.2F, -Math.cos(d0) * 0.02D);
+        xo = pos.x;
+        yo = pos.y;
+        zo = pos.z;
         setPos(pos);
         setFuse(fuse);
         setPower(power);

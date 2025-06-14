@@ -4,7 +4,6 @@ import com.jenny.enhancedexplosives.entities.arrows.*;
 import com.jenny.enhancedexplosives.entities.client.*;
 import com.jenny.enhancedexplosives.entities.throwable.dynamite;
 import com.jenny.enhancedexplosives.entities.tnt.*;
-
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -21,35 +20,35 @@ public class entities {
 
     public static final RegistryObject<EntityType<homingPrimedTNT>> TNT_HOMING =
             ENTITY_TYPES.register("tnt_homing", () -> EntityType.Builder.<homingPrimedTNT>of(homingPrimedTNT::new, MobCategory.MISC)
-                    .sized(0.98F, 0.7F).fireImmune().clientTrackingRange(8).build("tnt_homing"));
+                    .fireImmune().sized(0.98F, 0.98F).clientTrackingRange(10).updateInterval(10).build("tnt_homing"));
 
     public static final RegistryObject<EntityType<StrongerPrimedTNT>> TNT_STRONGER =
             ENTITY_TYPES.register("tnt_stronger", () -> EntityType.Builder.<StrongerPrimedTNT>of(StrongerPrimedTNT::new, MobCategory.MISC)
-                    .sized(0.98F, 0.7F).fireImmune().clientTrackingRange(8).build("tnt_stronger"));
+                    .fireImmune().sized(0.98F, 0.98F).clientTrackingRange(10).updateInterval(10).build("tnt_stronger"));
 
     public static final RegistryObject<EntityType<ClusterPrimedTNT>> TNT_CLUSTER =
             ENTITY_TYPES.register("tnt_cluster", () -> EntityType.Builder.<ClusterPrimedTNT>of(ClusterPrimedTNT::new, MobCategory.MISC)
-                    .sized(0.48F, 0.48F).fireImmune().clientTrackingRange(8).build("tnt_cluster"));
+                    .sized(0.48F, 0.48F).fireImmune().clientTrackingRange(10).updateInterval(10).build("tnt_cluster"));
 
     public static final RegistryObject<EntityType<blackHolePrimedTNT>> TNT_BLACK_HOLE =
             ENTITY_TYPES.register("tnt_blackhole", () -> EntityType.Builder.<blackHolePrimedTNT>of(blackHolePrimedTNT::new, MobCategory.MISC)
-                    .sized(0.98F, 0.7F).fireImmune().clientTrackingRange(8).build("tnt_blackhole"));
+                    .fireImmune().sized(0.98F, 0.98F).clientTrackingRange(10).updateInterval(10).build("tnt_blackhole"));
 
     public static final RegistryObject<EntityType<selectivePrimedTNT>> TNT_SELECTIVE =
             ENTITY_TYPES.register("tnt_selective", () -> EntityType.Builder.<selectivePrimedTNT>of(selectivePrimedTNT::new, MobCategory.MISC)
-                    .sized(0.98F, 0.7F).fireImmune().clientTrackingRange(8).build("tnt_selective"));
+                    .fireImmune().sized(0.98F, 0.98F).clientTrackingRange(10).updateInterval(10).build("tnt_selective"));
 
     public static final RegistryObject<EntityType<claymorePrimedTNT>> TNT_CLAYMORE =
             ENTITY_TYPES.register("tnt_claymore", () -> EntityType.Builder.<claymorePrimedTNT>of(claymorePrimedTNT::new, MobCategory.MISC)
-                    .sized(0.98F, 0.7F).fireImmune().clientTrackingRange(8).build("tnt_claymore"));
+                    .fireImmune().sized(0.98F, 0.98F).clientTrackingRange(10).updateInterval(10).build("tnt_claymore"));
 
     public static final RegistryObject<EntityType<enderPrimedTNT>> TNT_ENDER =
             ENTITY_TYPES.register("tnt_ender", () -> EntityType.Builder.<enderPrimedTNT>of(enderPrimedTNT::new, MobCategory.MISC)
-                    .sized(0.98F, 0.7F).fireImmune().clientTrackingRange(8).build("tnt_ender"));
+                    .fireImmune().sized(0.98F, 0.98F).clientTrackingRange(10).updateInterval(10).build("tnt_ender"));
 
     public static final RegistryObject<EntityType<repulsivePrimedTNT>> TNT_REPULSIVE =
             ENTITY_TYPES.register("tnt_repulsive", () -> EntityType.Builder.<repulsivePrimedTNT>of(repulsivePrimedTNT::new, MobCategory.MISC)
-                    .sized(0.98F, 0.7F).fireImmune().clientTrackingRange(8).build("tnt_repulsive"));
+                    .fireImmune().sized(0.98F, 0.98F).clientTrackingRange(10).updateInterval(10).build("tnt_repulsive"));
 
     public static final RegistryObject<EntityType<tntArrow>> ARROW_TNT =
             ENTITY_TYPES.register("arrow_tnt", () -> EntityType.Builder.<tntArrow>of(tntArrow::new, MobCategory.MISC)
