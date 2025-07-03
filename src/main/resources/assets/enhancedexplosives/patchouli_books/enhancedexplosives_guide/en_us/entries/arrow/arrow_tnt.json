@@ -1,0 +1,12 @@
+{
+  "name": "TNT Arrow",
+  "icon": "enhancedexplosives:arrow_tnt",
+  "category": "enhancedexplosives:arrows",
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "text": "This arrow explodes like TNT on impact.",
+      "recipe": "enhancedexplosives:arrow_tnt"
+    }
+  ]
+}

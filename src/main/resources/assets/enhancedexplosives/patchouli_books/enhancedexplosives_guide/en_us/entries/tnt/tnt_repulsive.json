@@ -1,0 +1,12 @@
+{
+  "name": "Repulsive TNT",
+  "icon": "enhancedexplosives:tnt_repulsive",
+  "category": "enhancedexplosives:tnts",
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "text": "This TNT pushes close entities away.",
+      "recipe": "enhancedexplosives:tnt_repulsive"
+    }
+  ]
+}

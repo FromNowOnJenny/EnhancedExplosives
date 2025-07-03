@@ -1,0 +1,12 @@
+{
+  "name": "Claymore TNT",
+  "icon": "enhancedexplosives:tnt_claymore",
+  "category": "enhancedexplosives:tnts",
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "text": "This TNT shoots many arrows in a circle around the TNT, instead of exploding.",
+      "recipe": "enhancedexplosives:tnt_claymore"
+    }
+  ]
+}

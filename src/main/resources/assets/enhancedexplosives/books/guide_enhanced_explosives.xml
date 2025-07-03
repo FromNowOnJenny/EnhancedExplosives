@@ -1,0 +1,134 @@
+<book title="Enhanced Explosives">
+    <include ref="gbook:xml/standard.xml"/>
+    <chapter id="ch_landing">
+        <section id="se_landing">
+            <page_title>
+                <title>Content</title>
+            </page_title>
+            <title>TNTs</title>
+            <link ref=":se_compressed_tnt">Compressed TNT</link>
+            <link ref=":se_cluster_tnt">Cluster TNT</link>
+            <link ref=":se_homing_tnt">Homing TNT</link>
+            <link ref=":se_black_hole_tnt">Black Hole TNT</link>
+            <link ref=":se_claymore_tnt">Claymore TNT</link>
+            <link ref=":se_selective_tnt">Selective</link>
+            <link ref=":se_ender_tnt">Ender TNT</link>
+            <link ref=":se_repulsive_tnt">Repulsive TNT</link>
+            <title>Arrows</title>
+            <link ref=":ch_tnt_arrow">TNT Arrow</link>
+            <link ref=":se_concussive_arrow">Concussive Arrow</link>
+            <link ref=":se_carpet_arrow">Carpet Bombing Arrow</link>
+            <link ref=":se_tunnel_arrow">Tunnel Arrow</link>
+            <title>Other</title>
+            <link ref=":se_dynamite">Dynamite</link>
+        </section>
+    </chapter>
+    <chapter id="ch_compressed_tnt">
+        <section id="se_compressed_tnt">
+            <page_title>
+                <title>Compressed TNT</title>
+            </page_title>
+            <p>These TNTs are stronger than vanilla TNT. They are crafted from 4 TNTs of the previous stage and offer
+                double the explosion strength.
+            </p>
+        </section>
+    </chapter>
+    <chapter id="ch_cluster_tnt">
+        <section id="se_cluster_tnt">
+            <page_title>
+                <title>Cluster TNT</title>
+            </page_title>
+            <p>These TNTs spawn multiple smaller TNTs when primed. Each spawned TNT is as strong as vanilla TNT.</p>
+        </section>
+    </chapter>
+    <chapter id="ch_homing_tnt">
+        <section id="se_homing_tnt">
+            <page_title>
+                <title>Homing TNT</title>
+            </page_title>
+            <p>This TNT targets the closest mob and moves towards it.</p>
+        </section>
+    </chapter>
+    <chapter id="ch_black_hole_tnt">
+        <section id="se_black_hole_tnt">
+            <page_title>
+                <title>Black Hole TNT</title>
+            </page_title>
+            <p>This TNT attracts close entities towards itself before exploding.</p>
+        </section>
+    </chapter>
+    <chapter id="ch_claymore_tnt">
+        <section id="se_claymore_tnt">
+            <page_title>
+                <title>Claymore TNT</title>
+            </page_title>
+            <p>This TNT shoots many arrows in a circle around the TNT, instead of exploding.</p>
+        </section>
+    </chapter>
+    <chapter id="ch_selective_tnt">
+        <section id="se_selective_tnt">
+            <page_title>
+                <title>Selective TNT</title>
+            </page_title>
+            <p>This TNT will only destroy the type of block it is sitting upon when exploding. It will still honour the
+                blocks blast resistance, e.g. it won't destroy bedrock.
+            </p>
+        </section>
+    </chapter>
+    <chapter id="ch_ender_tnt">
+        <section id="se_ender_tnt">
+            <page_title>
+                <title>Ender TNT</title>
+            </page_title>
+            <p>This TNT will teleport randomly teleport when primed.</p>
+        </section>
+    </chapter>
+    <chapter id="ch_repulsive_tnt">
+        <section id="se_repulsive_tnt">
+            <page_title>
+                <title>Repulsive TNT</title>
+            </page_title>
+            <p>This TNT will push entities away when primed.</p>
+        </section>
+    </chapter>
+    <chapter id="ch_tnt_arrow">
+        <section id="se_tnt_arrow">
+            <page_title>
+                <title>TNT Arrow</title>
+            </page_title>
+            <p>This arrow explodes on impact with half the strength of TNT.</p>
+        </section>
+    </chapter>
+    <chapter id="ch_concussive_arrow">
+        <section id="se_concussive_arrow">
+            <page_title>
+                <title>TNT Arrow</title>
+            </page_title>
+            <p>This arrow explodes on impact without damaging blocks.</p>
+        </section>
+    </chapter>
+    <chapter id="ch_carpet_arrow">
+        <section id="se_carpet_arrow">
+            <page_title>
+                <title>Carpet Bombing Arrow</title>
+            </page_title>
+            <p>This arrow splits into many Concussive Arrows as soon as it starts falling.</p>
+        </section>
+    </chapter>
+    <chapter id="ch_tunnel_arrow">
+        <section id="se_tunnel_arrow">
+            <page_title>
+                <title>Tunnel Arrow</title>
+            </page_title>
+            <p>This arrow spawns multiple explosions in a line equivalent to its direction on hit.</p>
+        </section>
+    </chapter>
+    <chapter id="ch_dynamite">
+        <section id="se_dynamite">
+            <page_title>
+                <title>Dynamite</title>
+            </page_title>
+            <p>Dynamite can be thrown like a potion and explodes with the strength of vanilla TNT.</p>
+        </section>
+    </chapter>
+</book>

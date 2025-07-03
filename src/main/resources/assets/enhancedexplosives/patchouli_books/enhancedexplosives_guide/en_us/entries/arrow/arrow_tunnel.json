@@ -1,0 +1,12 @@
+{
+  "name": "Tunnel Arrow",
+  "icon": "enhancedexplosives:arrow_tunnel",
+  "category": "enhancedexplosives:arrows",
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "text": "This arrow summons multiple explosions in front of it, along it's direction on impact, forming a tunnel in front.",
+      "recipe": "enhancedexplosives:arrow_tunnel"
+    }
+  ]
+}

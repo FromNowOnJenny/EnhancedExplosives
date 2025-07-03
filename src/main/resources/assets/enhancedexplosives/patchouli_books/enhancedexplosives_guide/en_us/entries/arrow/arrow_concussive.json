@@ -1,0 +1,12 @@
+{
+  "name": "Concussive Arrow",
+  "icon": "enhancedexplosives:arrow_concussive",
+  "category": "enhancedexplosives:arrows",
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "text": "This arrow explodes like TNT on impact, but without damaging blocks.",
+      "recipe": "enhancedexplosives:arrow_concussive"
+    }
+  ]
+}

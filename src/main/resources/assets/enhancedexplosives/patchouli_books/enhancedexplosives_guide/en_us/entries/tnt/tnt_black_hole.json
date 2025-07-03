@@ -1,0 +1,12 @@
+{
+  "name": "Black Hole TNT",
+  "icon": "enhancedexplosives:tnt_black_hole",
+  "category": "enhancedexplosives:tnts",
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "text": "This TNT pulls entities towards itself.",
+      "recipe": "enhancedexplosives:tnt_black_hole"
+    }
+  ]
+}
