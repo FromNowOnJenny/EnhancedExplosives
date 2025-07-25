@@ -13,6 +13,8 @@
   "block.enhancedexplosives.tnt_selective": "Selective TNT",
   "block.enhancedexplosives.tnt_ender": "Ender TNT",
   "block.enhancedexplosives.tnt_repulsive": "Repulsive TNT",
+  "block.enhancedexplosives.tnt_bedrock": "Bedrock TNT",
+  "block.enhancedexplosives.tnt_entity": "Entity TNT",
 
   "tooltip.enhancedexplosives.tnt_cluster_2": "splits into 2 small TNTs",
   "tooltip.enhancedexplosives.tnt_cluster_4": "splits into 4 small TNTs",

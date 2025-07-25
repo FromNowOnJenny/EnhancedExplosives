@@ -1,0 +1,12 @@
+{
+  "name": "Bedrock TNT",
+  "icon": "enhancedexplosives:tnt_bedrock",
+  "category": "enhancedexplosives:tnts",
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "text": "This TNT removes the block below it if it's bedrock.",
+      "recipe": "enhancedexplosives:tnt_bedrock"
+    }
+  ]
+}

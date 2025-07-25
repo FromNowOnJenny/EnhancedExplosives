@@ -14,6 +14,8 @@
             <link ref=":se_selective_tnt">Selective</link>
             <link ref=":se_ender_tnt">Ender TNT</link>
             <link ref=":se_repulsive_tnt">Repulsive TNT</link>
+            <link ref=":se_bedrock_tnt">Bedrock TNT</link>
+            <link ref=":se_entity_tnt">Entity TNT</link>
             <title>Arrows</title>
             <link ref=":ch_tnt_arrow">TNT Arrow</link>
             <link ref=":se_concussive_arrow">Concussive Arrow</link>
@@ -89,6 +91,22 @@
                 <title>Repulsive TNT</title>
             </page_title>
             <p>This TNT will push entities away when primed.</p>
+        </section>
+    </chapter>
+    <chapter id="ch_bedrock_tnt">
+        <section id="se_bedrock_tnt">
+            <page_title>
+                <title>Bedrock TNT</title>
+            </page_title>
+            <p>This TNT will destroy the one bedrock block below it.</p>
+        </section>
+    </chapter>
+    <chapter id="ch_entity_tnt">
+        <section id="se_entity_tnt">
+            <page_title>
+                <title>Entity TNT</title>
+            </page_title>
+            <p>This TNT won't destroy blocks but hurt entities.</p>
         </section>
     </chapter>
     <chapter id="ch_tnt_arrow">

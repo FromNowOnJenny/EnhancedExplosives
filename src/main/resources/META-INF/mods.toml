@@ -2,13 +2,13 @@ modLoader = "javafml"
 logoFile = "logo.png"
 loaderVersion = "${loader_version_range}"
 license = "${mod_license}"
-issueTrackerURL = "https://git.smthng.de/Jenny/Enhanced-Explosives/issues" #optional
 [[mods]]
 modId = "${mod_id}"
 version = "${mod_version}"
 displayName = "${mod_name}"
 authors = "${mod_authors}"
 displayTest = "MATCH_VERSION"
+displayURL = "https://git.smthng.de/Jenny/Enhanced-Explosives"
 description = '''${mod_description}'''
 [[dependencies."${mod_id}"]] #optional
 modId = "forge"
