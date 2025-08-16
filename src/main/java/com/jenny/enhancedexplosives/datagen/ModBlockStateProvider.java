@@ -31,6 +31,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         sideTopBottom(blocks.TNT_128);
         sideTopBottom(blocks.TNT_ENDER);
         sideTopBottom(blocks.TNT_CLAYMORE);
+        sideTopBottom(blocks.TNT_BEDROCK);
+        sideTopBottom(blocks.TNT_ENTITY);
         SideTop(blocks.TNT_BLACK_HOLE);
         SideTop(blocks.TNT_REPULSIVE);
         SideOnlyTNT(blocks.TNT_CLUSTER_2);

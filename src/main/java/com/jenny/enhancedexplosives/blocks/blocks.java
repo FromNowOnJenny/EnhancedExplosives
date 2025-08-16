@@ -61,6 +61,12 @@ public class blocks {
     public static final RegistryObject<Block> TNT_REPULSIVE = BLOCKS.register("tnt_repulsive", () -> new repulsiveTNTBlock(DEFAULT_PROPS, 4.0f, 80, 1));
     public static final RegistryObject<Item> TNT_REPULSIVE_ITEM = ITEMS.register("tnt_repulsive", () -> new BlockItemTooltip(TNT_REPULSIVE.get(), new Item.Properties()));
 
+    public static final RegistryObject<Block> TNT_BEDROCK = BLOCKS.register("tnt_bedrock", () -> new bedrockTNTBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED), 4.0f, 80));
+    public static final RegistryObject<Item> TNT_BEDROCK_ITEM = ITEMS.register("tnt_bedrock", () -> new BlockItemTooltip(TNT_BEDROCK.get(), new Item.Properties()));
+
+    public static final RegistryObject<Block> TNT_ENTITY = BLOCKS.register("tnt_entity", () -> new entityTNTBlock(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_RED), 4.0f, 80));
+    public static final RegistryObject<Item> TNT_ENTITY_ITEM = ITEMS.register("tnt_entity", () -> new BlockItemTooltip(TNT_ENTITY.get(), new Item.Properties()));
+
 
     public static void register(IEventBus bus) {
         BLOCKS.register(bus);
