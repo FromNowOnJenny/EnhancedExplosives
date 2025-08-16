@@ -1,0 +1,12 @@
+{
+  "name": "Dynamite",
+  "icon": "enhancedexplosives:dynamite",
+  "category": "enhancedexplosives:other",
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "text": "Can be thrown like a splash potion, but bounces on the ground and explodes like a tnt.",
+      "recipe": "enhancedexplosives:dynamite"
+    }
+  ]
+}

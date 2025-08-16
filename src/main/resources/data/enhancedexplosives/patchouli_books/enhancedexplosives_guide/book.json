@@ -1,0 +1,7 @@
+{
+  "name": "EE Manual",
+  "landing_text": "If you find bugs or have suggestions for improving this mod, please message me on curseforge, my discord, or gitea (link in mod info).",
+  "version": 1,
+  "creative_tab": "enhancedexplosives:enhancedexplosives",
+  "use_resource_pack": true
+}

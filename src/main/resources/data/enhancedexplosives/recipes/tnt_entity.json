@@ -6,10 +6,10 @@
       "item": "minecraft:tnt"
     },
     {
-      "item": "minecraft:piston"
+      "item": "minecraft:water_bucket"
     }
   ],
   "result": {
-    "item": "enhancedexplosives:tnt_repulsive"
+    "item": "enhancedexplosives:tnt_entity"
   }
 }

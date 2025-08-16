@@ -1,0 +1,12 @@
+{
+  "name": "Homing TNT",
+  "icon": "enhancedexplosives:tnt_homing",
+  "category": "enhancedexplosives:tnts",
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "text": "This TNT follows the closest mob.",
+      "recipe": "enhancedexplosives:tnt_homing"
+    }
+  ]
+}

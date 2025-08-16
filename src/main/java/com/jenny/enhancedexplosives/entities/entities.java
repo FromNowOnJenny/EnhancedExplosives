@@ -50,6 +50,15 @@ public class entities {
             ENTITY_TYPES.register("tnt_repulsive", () -> EntityType.Builder.<repulsivePrimedTNT>of(repulsivePrimedTNT::new, MobCategory.MISC)
                     .fireImmune().sized(0.98F, 0.98F).clientTrackingRange(10).updateInterval(10).build("tnt_repulsive"));
 
+    public static final RegistryObject<EntityType<bedrockPrimedTNT>> TNT_BEDROCK =
+            ENTITY_TYPES.register("tnt_bedrock", () -> EntityType.Builder.<bedrockPrimedTNT>of(bedrockPrimedTNT::new, MobCategory.MISC)
+                    .sized(0.98F, 0.7F).fireImmune().clientTrackingRange(8).build("tnt_bedrock"));
+
+    public static final RegistryObject<EntityType<EntityPrimedTNT>> TNT_ENTITY =
+            ENTITY_TYPES.register("tnt_entity", () -> EntityType.Builder.<EntityPrimedTNT>of(EntityPrimedTNT::new, MobCategory.MISC)
+                    .sized(0.98F, 0.7F).fireImmune().clientTrackingRange(8).build("tnt_entity"));
+
+
     public static final RegistryObject<EntityType<tntArrow>> ARROW_TNT =
             ENTITY_TYPES.register("arrow_tnt", () -> EntityType.Builder.<tntArrow>of(tntArrow::new, MobCategory.MISC)
                     .sized(0.48F, 0.48F).clientTrackingRange(64).build("arrow_tnt"));
@@ -89,6 +98,8 @@ public class entities {
         EntityRenderers.register(TNT_CLAYMORE.get(), BaseTNTRenderer::new);
         EntityRenderers.register(TNT_ENDER.get(), BaseTNTRenderer::new);
         EntityRenderers.register(TNT_REPULSIVE.get(), BaseTNTRenderer::new);
+        EntityRenderers.register(TNT_BEDROCK.get(), BaseTNTRenderer::new);
+        EntityRenderers.register(TNT_ENTITY.get(), BaseTNTRenderer::new);
 
         EntityRenderers.register(TNT_SELECTIVE.get(), SelectiveTNTRenderer::new);
 

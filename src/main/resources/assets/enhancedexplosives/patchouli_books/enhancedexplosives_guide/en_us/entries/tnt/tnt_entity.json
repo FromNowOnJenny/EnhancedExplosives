@@ -1,0 +1,12 @@
+{
+  "name": "Entity TNT",
+  "icon": "enhancedexplosives:tnt_entity",
+  "category": "enhancedexplosives:tnts",
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "text": "This TNT does not damage blocks.",
+      "recipe": "enhancedexplosives:tnt_entity"
+    }
+  ]
+}

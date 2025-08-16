@@ -44,7 +44,6 @@ public class tntArrow extends baseArrow {
     @Override
     public void spawnParticles(float partialTicks) {
         for (int i = 1; i <= ConfigClient.calcPCount(5); i++) {
-            double m = (double) level().getRandom().nextIntBetweenInclusive(- 100, 100) / 100;
             Vec3 DeltaMovement = getDeltaMovement();
             Vec3 pos = particlePos(0.5);
             level().addParticle(particles.TNT_ARROW_PARTICLE.get(), pos.x, pos.y, pos.z, DeltaMovement.x, DeltaMovement.y, DeltaMovement.z);

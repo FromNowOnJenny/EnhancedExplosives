@@ -1,0 +1,12 @@
+{
+  "name": "Selective TNT",
+  "icon": "enhancedexplosives:tnt_selective",
+  "category": "enhancedexplosives:tnts",
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "text": "This TNT will only destroy the type of block it is sitting upon when exploding. It will still honour the blocks blast resistance, e.g. it won't destroy bedrock.",
+      "recipe": "enhancedexplosives:tnt_selective"
+    }
+  ]
+}

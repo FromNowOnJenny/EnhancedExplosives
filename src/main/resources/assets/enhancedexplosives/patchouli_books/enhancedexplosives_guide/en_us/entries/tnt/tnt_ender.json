@@ -1,0 +1,12 @@
+{
+  "name": "Ender TNT",
+  "icon": "enhancedexplosives:tnt_ender",
+  "category": "enhancedexplosives:tnts",
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "text": "This TNT teleports like an enderman when primed.",
+      "recipe": "enhancedexplosives:tnt_ender"
+    }
+  ]
+}

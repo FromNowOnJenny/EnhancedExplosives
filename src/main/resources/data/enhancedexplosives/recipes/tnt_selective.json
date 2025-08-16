@@ -1,15 +1,15 @@
 {
   "type": "minecraft:crafting_shapeless",
-  "category": "redstone",
+  "category": "combat",
   "ingredients":[
     {
       "item": "minecraft:tnt"
     },
     {
-      "item": "minecraft:piston"
+      "item": "minecraft:obsidian"
     }
   ],
   "result": {
-    "item": "enhancedexplosives:tnt_repulsive"
+    "item": "enhancedexplosives:tnt_selective"
   }
 }

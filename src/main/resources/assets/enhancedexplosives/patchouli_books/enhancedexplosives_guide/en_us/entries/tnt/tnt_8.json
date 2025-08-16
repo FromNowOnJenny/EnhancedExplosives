@@ -1,0 +1,12 @@
+{
+  "name": "Compressed TNT",
+  "icon": "enhancedexplosives:tnt_8",
+  "category": "enhancedexplosives:tnts",
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "text": "This TNT behaves like vanilla TNT, but with 2x the explosion strength.",
+      "recipe": "enhancedexplosives:tnt_8"
+    }
+  ]
+}

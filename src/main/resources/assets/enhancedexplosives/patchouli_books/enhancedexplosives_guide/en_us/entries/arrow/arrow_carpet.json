@@ -1,0 +1,12 @@
+{
+  "name": "Carpet Bombing Arrow",
+  "icon": "enhancedexplosives:arrow_carpet",
+  "category": "enhancedexplosives:arrows",
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "text": "This arrow splits into many explosive arrows as soon as it starts falling. Whether the arrows are concussive or TNT Arrows depends on the config.",
+      "recipe": "enhancedexplosives:arrow_carpet"
+    }
+  ]
+}

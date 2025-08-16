@@ -1,0 +1,12 @@
+{
+  "name": "8× TNT Cluster",
+  "icon": "enhancedexplosives:tnt_cluster_8",
+  "category": "enhancedexplosives:tnts",
+  "pages": [
+    {
+      "type": "patchouli:crafting",
+      "text": "This TNT splits into 8 smaller TNTs when primed",
+      "recipe": "enhancedexplosives:tnt_cluster_8"
+    }
+  ]
+}
